@@ -5,10 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Works - HO</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Lightbox2 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- 你的style.css -->
   <link rel="stylesheet" href="style.css">
-  
+
+  <style>
+    /* 小補充：讓作品排版更漂亮 */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+
+    .works-grid a {
+      display: block;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .works-grid img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .works-grid a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .works-grid a:hover img {
+      transform: scale(1.05);
+    }
+
+    main h1, main p {
+      text-align: center;
+      padding: 0 20px;
+    }
+  </style>
+
 </head>
+
 <body style="opacity: 0; overflow: hidden;">
 
 <header>
@@ -27,14 +72,15 @@
   <h1>作品展示</h1>
   <p>這裡展示了我的一部分油畫作品，包括日常風景、光影變化以及靜物系列。</p>
 
-
   <section class="works-grid">
     <a href="images/2909.jpg" data-lightbox="artworks" data-title="夜の形I">
       <img src="images/2909.jpg" alt="夜の形I">
     </a>
+
     <a href="images/2910.jpg" data-lightbox="artworks" data-title="夜の形II">
       <img src="images/2910.jpg" alt="夜の形II">
     </a>
+
     <a href="images/2544.jpg" data-lightbox="artworks" data-title="昼寝">
       <img src="images/2544.jpg" alt="昼寝">
     </a>
@@ -43,20 +89,15 @@
 </main>
 
 <footer>
-
   <p>© 2025 hohsinhung. All rights reserved.</p>
-  
-</footer> 
-  
+</footer>
+
+<!-- jQuery & Lightbox2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
-  
-</script>
 
+<!-- fade.js (統一淡入淡出轉場) -->
 <script src="fade.js"></script>
 
-  
-<body>
-
-  
+</body>
 </html>
