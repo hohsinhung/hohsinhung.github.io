@@ -5,3 +5,6 @@ nav a { text-decoration: none; color: #333; margin-left: 20px; font-weight: bold
 nav a:hover { color: #007acc; }
 section { max-width: 800px; margin: 60px auto; padding: 0 2em; }
 footer { text-align: center; padding: 40px 20px; font-size: 0.9em; color: #aaa; border-top: 1px solid #eee; }
+main {
+  text-align: center;
+}
