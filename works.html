@@ -19,16 +19,42 @@
       color: #333;
     }
 
+    header {
+      background: #fafafa;
+      border-bottom: 1px solid #ddd;
+      padding: 1em 2em;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #007acc;
+    }
+
     .container {
       display: flex;
-      min-height: 100vh;
+      min-height: 90vh;
     }
 
     .sidebar {
-      width: 200px;
-      background: #f5f5f5;
+      width: 150px;
+      background: transparent; /* ✅ 背景透明 */
       padding: 20px;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -41,19 +67,20 @@
       background: none;
       border: none;
       text-align: left;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: #333;
       cursor: pointer;
-      transition: background 0.3s, color 0.3s;
+      transition: color 0.3s, transform 0.3s;
     }
 
     .sidebar button:hover {
-      background: #ddd;
+      color: #007acc;
+      transform: translateX(5px);
     }
 
     .sidebar button.active {
-      background: #007acc;
-      color: #fff;
+      color: #007acc;
+      font-weight: bold;
     }
 
     .works-grid {
@@ -80,41 +107,65 @@
     }
 
     .work-item {
-      display: none; /* 初始不顯示，點了年份才顯示 */
+      display: none;
     }
 
     .work-item.active {
       display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #aaa;
+      background: #f9f9f9;
     }
   </style>
 </head>
 
 <body style="opacity: 0; overflow: hidden;">
 
+<header>
+  <nav>
+    <div><strong>HO</strong></div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="works.html">Works</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
 <div class="container">
 
   <div class="sidebar">
-    <button class="filter-btn active" onclick="filterWorks('all')">全部</button>
-    <button class="filter-btn" onclick="filterWorks('2022')">2022年</button>
+    <button class="filter-btn active" onclick="filterWorks('2022')">2022年</button>
     <button class="filter-btn" onclick="filterWorks('2023')">2023年</button>
     <button class="filter-btn" onclick="filterWorks('2024')">2024年</button>
+    <button class="filter-btn" onclick="filterWorks('2025')">2025年</button>
   </div>
 
   <section class="works-grid">
-    <a href="images/2909.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="夜の形I">
+    <a href="images/2909.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形I">
       <img src="images/2909.jpg" alt="夜の形I">
     </a>
 
-    <a href="images/2910.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="夜の形II">
+    <a href="images/2910.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形II">
       <img src="images/2910.jpg" alt="夜の形II">
     </a>
 
-    <a href="images/2544.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="昼寝">
+    <a href="images/2544.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="昼寝">
       <img src="images/2544.jpg" alt="昼寝">
     </a>
   </section>
 
 </div>
+
+<footer>
+  <p>© 2025 hohsinhung. All rights reserved.</p>
+</footer>
 
 <!-- jQuery & Lightbox2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -129,26 +180,21 @@ function filterWorks(year) {
   const allWorks = document.querySelectorAll('.work-item');
   const buttons = document.querySelectorAll('.filter-btn');
 
-  // 按鈕高亮效果
   buttons.forEach(btn => btn.classList.remove('active'));
 
-  if (year === 'all') {
-    allWorks.forEach(work => work.classList.add('active'));
-    document.querySelector('.filter-btn[onclick*="all"]').classList.add('active');
-  } else {
-    allWorks.forEach(work => {
-      work.classList.remove('active');
-      if (work.classList.contains('year-' + year)) {
-        work.classList.add('active');
-      }
-    });
-    document.querySelector('.filter-btn[onclick*="' + year + '"]').classList.add('active');
-  }
+  allWorks.forEach(work => {
+    work.classList.remove('active');
+    if (work.classList.contains('year-' + year)) {
+      work.classList.add('active');
+    }
+  });
+
+  document.querySelector('.filter-btn[onclick*="' + year + '"]').classList.add('active');
 }
-  
-// 預設一開始全部顯示
+
+// 預設打開的時候顯示2022年的作品
 document.addEventListener('DOMContentLoaded', () => {
-  filterWorks('all');
+  filterWorks('2025');
 });
 </script>
 
