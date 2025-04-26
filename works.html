@@ -56,7 +56,7 @@
       background: transparent;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* ✅ 垂直置中 */
+      justify-content: center;
       align-items: center;
     }
 
@@ -66,8 +66,8 @@
       padding: 8px;
       background: none;
       border: none;
-      text-align: center; /* 置中 */
-      font-size: 1rem; /* ✅ 字體小一點 */
+      text-align: center;
+      font-size: 1rem;
       color: #333;
       cursor: pointer;
       transition: color 0.3s, transform 0.3s;
@@ -108,6 +108,8 @@
 
     .work-item {
       display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
 
     .work-item.active {
@@ -141,21 +143,23 @@
 <div class="container">
 
   <div class="sidebar">
-    <button class="filter-btn active" onclick="filterWorks('2022')">2022</button>
+    <button class="filter-btn active" onclick="filterWorks('all')">All</button>
     <button class="filter-btn" onclick="filterWorks('2022')">2022</button>
-    <button class="filter-btn" onclick="filterWorks('2023-2025')">2023-2025</button>
+    <button class="filter-btn" onclick="filterWorks('2023')">2023</button>
+    <button class="filter-btn" onclick="filterWorks('2024')">2024</button>
+    <button class="filter-btn" onclick="filterWorks('2025')">2025</button>
   </div>
 
   <section class="works-grid">
-    <a href="images/2909.jpg" class="work-item year-2023-2025" data-lightbox="artworks" data-title="夜の形I">
+    <a href="images/2909.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="夜の形I">
       <img src="images/2909.jpg" alt="夜の形I">
     </a>
 
-    <a href="images/2910.jpg" class="work-item year-2023-2025" data-lightbox="artworks" data-title="夜の形II">
+    <a href="images/2910.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="夜の形II">
       <img src="images/2910.jpg" alt="夜の形II">
     </a>
 
-    <a href="images/2544.jpg" class="work-item year-2023-2025" data-lightbox="artworks" data-title="昼寝">
+    <a href="images/2544.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="昼寝">
       <img src="images/2544.jpg" alt="昼寝">
     </a>
   </section>
@@ -173,47 +177,43 @@
 <!-- fade.js -->
 <script src="fade.js"></script>
 
-<!-- ★ 年份篩選功能＋高亮 -->
+<!-- ★ 新版JS 支援All切換＋淡出淡入 -->
 <script>
 function filterWorks(year) {
   const allWorks = document.querySelectorAll('.work-item');
   const buttons = document.querySelectorAll('.filter-btn');
 
-  // 先清除按鈕高亮
   buttons.forEach(btn => btn.classList.remove('active'));
-
-  // 加上正在選擇的按鈕高亮
   document.querySelector('.filter-btn[onclick*="' + year + '"]').classList.add('active');
 
-  // 淡出全部作品
+  // 先讓所有作品透明
   allWorks.forEach(work => {
     work.style.opacity = '0';
   });
 
-  // 等0.3秒後，切換作品並淡入
   setTimeout(() => {
     allWorks.forEach(work => {
       work.classList.remove('active');
-      if (work.classList.contains('year-' + year)) {
+      if (year === 'all') {
+        work.classList.add('active');
+      } else if (work.classList.contains('year-' + year)) {
         work.classList.add('active');
       }
     });
 
-    // 再慢慢把要顯示的作品 opacity 調回來
     setTimeout(() => {
       document.querySelectorAll('.work-item.active').forEach(work => {
         work.style.opacity = '1';
       });
-    }, 100); // 再小延遲一點點，讓切換更自然
+    }, 100);
   }, 300);
 }
 
-// 打開頁面先顯示2022年作品
+// 預設打開先顯示All全部作品
 document.addEventListener('DOMContentLoaded', () => {
-  filterWorks('2022');
+  filterWorks('all');
 });
 </script>
-
 
 </body>
 </html>
