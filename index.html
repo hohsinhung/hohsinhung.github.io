@@ -5,35 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HOart</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"> <!-- 連你之前的style.css -->
   <style>
     body {
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       margin: 0;
       background: #fff;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      position: relative;
+      flex-direction: column;
     }
 
-    .center-menu {
+    .yellow-box {
+      width: 300px;
+      height: 300px;
+      background: #FFF176; /* ★ 檸檬黃色（Material Design檸檬黃） */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px; /* 可選，讓方塊邊角微圓 */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 微陰影感，立體一點 */
       text-align: center;
     }
 
-    .center-menu a {
+    .yellow-box a {
       display: block;
       margin: 20px 0;
-      font-size: 2rem;
-      color: #333;
+      font-size: 1.8rem;
+      color: #333; /* ★ 字體深灰色 */
       text-decoration: none;
       font-weight: bold;
-      position: relative;
-      transition: transform 0.3s ease, color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
 
-    .center-menu a::after {
+    .yellow-box a::after {
       content: "";
       display: block;
       width: 0%;
@@ -43,13 +52,13 @@
       margin: 8px auto 0 auto;
     }
 
-    .center-menu a:hover {
+    .yellow-box a:hover {
       color: #007acc;
-      transform: scale(1.05); /* 微微放大 */
+      transform: scale(1.05);
     }
 
-    .center-menu a:hover::after {
-      width: 60%; /* hover時出現底線 */
+    .yellow-box a:hover::after {
+      width: 60%;
     }
 
     footer {
@@ -65,7 +74,15 @@
 
 <body>
 
-<div class="center-menu">
+<div class="yellow-box">
   <a href="about.html">About</a>
   <a href="works.html">Works</a>
-  <a href="contact.html">Contact
+  <a href="contact.html">Contact</a>
+</div>
+
+<footer>
+  &copy; 2025 hohsinhung. All rights reserved.
+</footer>
+
+</body>
+</html>
