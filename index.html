@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HOart</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css"> <!-- 連你之前的style.css -->
+  <link rel="stylesheet" href="style.css"> <!-- 連你原本的CSS -->
   <style>
     body {
       display: flex;
@@ -17,26 +17,33 @@
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       position: relative;
       flex-direction: column;
+      overflow-x: hidden;
+      transition: opacity 0.6s ease; /* ★ 加轉場淡入淡出 */
     }
 
     .yellow-box {
       width: 300px;
       height: 300px;
-      background: #FFF176; /* ★ 檸檬黃色（Material Design檸檬黃） */
+      background: #FFF176; /* 檸檬黃 */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border-radius: 12px; /* 可選，讓方塊邊角微圓 */
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 微陰影感，立體一點 */
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-align: center;
+      transition: box-shadow 0.3s ease; /* ★ hover時增加陰影動畫 */
+    }
+
+    .yellow-box:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* ★ 發光感 */
     }
 
     .yellow-box a {
       display: block;
       margin: 20px 0;
       font-size: 1.8rem;
-      color: #333; /* ★ 字體深灰色 */
+      color: #333;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s ease, transform 0.3s ease;
@@ -70,9 +77,26 @@
       color: #aaa;
     }
   </style>
+
+  <!-- ★ 加一點小JS來做轉場 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.style.opacity = '1';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A' && e.target.href) {
+        e.preventDefault();
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+          window.location = e.target.href;
+        }, 500); // 0.5秒後跳轉
+      }
+    });
+  </script>
 </head>
 
-<body>
+<body style="opacity: 0;"> <!-- ★ 預設先隱形，進來時漸變顯示 -->
 
 <div class="yellow-box">
   <a href="about.html">About</a>
