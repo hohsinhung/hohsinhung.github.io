@@ -164,6 +164,10 @@
     </a>
   </section>
 
+<div style="text-align:center; margin: 30px 0;">
+  <button id="load-more" style="padding: 10px 20px; font-size: 1rem; background:#007acc; color:#fff; border:none; border-radius:5px; cursor:pointer;">
+    Load More
+  </button>
 </div>
 
 <footer>
@@ -179,6 +183,52 @@
 
 <!-- ★ 新版JS 支援All切換＋淡出淡入 -->
 <script>
+// 最開始只顯示前6個作品
+let visibleCount = 6;
+const loadMoreButton = document.getElementById('load-more');
+const allWorks = document.querySelectorAll('.work-item');
+
+function showVisibleWorks() {
+  let visible = 0;
+  allWorks.forEach((work, index) => {
+    if (work.classList.contains('active')) {
+      if (visible < visibleCount) {
+        work.style.display = 'block';
+        work.style.opacity = '1';
+        visible++;
+      } else {
+        work.style.display = 'none';
+      }
+    }
+  });
+
+  // 如果全部顯示完了，就隱藏「Load More」按鈕
+  const activeCount = document.querySelectorAll('.work-item.active').length;
+  if (visible >= activeCount) {
+    loadMoreButton.style.display = 'none';
+  } else {
+    loadMoreButton.style.display = 'inline-block';
+  }
+}
+
+// 當點選載入更多
+loadMoreButton.addEventListener('click', () => {
+  // 加載中效果
+  loadMoreButton.textContent = 'Loading...';
+  loadMoreButton.disabled = true;
+
+  // 模擬載入延遲（大概0.6秒）
+  setTimeout(() => {
+    visibleCount += 6;
+    showVisibleWorks();
+
+    // 載入完畢恢復按鈕文字
+    loadMoreButton.textContent = 'Load More';
+    loadMoreButton.disabled = false;
+  }, 600);
+});
+
+// 當切換年份時，也要重設
 function filterWorks(year) {
   const allWorks = document.querySelectorAll('.work-item');
   const buttons = document.querySelectorAll('.filter-btn');
@@ -186,7 +236,6 @@ function filterWorks(year) {
   buttons.forEach(btn => btn.classList.remove('active'));
   document.querySelector('.filter-btn[onclick*="' + year + '"]').classList.add('active');
 
-  // 先讓所有作品透明
   allWorks.forEach(work => {
     work.style.opacity = '0';
   });
@@ -205,15 +254,16 @@ function filterWorks(year) {
       document.querySelectorAll('.work-item.active').forEach(work => {
         work.style.opacity = '1';
       });
+
+      // 🆕 切換年份時重設Load More
+      visibleCount = 6;
+      showVisibleWorks();
     }, 100);
   }, 300);
 }
 
-// 預設打開先顯示All全部作品
+// 頁面打開預設All
 document.addEventListener('DOMContentLoaded', () => {
   filterWorks('all');
 });
 </script>
-
-</body>
-</html>
