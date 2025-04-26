@@ -20,7 +20,30 @@
         footer { text-align: center; padding: 40px 20px; font-size: 0.9em; color: #aaa; border-top: 1px solid #eee; margin-top: 60px; }
     </style>
 </head>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
 
 <header>
     <nav>
@@ -34,10 +57,25 @@
 </header>
 
 <section class="hero">
-    <h1>Welcome to my website</h1>
-    <p>這裡是 hohsinhung 的作品展示與自我介紹頁面。</p>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://via.placeholder.com/1200x600.png?text=Artwork+1" alt="Artwork 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://via.placeholder.com/1200x600.png?text=Artwork+2" alt="Artwork 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://via.placeholder.com/1200x600.png?text=Artwork+3" alt="Artwork 3">
+        </div>
+      </div>
+      <!-- 加上左右箭頭 -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <!-- 加上底部指示點 -->
+      <div class="swiper-pagination"></div>
+    </div>
 </section>
-
 <section id="about">
     <h2>About</h2>
     <p>我是來自台灣的藝術創作者，目前在日本就讀美術研究所，創作媒材以油畫為主。歡迎透過這個網站了解我的作品與創作理念。</p>
