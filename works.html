@@ -53,21 +53,21 @@
 
     .sidebar {
       width: 150px;
-      background: transparent; /* ✅ 背景透明 */
-      padding: 20px;
+      background: transparent;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      justify-content: center; /* ✅ 垂直置中 */
+      align-items: center;
     }
 
     .sidebar button {
       width: 100%;
       margin-bottom: 15px;
-      padding: 10px;
+      padding: 8px;
       background: none;
       border: none;
-      text-align: left;
-      font-size: 1.2rem;
+      text-align: center; /* 置中 */
+      font-size: 1rem; /* ✅ 字體小一點 */
       color: #333;
       cursor: pointer;
       transition: color 0.3s, transform 0.3s;
@@ -144,15 +144,14 @@
     <button class="filter-btn active" onclick="filterWorks('2022')">2022年</button>
     <button class="filter-btn" onclick="filterWorks('2023')">2023年</button>
     <button class="filter-btn" onclick="filterWorks('2024')">2024年</button>
-    <button class="filter-btn" onclick="filterWorks('2025')">2025年</button>
   </div>
 
   <section class="works-grid">
-    <a href="images/2909.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形I">
+    <a href="images/2909.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="夜の形I">
       <img src="images/2909.jpg" alt="夜の形I">
     </a>
 
-    <a href="images/2910.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形II">
+    <a href="images/2910.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="夜の形II">
       <img src="images/2910.jpg" alt="夜の形II">
     </a>
 
@@ -180,23 +179,41 @@ function filterWorks(year) {
   const allWorks = document.querySelectorAll('.work-item');
   const buttons = document.querySelectorAll('.filter-btn');
 
+  // 先清除按鈕高亮
   buttons.forEach(btn => btn.classList.remove('active'));
 
+  // 加上正在選擇的按鈕高亮
+  document.querySelector('.filter-btn[onclick*="' + year + '"]').classList.add('active');
+
+  // 淡出全部作品
   allWorks.forEach(work => {
-    work.classList.remove('active');
-    if (work.classList.contains('year-' + year)) {
-      work.classList.add('active');
-    }
+    work.style.opacity = '0';
   });
 
-  document.querySelector('.filter-btn[onclick*="' + year + '"]').classList.add('active');
+  // 等0.3秒後，切換作品並淡入
+  setTimeout(() => {
+    allWorks.forEach(work => {
+      work.classList.remove('active');
+      if (work.classList.contains('year-' + year)) {
+        work.classList.add('active');
+      }
+    });
+
+    // 再慢慢把要顯示的作品 opacity 調回來
+    setTimeout(() => {
+      document.querySelectorAll('.work-item.active').forEach(work => {
+        work.style.opacity = '1';
+      });
+    }, 100); // 再小延遲一點點，讓切換更自然
+  }, 300);
 }
 
-// 預設打開的時候顯示2022年的作品
+// 打開頁面先顯示2022年作品
 document.addEventListener('DOMContentLoaded', () => {
-  filterWorks('2025');
+  filterWorks('2022');
 });
 </script>
+
 
 </body>
 </html>
