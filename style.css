@@ -106,3 +106,12 @@ footer {
     grid-template-columns: 1fr; /* 手機版圖片一排一張 */
   }
 }
+.work-item {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.work-item.active {
+  display: block;
+}
