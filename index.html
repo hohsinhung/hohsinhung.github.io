@@ -5,16 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HOart</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="style.css"> <!-- 連你之前的style.css -->
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #fff;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
 
+    .center-menu {
+      text-align: center;
+    }
+
+    .center-menu a {
+      display: block;
+      margin: 20px 0;
+      font-size: 2rem;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .center-menu a::after {
+      content: "";
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: #007acc;
+      transition: width 0.3s ease;
+      margin: 8px auto 0 auto;
+    }
+
+    .center-menu a:hover {
+      color: #007acc;
+      transform: scale(1.05); /* 微微放大 */
+    }
+
+    .center-menu a:hover::after {
+      width: 60%; /* hover時出現底線 */
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <nav>
-    <div><strong>HO</strong></div>
-    <div>
-      <a href="about.html">About</a>
-      <a href="works.html">Works</a>
-      <a href="contact.html">Contact</a>
+<div class="center-menu">
+  <a href="about.html">About</a>
+  <a href="works.html">Works</a>
+  <a href="contact.html">Contact
