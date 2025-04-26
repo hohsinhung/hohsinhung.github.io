@@ -1,104 +1,121 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOart</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <style>
-        body { font-family: sans-serif; margin: 0; padding: 0; background: #fff; color: #333; }
-        header { background: #ffffff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 10; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; max-width: 1000px; margin: auto; }
-        nav a { text-decoration: none; color: #333; margin-left: 20px; font-weight: bold; }
-        nav a:hover { color: #007acc; }
-        section { max-width: 1000px; margin: 60px auto; padding: 0 2em; }
-        .hero { text-align: center; padding: 100px 20px; background: #f9f9f9; }
-        .hero h1 { font-size: 2.5em; margin-bottom: 10px; }
-        .hero p { font-size: 1.2em; color: #666; }
-        .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .works-grid img { width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; }
-        footer { text-align: center; padding: 40px 20px; font-size: 0.9em; color: #aaa; border-top: 1px solid #eee; margin-top: 60px; }
-    </style>
-</head>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-/>
-<body>
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script>
-  const swiper = new Swiper(".mySwiper", {
-    loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOart</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
+  <style>
+    body { margin: 0; padding: 0; font-family: 'Helvetica Neue', sans-serif; background: #fff; color: #333; }
+    header { background: transparent; position: absolute; top: 0; width: 100%; z-index: 10; padding: 1em 2em; display: flex; justify-content: space-between; }
+    nav a { text-decoration: none; color: #fff; margin-left: 20px; font-weight: bold; }
+    nav a:hover { color: #ddd; }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+      z-index: 5;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ddd;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: #999;
+      background: #f9f9f9;
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
 
 <header>
-    <nav>
-        <div><strong>HO</strong></div>
-        <div>
-            <a href="about.html">About</a>
-            <a href="works.html">Works</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </nav>
+  <div><strong>HO</strong></div>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="works.html">Works</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
 <section class="hero">
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="https://via.placeholder.com/1200x600.png?text=Artwork+1" alt="Artwork 1">
-        </div>
-        <div class="swiper-slide">
-          <img src="https://via.placeholder.com/1200x600.png?text=Artwork+2" alt="Artwork 2">
-        </div>
-        <div class="swiper-slide">
-          <img src="https://via.placeholder.com/1200x600.png?text=Artwork+3" alt="Artwork 3">
-        </div>
+  <div class="hero-text">
+    <h1>HO SIN HUNG</h1>
+    <p>Oil Painting / Daily Moments</p>
+  </div>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="https://via.placeholder.com/1200x800.png?text=Artwork+1" alt="Artwork 1">
       </div>
-      <!-- 加上左右箭頭 -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <!-- 加上底部指示點 -->
-      <div class="swiper-pagination"></div>
+      <div class="swiper-slide">
+        <img src="https://via.placeholder.com/1200x800.png?text=Artwork+2" alt="Artwork 2">
+      </div>
+      <div class="swiper-slide">
+        <img src="https://via.placeholder.com/1200x800.png?text=Artwork+3" alt="Artwork 3">
+      </div>
     </div>
-</section>
-<section id="about">
-    <h2>About</h2>
-    <p>我是來自台灣的藝術創作者，目前在日本就讀美術研究所，創作媒材以油畫為主。歡迎透過這個網站了解我的作品與創作理念。</p>
-</section>
-
-<section id="works">
-    <h2>Works</h2>
-    <div class="works-grid">
-        <img src="https://via.placeholder.com/400x300.png?text=Artwork+1" alt="Artwork 1">
-        <img src="https://via.placeholder.com/400x300.png?text=Artwork+2" alt="Artwork 2">
-        <img src="https://via.placeholder.com/400x300.png?text=Artwork+3" alt="Artwork 3">
-    </div>
-</section>
-
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Instagram: @your_ig_handle</p>
-    <p>Email: your@email.com</p>
+  </div>
 </section>
 
 <footer>
-    &copy; 2025 hohsinhung. All rights reserved.
+  &copy; 2025 hohsinhung. All rights reserved.
 </footer>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+<!-- Swiper 啟動設定 -->
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    effect: "fade",
+  });
+</script>
 
 </body>
 </html>
