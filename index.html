@@ -1,12 +1,66 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <title>hohsinhung 的網站</title>
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hohsinhung 的個人網站</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 0; background: #fff; color: #333; }
+        header { background: #ffffff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 10; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; max-width: 1000px; margin: auto; }
+        nav a { text-decoration: none; color: #333; margin-left: 20px; font-weight: bold; }
+        nav a:hover { color: #007acc; }
+        section { max-width: 1000px; margin: 60px auto; padding: 0 2em; }
+        .hero { text-align: center; padding: 100px 20px; background: #f9f9f9; }
+        .hero h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .hero p { font-size: 1.2em; color: #666; }
+        .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .works-grid img { width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px; }
+        footer { text-align: center; padding: 40px 20px; font-size: 0.9em; color: #aaa; border-top: 1px solid #eee; margin-top: 60px; }
+    </style>
 </head>
 <body>
-  <h1>歡迎來到我的個人網站！</h1>
-  <p>這是使用 GitHub Pages 建立的首頁。</p>
+
+<header>
+    <nav>
+        <div><strong>hohsinhung</strong></div>
+        <div>
+            <a href="#about">About</a>
+            <a href="#works">Works</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Welcome to my website</h1>
+    <p>這裡是 hohsinhung 的作品展示與自我介紹頁面。</p>
+</section>
+
+<section id="about">
+    <h2>About</h2>
+    <p>我是來自台灣的藝術創作者，目前在日本就讀美術研究所，創作媒材以油畫為主。歡迎透過這個網站了解我的作品與創作理念。</p>
+</section>
+
+<section id="works">
+    <h2>Works</h2>
+    <div class="works-grid">
+        <img src="https://via.placeholder.com/400x300.png?text=Artwork+1" alt="Artwork 1">
+        <img src="https://via.placeholder.com/400x300.png?text=Artwork+2" alt="Artwork 2">
+        <img src="https://via.placeholder.com/400x300.png?text=Artwork+3" alt="Artwork 3">
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Instagram: @your_ig_handle</p>
+    <p>Email: your@email.com</p>
+</section>
+
+<footer>
+    &copy; 2025 hohsinhung. All rights reserved.
+</footer>
+
 </body>
 </html>
