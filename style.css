@@ -22,8 +22,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap; 
 }
-
 /* 導覽列的連結 */
 nav a {
   max-width: 800px;
