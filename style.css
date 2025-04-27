@@ -21,15 +21,14 @@ header {
   z-index: 100;
 }
 
-/* 導覽列內的排列 */
+/* 導覽列排列 */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap; /* 強制同一排 */
+  flex-wrap: nowrap;
 }
 
-/* 導覽列的連結 */
 nav a {
   text-decoration: none;
   color: #333;
@@ -80,7 +79,7 @@ nav a:hover {
   font-weight: bold;
 }
 
-/* 主要內容區 works-grid */
+/* 主要內容 works-grid */
 .works-grid {
   flex: 1;
   padding: 40px;
@@ -89,7 +88,7 @@ nav a:hover {
   gap: 20px;
 }
 
-/* 作品圖片樣式 */
+/* 作品圖片 */
 .works-grid a {
   display: block;
   overflow: hidden;
@@ -107,18 +106,55 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-/* 每個作品淡入淡出效果 */
+/* 每個作品的淡入淡出效果 */
 .work-item {
   display: none;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .work-item.active {
   display: block;
 }
 
-/* Load More按鈕（你有inline style，不過這裡統一樣式更好） */
+/* 作品滾動出現動畫 */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.work-item.visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+/* 點擊作品時的小放大縮小動畫 */
+@keyframes clickScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.work-item.clicked img {
+  animation: clickScale 0.3s ease;
+}
+
+/* Load More 按鈕 */
 #load-more {
   padding: 10px 20px;
   font-size: 1rem;
@@ -127,7 +163,9 @@ nav a:hover {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
 }
 
 #load-more:hover {
@@ -135,7 +173,31 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-/* Footer（吸底＋基本樣式） */
+/* Load More 按鈕 loading轉圈圈 */
+#load-more.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 3px solid #fff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Footer 吸底 */
 footer {
   text-align: center;
   padding: 40px 20px;
@@ -143,10 +205,10 @@ footer {
   color: #aaa;
   border-top: 1px solid #eee;
   background: #f9f9f9;
-  margin-top: auto; /* 保證footer吸底 */
+  margin-top: auto;
 }
 
-/* 手機版RWD調整 */
+/* 手機版RWD */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
@@ -165,11 +227,11 @@ footer {
   }
 
   .works-grid {
-    grid-template-columns: 1fr; /* 手機版圖片一排一張 */
+    grid-template-columns: 1fr;
   }
 }
 
-/* 回到最上方按鈕 Scroll to Top */
+/* 回到上方按鈕 Scroll to Top */
 #scrollTopBtn {
   display: none;
   position: fixed;
@@ -185,18 +247,35 @@ footer {
   font-size: 24px;
   cursor: pointer;
   opacity: 0;
-  transform: scale(0.8); /* 預設小一點 */
+  transform: scale(0.8);
   transition: opacity 0.3s, background 0.3s, transform 0.3s;
 }
 
-/* 出現時淡入＋zoom in */
+/* 出現時淡入+放大 */
 #scrollTopBtn.show {
   opacity: 1;
   transform: scale(1);
 }
 
-/* 滑鼠移上去再稍微放大 */
+/* 滑鼠移上去再放大一點 */
 #scrollTopBtn:hover {
   background: #005f99;
   transform: scale(1.1);
+}
+
+/* 點擊回到上方按鈕的小彈跳動畫 */
+@keyframes clickBounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#scrollTopBtn.clicked {
+  animation: clickBounce 0.4s ease;
 }
