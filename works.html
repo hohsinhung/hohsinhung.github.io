@@ -94,19 +94,18 @@
     }
 
     .work-item {
-      display: flex;
+      display: none; /* ⭐ 初期隱藏 */
       flex-direction: column;
       align-items: center;
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.6s ease, transform 0.6s ease;
-      pointer-events: none;
     }
 
     .work-item.active {
+      display: flex;
       opacity: 1;
       transform: translateY(0);
-      pointer-events: auto;
     }
 
     .work-item img {
@@ -140,7 +139,8 @@
       border-radius: 8px;
       cursor: pointer;
       transition: background 0.3s, transform 0.3s;
-      margin-top: 20px;
+      margin: 30px auto;
+      display: block;
     }
 
     #load-more:hover {
@@ -212,7 +212,7 @@
 
     <section class="works-grid">
 
-      <!-- 每一張作品 -->
+      <!-- 作品開始 -->
       <a href="images/2909.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形I">
         <img src="images/2909.jpg" alt="夜の形I">
         <p class="work-caption">夜の形I / the scene at night-I<br>194×130.3cm oil on canvas.</p>
@@ -252,13 +252,14 @@
         <img src="images/2915.jpg" alt="光への注視">
         <p class="work-caption">光への注視 / gaze into the light<br>145.5×112cm oil on canvas.</p>
       </a>
+      <!-- 作品結束 -->
 
     </section>
-  
-        <!-- Load More -->
-      <div style="text-align:center; margin:30px 0; grid-column:1/-1;">
-        <button id="load-more">Load More</button>
-      </div>
+
+    <!-- Load More 按鈕獨立出來 -->
+    <div style="text-align:center; margin:30px 0;">
+      <button id="load-more">Load More</button>
+    </div>
 
     <footer>
       <p>© 2025 hohsinhung. All rights reserved.</p>
@@ -283,13 +284,13 @@ function showVisibleWorks() {
   allWorks.forEach(work => {
     if (work.classList.contains('active')) {
       if (visible < visibleCount) {
-        work.style.visibility = 'visible';
+        work.style.display = 'flex';
       } else {
-        work.style.visibility = 'hidden';
+        work.style.display = 'none';
       }
       visible++;
     } else {
-      work.style.visibility = 'hidden';
+      work.style.display = 'none';
     }
   });
 
