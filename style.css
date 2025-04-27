@@ -1,6 +1,6 @@
 /* --- 基本設定 --- */
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: #fafafa; /* ✅ 柔和灰底色 */
