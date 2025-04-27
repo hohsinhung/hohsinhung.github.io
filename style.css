@@ -279,3 +279,19 @@ footer {
 #scrollTopBtn.clicked {
   animation: clickBounce 0.4s ease;
 }
+
+.img-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* 正方形比例, 可以改1/1.2或1/1.5之類的 */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0; /* 預設背景，可以不用 */
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 讓圖片填滿裁切，不變形 */
+}
