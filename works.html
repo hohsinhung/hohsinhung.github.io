@@ -190,9 +190,16 @@
 
     .sidebar {
       flex-direction: row;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x:auto;
+      justify-content:flex-start;
       width: 100%;
       padding: 20px 0;
+    }
+    .sidebar button {
+     flex: 0 0 auto;
+     margin: 5px 10px;
+     white-space: nowrap;
     }
 
     .works-grid {
