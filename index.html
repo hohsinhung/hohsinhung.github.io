@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HOart</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css"> <!-- 連你原本的CSS -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> <!-- 如果有自己的style.css可以留著 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&family=Playfair+Display&display=swap" rel="stylesheet"> <!-- 字體連結 -->
 
   <style>
     body {
@@ -20,13 +20,52 @@
       position: relative;
       flex-direction: column;
       overflow-x: hidden;
-      transition: opacity 0.6s ease; /* ★ 加轉場淡入淡出 */
+      transition: opacity 0.6s ease;
     }
 
+    /* 主標題 */
+    .main-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #333;
+      text-align: center;
+      letter-spacing: 4px;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInMove 1s forwards;
+    }
+
+    /* 副標題 */
+    .sub-title {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 300;
+      font-size: 1.5rem;
+      color: #666;
+      margin-top: -10px;
+      margin-bottom: 40px;
+      text-align: center;
+      letter-spacing: 2px;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInMove 1s forwards;
+      animation-delay: 0.3s;
+    }
+
+    /* 淡入動畫 */
+    @keyframes fadeInMove {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 黃色方框 */
     .yellow-box {
       width: 300px;
       height: 300px;
-      background: #FFF176; /* 檸檬黃 */
+      background: #FFF176;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -34,11 +73,15 @@
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-align: center;
-      transition: box-shadow 0.3s ease; /* ★ hover時增加陰影動畫 */
+      transition: box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInMove 1s forwards;
+      animation-delay: 0.6s; /* 方框最後出現 */
     }
 
     .yellow-box:hover {
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* ★ 發光感 */
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
     .yellow-box a {
@@ -78,44 +121,8 @@
       font-size: 0.8rem;
       color: #aaa;
     }
-    
-    .main-title {
-  font-size: 3rem;
-  margin-bottom: 30px;
-  color: #333;
-  text-align: center;
-  letter-spacing: 2px;
-}
-
-    .main-title, .sub-title {
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: fadeInMove 1s forwards;
-}
-
-.sub-title {
-  animation-delay: 0.3s; /* 副標題晚一點出現 */
-}
-
-@keyframes fadeInMove {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.main-title {
-  font-family: 'Playfair Display', serif;
-  font-weight: 400; /* 正常細度 */
-}
-.sub-title {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-weight: 300; /* Light細版 */
-}
-
-
   </style>
 
-  <!-- ★ 加一點小JS來做轉場 -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       document.body.style.opacity = '1';
@@ -127,25 +134,28 @@
         document.body.style.opacity = '0';
         setTimeout(() => {
           window.location = e.target.href;
-        }, 500); // 0.5秒後跳轉
+        }, 500);
       }
     });
   </script>
+
 </head>
 
-<body style="opacity: 0;"> <!-- ★ 預設先隱形，進來時漸變顯示 -->
-  
-<h1 class="box-title">HOHSINHUNG</h1>
-<p class="sub-title">何信宏</p>
-<div class="yellow-box">
-  <a href="about.html">About</a>
-  <a href="works.html">Works</a>
-  <a href="contact.html">Contact</a>
-</div>
+<body style="opacity: 0;"> <!-- 預設隱形，進來時慢慢出現 -->
 
-<footer>
-  &copy; 2025 hohsinhung. All rights reserved.
-</footer>
+  <h1 class="main-title">HOHSINHUNG</h1> <!-- ★ 主標題 -->
+  <p class="sub-title">何信宏</p> <!-- ★ 副標題 -->
+
+  <div class="yellow-box">
+    <a href="about.html">About</a>
+    <a href="works.html">Works</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <footer>
+    &copy; 2025 hohsinhung. All rights reserved.
+  </footer>
 
 </body>
 </html>
+
