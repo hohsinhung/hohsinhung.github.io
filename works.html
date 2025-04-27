@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Works - HO</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
-  <!-- Lightbox2 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
@@ -15,8 +13,11 @@
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #fff;
+      background: #fafafa;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     header {
@@ -47,18 +48,18 @@
     }
 
     .container {
+      flex: 1;
       display: flex;
       min-height: 90vh;
     }
 
     .sidebar {
       width: 150px;
-      background: transparent;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      padding-top: 40px; 
+      padding-top: 40px;
     }
 
     .sidebar button {
@@ -92,34 +93,60 @@
       gap: 40px;
     }
 
-    .works-grid a {
-      display: block;
-      overflow: hidden;
+    .work-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      pointer-events: none;
     }
 
-    .works-grid img {
+    .work-item.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .work-item img {
       width: 100%;
       height: auto;
-      transition: transform 0.3s;
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .works-grid a:hover img {
+    .work-item:hover img {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .work-caption {
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: #999;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    #load-more {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      background: #005f99;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      margin-top: 20px;
+    }
+
+    #load-more:hover {
+      background: #004b80;
       transform: scale(1.05);
     }
-
-.work-item {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  pointer-events: none; /* 不要點擊到隱藏作品 */
-}
-
-.work-item.active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto; /* 可以點擊 */
-}
-
 
     footer {
       text-align: center;
@@ -127,6 +154,32 @@
       font-size: 0.8rem;
       color: #aaa;
       background: #f9f9f9;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 5px 10px;
+      }
+
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 20px 0;
+      }
+
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -155,65 +208,58 @@
     <button class="filter-btn" onclick="filterWorks('2025')">2025</button>
   </div>
 
-  <!-- ✅ 加這個包起來 -->
   <div class="main-content" style="flex:1; display:flex; flex-direction:column;">
 
- <section class="works-grid">
-  
-  <a href="images/2909.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形I">
-    <img src="images/2909.jpg" alt="夜の形I">
-    <p class="work-caption">夜の形I/the scene at night-I<br>194×130.3cm oil on canvas.</p>
-  </a>
+    <section class="works-grid">
 
-  <a href="images/2910.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形II">
-    <img src="images/2910.jpg" alt="夜の形II">
-    <p class="work-caption">夜の形II/the scene at night-II<br>194×130.3cm oil on canvas.</p>
-  </a>
+      <!-- 每一張作品 -->
+      <a href="images/2909.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形I">
+        <img src="images/2909.jpg" alt="夜の形I">
+        <p class="work-caption">夜の形I / the scene at night-I<br>194×130.3cm oil on canvas.</p>
+      </a>
 
-  <a href="images/2544.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="昼寝">
-    <img src="images/2544.jpg" alt="昼寝">
-    <p class="work-caption">昼寝/nap<br>116.7×91cm oil on canvas.</p>
-  </a>
+      <a href="images/2910.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形II">
+        <img src="images/2910.jpg" alt="夜の形II">
+        <p class="work-caption">夜の形II / the scene at night-II<br>194×130.3cm oil on canvas.</p>
+      </a>
 
-  <a href="images/2911.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="夜の進行">
-    <img src="images/2911.jpg" alt="夜の進行">
-    <p class="work-caption">夜の進行/progress of the night<br>145×112cm oil on canvas.</p>
-  </a>
+      <a href="images/2544.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="昼寝">
+        <img src="images/2544.jpg" alt="昼寝">
+        <p class="work-caption">昼寝 / nap<br>116.7×91cm oil on canvas.</p>
+      </a>
 
-  <a href="images/2912.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="二重奏">
-    <img src="images/2912.jpg" alt="二重奏">
-    <p class="work-caption">二重奏/duet<br>145×112cm oil on canvas.</p>
-  </a>
+      <a href="images/2911.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="夜の進行">
+        <img src="images/2911.jpg" alt="夜の進行">
+        <p class="work-caption">夜の進行 / progress of the night<br>145×112cm oil on canvas.</p>
+      </a>
 
-  <a href="images/2913.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="二分の一">
-    <img src="images/2913.jpg" alt="二分の一">
-    <p class="work-caption">二分の一/one-helf.<br>80.3×80.3cm oil on canvas.</p>
-  </a>
+      <a href="images/2912.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="二重奏">
+        <img src="images/2912.jpg" alt="二重奏">
+        <p class="work-caption">二重奏 / duet<br>145×112cm oil on canvas.</p>
+      </a>
 
-  <a href="images/2914.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="動物園">
-    <img src="images/2914.jpg" alt="動物園">
-    <p class="work-caption">動物園/zoo<br>0.3×80.3cm oil on canvas.</p>
-  </a>
+      <a href="images/2913.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="二分の一">
+        <img src="images/2913.jpg" alt="二分の一">
+        <p class="work-caption">二分の一 / one-half<br>80.3×80.3cm oil on canvas.</p>
+      </a>
 
-  <a href="images/2915.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="光への注視">
-    <img src="images/2915.jpg" alt="光への注視">
-    <p class="work-caption">光への注視/gaze into the light<br>145.5×112cm oil on canvas.</p>
-  </a>
+      <a href="images/2914.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="動物園">
+        <img src="images/2914.jpg" alt="動物園">
+        <p class="work-caption">動物園 / zoo<br>80.3×80.3cm oil on canvas.</p>
+      </a>
 
+      <a href="images/2915.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="光への注視">
+        <img src="images/2915.jpg" alt="光への注視">
+        <p class="work-caption">光への注視 / gaze into the light<br>145.5×112cm oil on canvas.</p>
+      </a>
 
-   
-
-
-      <!-- Load More按鈕 -->
-      <div style="text-align:center; margin: 30px 0; grid-column: 1 / -1;">
-        <button id="load-more" style="padding: 10px 20px; font-size: 1rem; background:#007acc; color:#fff; border:none; border-radius:5px; cursor:pointer;">
-          Load More
-        </button>
+      <!-- Load More -->
+      <div style="text-align:center; margin:30px 0; grid-column:1/-1;">
+        <button id="load-more">Load More</button>
       </div>
 
     </section>
 
-    <!-- ✅ Footer跟著main一起 -->
     <footer>
       <p>© 2025 hohsinhung. All rights reserved.</p>
     </footer>
@@ -222,36 +268,31 @@
 
 </div>
 
-
-<!-- jQuery & Lightbox2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
-
-<!-- fade.js -->
 <script src="fade.js"></script>
 
-<!-- ★ 新版JS 支援All切換＋淡出淡入 -->
 <script>
-// 最開始只顯示前6個作品
+// 顯示作品邏輯
 let visibleCount = 6;
 const loadMoreButton = document.getElementById('load-more');
 const allWorks = document.querySelectorAll('.work-item');
 
 function showVisibleWorks() {
   let visible = 0;
-  allWorks.forEach((work, index) => {
+  allWorks.forEach(work => {
     if (work.classList.contains('active')) {
       if (visible < visibleCount) {
-        work.style.display = 'block';
-        work.style.opacity = '1';
-        visible++;
+        work.style.visibility = 'visible';
       } else {
-        work.style.display = 'none';
+        work.style.visibility = 'hidden';
       }
+      visible++;
+    } else {
+      work.style.visibility = 'hidden';
     }
   });
 
-  // 如果全部顯示完了，就隱藏「Load More」按鈕
   const activeCount = document.querySelectorAll('.work-item.active').length;
   if (visible >= activeCount) {
     loadMoreButton.style.display = 'none';
@@ -260,63 +301,39 @@ function showVisibleWorks() {
   }
 }
 
-// 當點選載入更多
 loadMoreButton.addEventListener('click', () => {
-  // 加載中效果
   loadMoreButton.textContent = 'Loading...';
   loadMoreButton.disabled = true;
-
-  // 模擬載入延遲（大概0.6秒）
   setTimeout(() => {
     visibleCount += 6;
     showVisibleWorks();
-
-    // 載入完畢恢復按鈕文字
     loadMoreButton.textContent = 'Load More';
     loadMoreButton.disabled = false;
   }, 600);
 });
 
-// 當切換年份時，也要重設
+// 切換年份
 function filterWorks(year) {
-  const allWorks = document.querySelectorAll('.work-item');
   const buttons = document.querySelectorAll('.filter-btn');
-
   buttons.forEach(btn => btn.classList.remove('active'));
   document.querySelector('.filter-btn[onclick*="' + year + '"]').classList.add('active');
 
   allWorks.forEach(work => {
-    work.style.opacity = '0';
+    work.classList.remove('active');
+    if (year === 'all' || work.classList.contains('year-' + year)) {
+      work.classList.add('active');
+    }
   });
 
-  setTimeout(() => {
-    allWorks.forEach(work => {
-      work.classList.remove('active');
-      if (year === 'all') {
-        work.classList.add('active');
-      } else if (work.classList.contains('year-' + year)) {
-        work.classList.add('active');
-      }
-    });
-
-    setTimeout(() => {
-      document.querySelectorAll('.work-item.active').forEach(work => {
-        work.style.opacity = '1';
-      });
-
-      // 🆕 切換年份時重設Load More
-      visibleCount = 6;
-      showVisibleWorks();
-    }, 100);
-  }, 300);
+  visibleCount = 6;
+  showVisibleWorks();
 }
 
-// 頁面打開預設All
+// 預設載入All
 document.addEventListener('DOMContentLoaded', () => {
   filterWorks('all');
 });
 </script>
 
 </body>
-  
 </html>
