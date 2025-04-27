@@ -107,15 +107,19 @@
       transform: scale(1.05);
     }
 
-    .work-item {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
+.work-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none; /* 不要點擊到隱藏作品 */
+}
 
-    .work-item.active {
-      display: block;
-    }
+.work-item.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; /* 可以點擊 */
+}
+
 
     footer {
       text-align: center;
