@@ -11,14 +11,17 @@ body {
 }
 
 /* --- 上方導覽列 --- */
-header {
-  background: #fafafa;
-  border-bottom: 1px solid #eee;
-  padding: 20px 40px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+<header>
+  <nav>
+    <div><strong>HO</strong></div>
+    <div class="menu">
+      <a href="biography.html">biography</a>
+      <a href="works.html">works</a>
+      <a href="contact.html">contact</a>
+    </div>
+  </nav>
+</header>
+
 
 nav {
   display: flex;
