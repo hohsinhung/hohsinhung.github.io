@@ -12,33 +12,37 @@
    
   }
 
-  header {
-    background: #fafafa;
-    border-bottom: 1px solid #ddd;
-    padding: 1em 2em;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
+ header {
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  nav a {
-    text-decoration: none;
-    color: #bbbbbb;
-    margin-left: 20px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
+nav a {
+  text-decoration: none;
+  color: #bbbbbb;
+  margin-left: 30px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
 
-  nav a:hover {
-    color: #007acc;
-  }
+nav a:hover {
+  color: #007acc;
+  opacity: 0.8;
+}
+
 
   .container {
     flex: 1;
