@@ -11,23 +11,19 @@ body {
 }
 
 /* --- 上方導覽列 --- */
-<header>
-  <nav>
-    <div><strong>HO</strong></div>
-    <div class="menu">
-      <a href="biography.html">biography</a>
-      <a href="works.html">works</a>
-      <a href="contact.html">contact</a>
-    </div>
-  </nav>
-</header>
-
+header {
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* ✅ 讓小螢幕時可以換行，不擠 */
 }
 
 nav div:first-child {
@@ -38,27 +34,27 @@ nav div:first-child {
   letter-spacing: 0.05em;
 }
 
-nav div:last-child {
+.menu {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-nav a {
+.menu a {
   text-decoration: none;
   color: #bbbbbb;
-  margin: 0 15px;
+  margin-left: 30px;
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 1rem;
   letter-spacing: 0.1em;
   font-weight: 400;
-  flex-shrink: 0; /* ✅ 避免縮小變形 */
+  flex-shrink: 0;
   transition: color 0.3s ease, opacity 0.3s ease;
   white-space: nowrap;
 }
 
-nav a:hover {
+.menu a:hover {
   color: #007acc;
   opacity: 0.8;
 }
@@ -203,21 +199,22 @@ footer {
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
+    align-items: center;
     gap: 10px;
     padding: 10px 20px;
-    align-items: center;
   }
 
-  nav div:last-child {
+  .menu {
     justify-content: center;
     gap: 15px;
   }
 
-  nav a {
+  .menu a {
     margin: 0;
     font-size: 0.95rem;
   }
 }
+
 /* --- 回到上方按鈕 Scroll to Top --- */
 #scrollTopBtn {
   display: none;
@@ -254,12 +251,13 @@ footer {
   100% { transform: scale(1); }
 }
 
+/* --- main排版 --- */
 main {
   width: 100%;
-  max-width: 1000px; /* 內容區最大寬度 */
-  margin: 60px auto 80px auto; /* 上下留白＋置中 */
-  padding: 0 20px; /* 左右留空隙 */
-  font-family: 'Noto Sans TC', sans-serif; /* 字體也統一比較好看 */
-  font-size: 1rem; /* 正文字體大小適中 */
-  line-height: 1.8; /* 行間距舒服 */
+  max-width: 1000px;
+  margin: 60px auto 80px auto;
+  padding: 0 20px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
 }
