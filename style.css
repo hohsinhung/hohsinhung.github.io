@@ -11,7 +11,7 @@ body {
 }
 
 /* --- 上方導覽列 --- */
-header {
+ header {
   background: #fafafa;
   border-bottom: 1px solid #eee;
   padding: 20px 40px;
@@ -26,38 +26,22 @@ nav {
   align-items: center;
 }
 
-nav div:first-child {
-  font-family: 'Noto Sans TC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-  letter-spacing: 0.05em;
-}
-
-.menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.menu a {
+nav a {
   text-decoration: none;
   color: #bbbbbb;
   margin-left: 30px;
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   letter-spacing: 0.1em;
   font-weight: 400;
-  flex-shrink: 0;
   transition: color 0.3s ease, opacity 0.3s ease;
-  white-space: nowrap;
 }
 
-.menu a:hover {
+nav a:hover {
   color: #007acc;
   opacity: 0.8;
 }
+
 
 /* --- 左側側邊欄 --- */
 .container {
