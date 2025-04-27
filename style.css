@@ -1,17 +1,16 @@
-/* 基本設定 */
+/* --- 基本設定 --- */
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #fff;
+  background: #fafafa; /* ✅ 柔和灰底色 */
   color: #333;
-
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* 吸底關鍵 */
+  min-height: 100vh;
 }
 
-/* 上方導覽列 */
+/* --- 上方導覽列 --- */
 header {
   background: #fafafa;
   border-bottom: 1px solid #ddd;
@@ -21,7 +20,6 @@ header {
   z-index: 100;
 }
 
-/* 導覽列排列 */
 nav {
   display: flex;
   justify-content: space-between;
@@ -41,7 +39,7 @@ nav a:hover {
   color: #007acc;
 }
 
-/* 左側側邊欄 */
+/* --- 左側側邊欄 --- */
 .container {
   flex: 1;
   display: flex;
@@ -79,89 +77,64 @@ nav a:hover {
   font-weight: bold;
 }
 
-/* 主要內容 works-grid */
+/* --- 主要內容 works-grid --- */
 .works-grid {
   flex: 1;
   padding: 40px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 40px; /* ✅ 作品之間間距加大，美感更好 */
 }
 
-/* 作品圖片 */
-.works-grid a {
-  display: block;
-  overflow: hidden;
-}
-
-.works-grid img {
-  width: 100%;
-  height: auto;
-  border: none;
-  border-radius: 0px;
-  transition: transform 0.3s ease;
-}
-
-.works-grid img:hover {
-  transform: scale(1.05);
-}
-
-/* 每個作品的淡入淡出效果 */
+/* --- 每個作品區塊 --- */
 .work-item {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .work-item.active {
-  display: block;
-}
-
-/* 作品滾動出現動畫 */
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.work-item.visible {
-  display: block;
+  display: flex;
   opacity: 1;
   transform: translateY(0);
-  animation: fadeUp 0.6s ease forwards;
 }
 
-/* 點擊作品時的小放大縮小動畫 */
-@keyframes clickScale {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.08);
-  }
-  100% {
-    transform: scale(1);
-  }
+/* --- 圖片設定 --- */
+.work-item img {
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.work-item.clicked img {
-  animation: clickScale 0.3s ease;
+.work-item:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Load More 按鈕 */
+/* --- 作品說明文字 --- */
+.work-caption {
+  margin-top: 8px;
+  font-size: 0.75rem; /* ✅ 更小 */
+  color: #999; /* ✅ 更淡 */
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* --- Load More 按鈕 --- */
 #load-more {
-  padding: 10px 20px;
-  font-size: 1rem;
-  background: #007acc;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  background: #005f99;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
   position: relative;
@@ -169,11 +142,11 @@ nav a:hover {
 }
 
 #load-more:hover {
-  background: #005f99;
+  background: #004b80;
   transform: scale(1.05);
 }
 
-/* Load More 按鈕 loading轉圈圈 */
+/* --- Load More loading轉圈圈效果 --- */
 #load-more.loading::after {
   content: "";
   position: absolute;
@@ -189,15 +162,11 @@ nav a:hover {
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* Footer 吸底 */
+/* --- Footer 吸底 --- */
 footer {
   text-align: center;
   padding: 40px 20px;
@@ -208,7 +177,7 @@ footer {
   margin-top: auto;
 }
 
-/* 手機版RWD */
+/* --- 手機版RWD --- */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
@@ -231,7 +200,7 @@ footer {
   }
 }
 
-/* 回到上方按鈕 Scroll to Top */
+/* --- 回到上方按鈕 Scroll to Top --- */
 #scrollTopBtn {
   display: none;
   position: fixed;
@@ -251,67 +220,22 @@ footer {
   transition: opacity 0.3s, background 0.3s, transform 0.3s;
 }
 
-/* 出現時淡入+放大 */
 #scrollTopBtn.show {
   opacity: 1;
   transform: scale(1);
 }
 
-/* 滑鼠移上去再放大一點 */
 #scrollTopBtn:hover {
   background: #005f99;
   transform: scale(1.1);
 }
 
-/* 點擊回到上方按鈕的小彈跳動畫 */
 @keyframes clickBounce {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
 
 #scrollTopBtn.clicked {
   animation: clickBounce 0.4s ease;
 }
-
-.works-grid {
-  flex: 1;
-  padding: 40px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px; /* 作品與作品之間的間距，美感更好 */
-}
-
-.work-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none; /* 確保點擊區域沒底線 */
-}
-
-.work-item img {
-  width: 100%;
-  height: auto; /* 原比例，不裁切 */
-  border-radius: 0px; /* 可選，加一點圓角更柔和 */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 可選，淡淡的陰影更立體 */
-  transition: transform 0.3s;
-}
-
-.work-item:hover img {
-  transform: scale(1.03); /* 輕微放大，Hover效果 */
-}
-
-.work-caption {
-  margin-top: 8px;
-  font-size: 0.8rem; /* 說明文字小一點 */
-  color: #777; /* 灰色文字 */
-  text-align: center;
-  line-height: 1.4;
-}
-
