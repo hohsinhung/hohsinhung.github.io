@@ -75,6 +75,8 @@ nav a:hover {
 .sidebar button.active {
   color: #007acc;
   font-weight: bold;
+   border-bottom: 2px solid #007acc; /* 👈 選中的按鈕下面加藍色底線 */
+  padding-bottom: 3px; /* 👈 稍微留空間讓底線不貼到字 */
 }
 
 /* --- 主要內容 works-grid --- */
