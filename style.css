@@ -298,7 +298,7 @@ footer {
 .work-item img {
   width: 100%;
   height: auto; /* 原比例，不裁切 */
-  border-radius: 8px; /* 可選，加一點圓角更柔和 */
+  border-radius: 0px; /* 可選，加一點圓角更柔和 */
   box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 可選，淡淡的陰影更立體 */
   transition: transform 0.3s;
 }
