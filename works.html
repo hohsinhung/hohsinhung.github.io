@@ -6,6 +6,7 @@
   <title>Works - HO</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
+
   <style>
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -45,54 +46,84 @@
       color: #007acc;
     }
 
-    .container {
-      flex: 1;
-      display: flex;
-      min-height: 90vh;
+    #toggleSidebarBtn {
+      position: fixed;
+      top: 1em;
+      left: 1em;
+      z-index: 200;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 0.7em 1em;
+      border-radius: 8px;
+      font-size: 1.2em;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
+    }
+    #toggleSidebarBtn:hover {
+      background: #555;
     }
 
-    .sidebar {
-      width: 150px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding-top: 40px;
+    #sidebar {
+      position: fixed;
+      top: 4em;
+      left: 1em;
+      background: #fff;
+      padding: 1em;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      z-index: 150;
+      display: none;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s, transform 0.3s;
     }
 
-    .sidebar button {
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 8px;
+    #sidebar.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .filter-btn {
+      display: block;
+      margin: 0.5em 0;
       background: none;
       border: none;
-      text-align: center;
+      padding: 0.5em 1em;
+      border-radius: 6px;
       font-size: 1rem;
-      color: #333;
       cursor: pointer;
-      transition: color 0.3s, transform 0.3s;
+      width: 100%;
+      text-align: left;
+      transition: background-color 0.3s;
     }
 
-    .sidebar button:hover {
-      color: #007acc;
-      transform: translateX(5px);
+    .filter-btn:hover {
+      background-color: #f0f0f0;
     }
 
-    .sidebar button.active {
-      color: #007acc;
+    .filter-btn.active {
+      background-color: #007acc;
+      color: white;
       font-weight: bold;
     }
 
     .works-grid {
       flex: 1;
-      padding: 40px;
+      padding: 40px 20px;
+      margin-top: 60px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
+      gap: 30px;
     }
 
-    .work-item {
-      display: none; /* 預設隱藏 */
+    a.work-item {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
       flex-direction: column;
       align-items: center;
       opacity: 0;
@@ -100,37 +131,35 @@
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .work-item.visible {
-      display: flex;
+    a.work-item.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .work-item img {
+    a.work-item img {
       width: 100%;
       height: auto;
-      border: none;
-      border-radius: 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .work-item:hover img {
-      transform: scale(1.03);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    a.work-item:hover img {
+      transform: scale(1.02);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
 
     .work-caption {
-      margin-top: 8px;
-      font-size: 0.75rem;
-      color: #999;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #666;
       text-align: center;
       line-height: 1.4;
     }
 
     #load-more {
-      padding: 8px 16px;
-      font-size: 0.9rem;
+      padding: 10px 20px;
+      font-size: 1rem;
       background: #005f99;
       color: #fff;
       border: none;
@@ -155,24 +184,6 @@
       margin-top: auto;
     }
 
-    @keyframes fadeUpBounce {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      60% {
-        opacity: 1;
-        transform: translateY(-10px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-
-    .work-item.animate {
-      animation: fadeUpBounce 0.8s ease forwards;
-    }
-
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -182,43 +193,24 @@
         margin: 5px 10px;
       }
 
-      .container {
-        flex-direction: column;
+      #toggleSidebarBtn {
+        top: 0.5em;
+        left: 0.5em;
+        font-size: 1em;
       }
 
-      .sidebar {
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 100%;
-        padding: 20px 0;
+      #sidebar {
+        top: 3em;
+        left: 0.5em;
       }
 
       .works-grid {
         grid-template-columns: 1fr;
+        padding: 20px;
       }
     }
   </style>
 </head>
-<script>
-  const toggleBtn = document.getElementById('toggleSidebarBtn');
-  const sidebar = document.getElementById('sidebar');
-
-  toggleBtn.addEventListener('click', function(event) {
-    event.stopPropagation(); // 防止點到按鈕就收起來
-    if (sidebar.style.display === 'none') {
-      sidebar.style.display = 'block';
-    } else {
-      sidebar.style.display = 'none';
-    }
-  });
-
-  // 點擊畫面其他地方，就自動收合 sidebar
-  document.addEventListener('click', function(event) {
-    if (!sidebar.contains(event.target) && event.target !== toggleBtn) {
-      sidebar.style.display = 'none';
-    }
-  });
-</script>
 
 <body>
 
@@ -234,11 +226,11 @@
   </nav>
 </header>
 
-<!-- 觸發按鈕 -->
+<!-- 小按鈕 -->
 <button id="toggleSidebarBtn">☰ Filter</button>
 
-<!-- 側邊欄（預設隱藏） -->
-<div id="sidebar" class="sidebar" style="display: none;">
+<!-- 側邊欄 -->
+<div id="sidebar" class="sidebar">
   <button class="filter-btn active" onclick="filterWorks('all')">All</button>
   <button class="filter-btn" onclick="filterWorks('2022')">2022</button>
   <button class="filter-btn" onclick="filterWorks('2023')">2023</button>
@@ -246,142 +238,110 @@
   <button class="filter-btn" onclick="filterWorks('2025')">2025</button>
 </div>
 
+<section class="works-grid">
+  <!-- 作品們 -->
+  <a href="images/2909.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形I">
+    <img src="images/2909.jpg" alt="夜の形I">
+    <p class="work-caption">夜の形I / the scene at night-I<br>194×130.3cm oil on canvas.</p>
+  </a>
+
+  <a href="images/2910.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形II">
+    <img src="images/2910.jpg" alt="夜の形II">
+    <p class="work-caption">夜の形II / the scene at night-II<br>194×130.3cm oil on canvas.</p>
+  </a>
+
+  <!-- (這裡依照你的作品資料繼續列下去) -->
+</section>
+
+<!-- Load More按鈕 -->
+<div>
+  <button id="load-more">Load More</button>
+</div>
+
+<footer>
+  <p>© 2025 hohsinhung. All rights reserved.</p>
+</footer>
+
+<!-- 連結到外部套件 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+
+<!-- 互動行為 -->
 <script>
   const toggleBtn = document.getElementById('toggleSidebarBtn');
   const sidebar = document.getElementById('sidebar');
 
-  toggleBtn.addEventListener('click', function() {
-    if (sidebar.style.display === 'none') {
-      sidebar.style.display = 'block';
-    } else {
-      sidebar.style.display = 'none';
+  toggleBtn.addEventListener('click', function(event) {
+    event.stopPropagation();
+    sidebar.classList.toggle('show');
+  });
+
+  document.addEventListener('click', function(event) {
+    if (!sidebar.contains(event.target) && event.target !== toggleBtn) {
+      sidebar.classList.remove('show');
     }
   });
-</script>
-    <section class="works-grid">
-       <!-- 作品開始 -->
-      <a href="images/2909.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形I">
-        <img src="images/2909.jpg" alt="夜の形I">
-        <p class="work-caption">夜の形I / the scene at night-I<br>194×130.3cm oil on canvas.</p>
-      </a>
 
-      <a href="images/2910.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形II">
-        <img src="images/2910.jpg" alt="夜の形II">
-        <p class="work-caption">夜の形II / the scene at night-II<br>194×130.3cm oil on canvas.</p>
-      </a>
+  let visibleCount = 6;
+  const loadMoreButton = document.getElementById('load-more');
+  const allWorks = document.querySelectorAll('.work-item');
 
-      <a href="images/2544.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="昼寝">
-        <img src="images/2544.jpg" alt="昼寝">
-        <p class="work-caption">昼寝 / nap<br>116.7×91cm oil on canvas.</p>
-      </a>
-
-      <a href="images/2911.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="夜の進行">
-        <img src="images/2911.jpg" alt="夜の進行">
-        <p class="work-caption">夜の進行 / progress of the night<br>145×112cm oil on canvas.</p>
-      </a>
-
-      <a href="images/2912.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="二重奏">
-        <img src="images/2912.jpg" alt="二重奏">
-        <p class="work-caption">二重奏 / duet<br>145×112cm oil on canvas.</p>
-      </a>
-
-      <a href="images/2913.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="二分の一">
-        <img src="images/2913.jpg" alt="二分の一">
-        <p class="work-caption">二分の一 / one-half<br>80.3×80.3cm oil on canvas.</p>
-      </a>
-
-      <a href="images/2914.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="動物園">
-        <img src="images/2914.jpg" alt="動物園">
-        <p class="work-caption">動物園 / zoo<br>80.3×80.3cm oil on canvas.</p>
-      </a>
-
-      <a href="images/2915.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="光への注視">
-        <img src="images/2915.jpg" alt="光への注視">
-        <p class="work-caption">光への注視 / gaze into the light<br>145.5×112cm oil on canvas.</p>
-      </a>
-      <!-- 作品結束 -->
-    </section>
-
-    <!-- Load More按鈕獨立 -->
-    <div style="text-align:center; margin:30px 0;">
-      <button id="load-more">Load More</button>
-    </div>
-
-    <footer>
-      <p>© 2025 hohsinhung. All rights reserved.</p>
-    </footer>
-
-  </div>
-</div>
-
-<!-- 必要的JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
-
-<script>
-// ----------------- 重要邏輯 -----------------
-let visibleCount = 6;
-const loadMoreButton = document.getElementById('load-more');
-const allWorks = document.querySelectorAll('.work-item');
-
-function showVisibleWorks() {
-  let visible = 0;
-  allWorks.forEach(work => {
-    if (work.dataset.show === "true") {
-      if (visible < visibleCount) {
-        work.classList.add('visible');
-        work.classList.add('animate'); // 加進場動畫
-        visible++;
+  function showVisibleWorks() {
+    let visible = 0;
+    allWorks.forEach(work => {
+      if (work.dataset.show === "true") {
+        if (visible < visibleCount) {
+          work.classList.add('visible');
+          visible++;
+        } else {
+          work.classList.remove('visible');
+        }
       } else {
         work.classList.remove('visible');
       }
-    } else {
-      work.classList.remove('visible');
-    }
-  });
+    });
 
-  const activeCount = Array.from(allWorks).filter(work => work.dataset.show === "true").length;
-  if (visible >= activeCount) {
-    loadMoreButton.style.display = 'none';
-  } else {
-    loadMoreButton.style.display = 'inline-block';
+    const activeCount = Array.from(allWorks).filter(work => work.dataset.show === "true").length;
+    if (visible >= activeCount) {
+      loadMoreButton.style.display = 'none';
+    } else {
+      loadMoreButton.style.display = 'inline-block';
+    }
   }
-}
 
-loadMoreButton.addEventListener('click', () => {
-  loadMoreButton.textContent = 'Loading...';
-  loadMoreButton.disabled = true;
-  setTimeout(() => {
-    visibleCount += 6;
-    showVisibleWorks();
-    loadMoreButton.textContent = 'Load More';
-    loadMoreButton.disabled = false;
-  }, 500);
-});
-
-function filterWorks(year) {
-  const buttons = document.querySelectorAll('.filter-btn');
-  buttons.forEach(btn => btn.classList.remove('active'));
-  document.querySelector('.filter-btn[onclick*="' + year + '"]').classList.add('active');
-
-  allWorks.forEach(work => {
-    work.classList.remove('visible', 'animate');
-    if (year === 'all' || work.classList.contains('year-' + year)) {
-      work.dataset.show = "true";
-    } else {
-      work.dataset.show = "false";
-    }
+  loadMoreButton.addEventListener('click', () => {
+    loadMoreButton.textContent = 'Loading...';
+    loadMoreButton.disabled = true;
+    setTimeout(() => {
+      visibleCount += 6;
+      showVisibleWorks();
+      loadMoreButton.textContent = 'Load More';
+      loadMoreButton.disabled = false;
+    }, 500);
   });
 
-  visibleCount = 6;
-  showVisibleWorks();
-}
+  function filterWorks(year) {
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    document.querySelector('.filter-btn[onclick*="' + year + '"]').classList.add('active');
 
-document.addEventListener('DOMContentLoaded', () => {
-  filterWorks('all');
-});
+    allWorks.forEach(work => {
+      work.classList.remove('visible');
+      if (year === 'all' || work.classList.contains('year-' + year)) {
+        work.dataset.show = "true";
+      } else {
+        work.dataset.show = "false";
+      }
+    });
+
+    visibleCount = 6;
+    showVisibleWorks();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    filterWorks('all');
+  });
 </script>
 
 </body>
 </html>
-
