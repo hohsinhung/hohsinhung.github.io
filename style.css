@@ -280,26 +280,38 @@ footer {
   animation: clickBounce 0.4s ease;
 }
 
-.img-wrapper {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* 正方形比例，可以改 4/5、3/4 這種微直立感覺 */
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f5f5f5; /* 可選，可以去掉 */
+.works-grid {
+  flex: 1;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px; /* 作品與作品之間的間距，美感更好 */
 }
 
-.img-wrapper img {
+.work-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none; /* 確保點擊區域沒底線 */
+}
+
+.work-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* 自動裁切圖片，不變形 */
+  height: auto; /* 原比例，不裁切 */
+  border-radius: 8px; /* 可選，加一點圓角更柔和 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 可選，淡淡的陰影更立體 */
+  transition: transform 0.3s;
+}
+
+.work-item:hover img {
+  transform: scale(1.03); /* 輕微放大，Hover效果 */
 }
 
 .work-caption {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #666;
   margin-top: 8px;
+  font-size: 0.8rem; /* 說明文字小一點 */
+  color: #777; /* 灰色文字 */
+  text-align: center;
   line-height: 1.4;
 }
+
