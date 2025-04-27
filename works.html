@@ -6,198 +6,201 @@
   <title>Works - HO</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fafafa;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+ <style>
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 
-    header {
-      background: #fafafa;
-      border-bottom: 1px solid #ddd;
-      padding: 1em 2em;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+  header {
+    background: #fafafa;
+    border-bottom: 1px solid #ddd;
+    padding: 1em 2em;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
 
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #007acc;
+  }
+
+  .container {
+    flex: 1;
+    display: flex;
+    min-height: 90vh;
+  }
+
+  .sidebar {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  .sidebar button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    background: none;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  .sidebar button:hover {
+    color: #007acc;
+    transform: translateX(5px);
+  }
+
+  .sidebar button.active {
+    color: #007acc;
+    font-weight: bold;
+  }
+
+  .works-grid {
+    flex: 1;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+  }
+
+  .work-item {
+    text-decoration: none; /* 👈 這裡新增，取消作品底線 */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .work-item.visible {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .work-item img {
+    width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .work-item:hover img {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .work-caption {
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: #999;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  #load-more {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    background: #005f99;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    margin: 30px auto;
+    display: block;
+  }
+
+  #load-more:hover {
+    background: #004b80;
+    transform: scale(1.05);
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: #aaa;
+    background: #f9f9f9;
+    margin-top: auto;
+  }
+
+  @keyframes fadeUpBounce {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .work-item.animate {
+    animation: fadeUpBounce 0.8s ease forwards;
+  }
+
+  @media (max-width: 768px) {
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
     }
 
     nav a {
-      text-decoration: none;
-      color: #333;
-      margin-left: 20px;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #007acc;
+      margin: 5px 10px;
     }
 
     .container {
-      flex: 1;
-      display: flex;
-      min-height: 90vh;
+      flex-direction: column;
     }
 
     .sidebar {
-      width: 150px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding-top: 40px;
-    }
-
-    .sidebar button {
+      flex-direction: row;
+      flex-wrap: wrap;
       width: 100%;
-      margin-bottom: 15px;
-      padding: 8px;
-      background: none;
-      border: none;
-      text-align: center;
-      font-size: 1rem;
-      color: #333;
-      cursor: pointer;
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    .sidebar button:hover {
-      color: #007acc;
-      transform: translateX(5px);
-    }
-
-    .sidebar button.active {
-      color: #007acc;
-      font-weight: bold;
+      padding: 20px 0;
     }
 
     .works-grid {
-      flex: 1;
-      padding: 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
+      grid-template-columns: 1fr;
     }
+  }
+</style>
 
-    .work-item {
-      display: none; /* 預設隱藏 */
-      flex-direction: column;
-      align-items: center;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .work-item.visible {
-      display: flex;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .work-item img {
-      width: 100%;
-      height: auto;
-      border: none;
-      border-radius: 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .work-item:hover img {
-      transform: scale(1.03);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .work-caption {
-      margin-top: 8px;
-      font-size: 0.75rem;
-      color: #999;
-      text-align: center;
-      line-height: 1.4;
-    }
-
-    #load-more {
-      padding: 8px 16px;
-      font-size: 0.9rem;
-      background: #005f99;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-      margin: 30px auto;
-      display: block;
-    }
-
-    #load-more:hover {
-      background: #004b80;
-      transform: scale(1.05);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.8rem;
-      color: #aaa;
-      background: #f9f9f9;
-      margin-top: auto;
-    }
-
-    @keyframes fadeUpBounce {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      60% {
-        opacity: 1;
-        transform: translateY(-10px);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-
-    .work-item.animate {
-      animation: fadeUpBounce 0.8s ease forwards;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-      }
-
-      nav a {
-        margin: 5px 10px;
-      }
-
-      .container {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 100%;
-        padding: 20px 0;
-      }
-
-      .works-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 
 <body>
