@@ -8,6 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&family=Playfair+Display&display=swap" rel="stylesheet"> <!-- 字體連結 -->
 }
 
 /* --- 上方導覽列 --- */
