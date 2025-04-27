@@ -231,3 +231,13 @@ footer {
   50% { transform: scale(1.15); }
   100% { transform: scale(1); }
 }
+
+main {
+  width: 100%;
+  max-width: 1000px; /* 內容區最大寬度 */
+  margin: 60px auto 80px auto; /* 上下留白＋置中 */
+  padding: 0 20px; /* 左右留空隙 */
+  font-family: 'Noto Sans TC', sans-serif; /* 字體也統一比較好看 */
+  font-size: 1rem; /* 正文字體大小適中 */
+  line-height: 1.8; /* 行間距舒服 */
+}
