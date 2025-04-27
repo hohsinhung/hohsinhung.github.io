@@ -181,16 +181,17 @@ footer {
 /* --- 手機版RWD --- */
 @media (max-width: 768px) {
   nav {
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+  nav a {
+    margin: 0 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
+
 }
 
 /* --- 回到上方按鈕 Scroll to Top --- */
