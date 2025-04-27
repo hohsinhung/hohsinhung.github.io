@@ -181,19 +181,38 @@ footer {
 /* --- 手機版RWD --- */
 @media (max-width: 768px) {
   nav {
-    justify-content: center; /* ★ 讓選單置中 */
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 10px 0;
   }
 
-  nav a {
-    margin: 0 12px; /* ★ 左右間距縮小一點 */
+  nav div:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  nav div:last-child {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  nav div:last-child a {
+    margin: 0 12px;
     white-space: nowrap;
-    font-size: 1rem; /* ★ 字體大小回到正常，不要太小 */
-    letter-spacing: 0.1em; /* ★ 保持字距 */
+    font-size: 1rem;
+    letter-spacing: 0.1em;
     flex-shrink: 0;
+    color: #bbbbbb;
+    transition: color 0.3s ease;
+  }
+
+  nav div:last-child a:hover {
+    color: #007acc;
   }
 
 }
