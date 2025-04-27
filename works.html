@@ -6,8 +6,6 @@
   <title>Works - HO</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-
   <style>
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -94,7 +92,7 @@
     }
 
     .work-item {
-      display: none; /* ⭐ 初期隱藏 */
+      display: none; /* 預設隱藏 */
       flex-direction: column;
       align-items: center;
       opacity: 0;
@@ -102,7 +100,7 @@
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .work-item.active {
+    .work-item.visible {
       display: flex;
       opacity: 1;
       transform: translateY(0);
@@ -157,6 +155,24 @@
       margin-top: auto;
     }
 
+    @keyframes fadeUpBounce {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .work-item.animate {
+      animation: fadeUpBounce 0.8s ease forwards;
+    }
+
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -184,7 +200,7 @@
   </style>
 </head>
 
-<body style="opacity: 0; overflow: hidden;">
+<body>
 
 <header>
   <nav>
@@ -211,8 +227,7 @@
   <div class="main-content" style="flex:1; display:flex; flex-direction:column;">
 
     <section class="works-grid">
-
-      <!-- 作品開始 -->
+       <!-- 作品開始 -->
       <a href="images/2909.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形I">
         <img src="images/2909.jpg" alt="夜の形I">
         <p class="work-caption">夜の形I / the scene at night-I<br>194×130.3cm oil on canvas.</p>
@@ -253,10 +268,9 @@
         <p class="work-caption">光への注視 / gaze into the light<br>145.5×112cm oil on canvas.</p>
       </a>
       <!-- 作品結束 -->
-
     </section>
 
-    <!-- Load More 按鈕獨立出來 -->
+    <!-- Load More按鈕獨立 -->
     <div style="text-align:center; margin:30px 0;">
       <button id="load-more">Load More</button>
     </div>
@@ -266,15 +280,14 @@
     </footer>
 
   </div>
-
 </div>
 
+<!-- 必要的JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
-<script src="fade.js"></script>
 
 <script>
-// 顯示作品邏輯
+// ----------------- 重要邏輯 -----------------
 let visibleCount = 6;
 const loadMoreButton = document.getElementById('load-more');
 const allWorks = document.querySelectorAll('.work-item');
@@ -282,19 +295,20 @@ const allWorks = document.querySelectorAll('.work-item');
 function showVisibleWorks() {
   let visible = 0;
   allWorks.forEach(work => {
-    if (work.classList.contains('active')) {
+    if (work.dataset.show === "true") {
       if (visible < visibleCount) {
-        work.style.display = 'flex';
+        work.classList.add('visible');
+        work.classList.add('animate'); // 加進場動畫
+        visible++;
       } else {
-        work.style.display = 'none';
+        work.classList.remove('visible');
       }
-      visible++;
     } else {
-      work.style.display = 'none';
+      work.classList.remove('visible');
     }
   });
 
-  const activeCount = document.querySelectorAll('.work-item.active').length;
+  const activeCount = Array.from(allWorks).filter(work => work.dataset.show === "true").length;
   if (visible >= activeCount) {
     loadMoreButton.style.display = 'none';
   } else {
@@ -310,19 +324,20 @@ loadMoreButton.addEventListener('click', () => {
     showVisibleWorks();
     loadMoreButton.textContent = 'Load More';
     loadMoreButton.disabled = false;
-  }, 600);
+  }, 500);
 });
 
-// 切換年份
 function filterWorks(year) {
   const buttons = document.querySelectorAll('.filter-btn');
   buttons.forEach(btn => btn.classList.remove('active'));
   document.querySelector('.filter-btn[onclick*="' + year + '"]').classList.add('active');
 
   allWorks.forEach(work => {
-    work.classList.remove('active');
+    work.classList.remove('visible', 'animate');
     if (year === 'all' || work.classList.contains('year-' + year)) {
-      work.classList.add('active');
+      work.dataset.show = "true";
+    } else {
+      work.dataset.show = "false";
     }
   });
 
@@ -330,7 +345,6 @@ function filterWorks(year) {
   showVisibleWorks();
 }
 
-// 預設載入All
 document.addEventListener('DOMContentLoaded', () => {
   filterWorks('all');
 });
@@ -338,3 +352,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
