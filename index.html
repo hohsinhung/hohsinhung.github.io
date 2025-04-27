@@ -85,6 +85,41 @@
   letter-spacing: 2px;
 }
 
+    .main-title {
+  font-size: 3rem;  /* 大字 */
+  margin-bottom: 10px; /* 主標題和副標題的距離 */
+  color: #333;
+  text-align: center;
+  letter-spacing: 4px; /* 稍微拉開字母間距 */
+}
+
+.sub-title {
+  font-size: 1.5rem; /* 小字 */
+  color: #666;
+  margin-top: 0; /* 緊貼在主標題下面 */
+  margin-bottom: 40px; /* 小標題和黃色正方形的距離 */
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+    .main-title, .sub-title {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInMove 1s forwards;
+}
+
+.sub-title {
+  animation-delay: 0.3s; /* 副標題晚一點出現 */
+}
+
+@keyframes fadeInMove {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
   </style>
 
   <!-- ★ 加一點小JS來做轉場 -->
@@ -107,7 +142,8 @@
 
 <body style="opacity: 0;"> <!-- ★ 預設先隱形，進來時漸變顯示 -->
   
-<h1 class="box-title">HOart</h1>
+<h1 class="box-title">HOHSINHUNG</h1>
+<p class="sub-title">何信宏</p>
 <div class="yellow-box">
   <a href="about.html">About</a>
   <a href="works.html">Works</a>
