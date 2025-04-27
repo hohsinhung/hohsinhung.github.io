@@ -24,17 +24,35 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* ✅ 讓小螢幕時可以換行，不擠 */
+}
+
+nav div:first-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Playfair Display', serif;
+  color: #333;
+  letter-spacing: 0.05em;
+}
+
+nav div:last-child {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 nav a {
   text-decoration: none;
   color: #bbbbbb;
-  margin-left: 30px;
+  margin: 0 15px;
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 1rem;
   letter-spacing: 0.1em;
   font-weight: 400;
+  flex-shrink: 0; /* ✅ 避免縮小變形 */
   transition: color 0.3s ease, opacity 0.3s ease;
+  white-space: nowrap;
 }
 
 nav a:hover {
@@ -181,42 +199,22 @@ footer {
 /* --- 手機版RWD --- */
 @media (max-width: 768px) {
   nav {
-    display: flex;
     flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
     align-items: center;
-    padding: 20px 0;
-  }
-
-  nav div:first-child {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    letter-spacing: 0.1em;
   }
 
   nav div:last-child {
-    display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 90%;
+    gap: 15px;
   }
 
-  nav div:last-child a {
+  nav a {
     margin: 0;
-    font-size: 1rem;
-    letter-spacing: 0.1em;
-    color: #bbbbbb;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 0.95rem;
   }
-
-  nav div:last-child a:hover {
-    color: #007acc;
-  }
-
 }
-
 /* --- 回到上方按鈕 Scroll to Top --- */
 #scrollTopBtn {
   display: none;
