@@ -1,6 +1,6 @@
 /* --- 基本設定 --- */
 body {
-  font-family:'Noto Sans TC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans TC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: #fafafa;
@@ -27,18 +27,18 @@ nav {
 }
 
 nav div:first-child {
-  font-size: 1rem;
+  font-family: 'Noto Sans TC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
   font-weight: bold;
-  font-family: 'Noto Sans TC', serif;
   color: #333;
   letter-spacing: 0.05em;
 }
 
 .menu {
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .menu a {
@@ -46,7 +46,7 @@ nav div:first-child {
   color: #bbbbbb;
   margin-left: 30px;
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   letter-spacing: 0.1em;
   font-weight: 400;
   flex-shrink: 0;
@@ -164,26 +164,6 @@ nav div:first-child {
   transform: scale(1.05);
 }
 
-/* --- Load More loading轉圈圈 --- */
-#load-more.loading::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 -10px;
-  border: 3px solid #fff;
-  border-top: 3px solid transparent;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 /* --- Footer 吸底 --- */
 footer {
   text-align: center;
@@ -207,15 +187,55 @@ footer {
   .menu {
     justify-content: center;
     gap: 15px;
+    flex-wrap: wrap;
   }
 
   .menu a {
     margin: 0;
     font-size: 0.95rem;
   }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  .sidebar button {
+    flex: 0 0 auto;
+    margin: 2px 5px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+  }
 }
 
-/* --- 回到上方按鈕 Scroll to Top --- */
+/* --- main排版 --- */
+main {
+  width: 100%;
+  max-width: 1000px;
+  margin: 60px auto 80px auto;
+  padding: 0 20px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* --- 回到上方按鈕 --- */
 #scrollTopBtn {
   display: none;
   position: fixed;
@@ -244,28 +264,3 @@ footer {
   background: #005f99;
   transform: scale(1.1);
 }
-
-@keyframes clickBounce {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); }
-}
-
-/* --- main排版 --- */
-main {
-  width: 100%;
-  max-width: 1000px;
-  margin: 60px auto 80px auto;
-  padding: 0 20px;
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-.logo {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #333;
-}
-
