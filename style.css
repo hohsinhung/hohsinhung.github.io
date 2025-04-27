@@ -11,19 +11,41 @@ body {
 }
 
 /* --- 上方導覽列 --- */
- header {
+header {
   background: #fafafa;
   border-bottom: 1px solid #eee;
   padding: 20px 40px;
   position: sticky;
   top: 0;
   z-index: 1000;
+  animation: fadeDown 0.8s ease forwards;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+nav div:first-child {
+  font-family: 'Noto Sans TC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.5s;
 }
 
 nav a {
@@ -41,7 +63,6 @@ nav a:hover {
   color: #007acc;
   opacity: 0.8;
 }
-
 
 /* --- 左側側邊欄 --- */
 .container {
@@ -248,3 +269,27 @@ main {
   background: #005f99;
   transform: scale(1.1);
 }
+
+/* --- 動畫區 --- */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
