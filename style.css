@@ -79,6 +79,7 @@ nav a:hover {
   background: #fafafa;
   width: 100%;
   border-top: 1px solid #eee;
+  transition: max-height 0.5s ease
 }
 
 .mobile-menu a {
@@ -98,6 +99,7 @@ nav a:hover {
 /* 展開時加上.show */
 .mobile-menu.show {
   display: flex;
+  max-height: 500px; 
 }
 
 /* --- 作品區塊、側邊欄等等 (你原本的) --- */
