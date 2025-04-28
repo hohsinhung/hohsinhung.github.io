@@ -1,6 +1,6 @@
 /* --- 基本設定 --- */
 body {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Noto Sans TC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: #fafafa;
@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
 }
 
+/* --- 上方導覽列 --- */
 header {
   background: #fafafa;
   border-bottom: 1px solid #eee;
@@ -17,6 +18,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
+  animation: fadeDown 0.8s ease forwards;
 }
 
 nav {
@@ -25,102 +27,101 @@ nav {
   align-items: center;
 }
 
+.logo {
+  font-family: 'Noto Sans TC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
 nav a {
   text-decoration: none;
   color: #bbbbbb;
   margin-left: 30px;
+  font-family: 'Noto Sans TC', sans-serif;
   font-size: 1rem;
-  font-weight: 400;
   letter-spacing: 0.1em;
-  transition: color 0.3s ease;
+  font-weight: 400;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 nav a:hover {
   color: #007acc;
+  opacity: 0.8;
 }
 
-/* --- 漢堡按鈕 --- */
+/* --- 漢堡按鈕設定 --- */
 .hamburger {
-  width: 30px;
-  height: 22px;
-  position: relative;
+  display: none;
+  font-size: 2rem;
+  color: #bbbbbb;
   cursor: pointer;
+  user-select: none;
+  opacity: 0; /* 初始透明 */
+  transform: translateX(-20px); /* 初始往左偏 */
+  transition: color 0.3s ease;
+  animation: slideInFromLeft 0.8s ease forwards;
+  animation-delay: 0.5s;
+}
+
+
+/* --- 手機版展開的選單 --- */
+.mobile-menu {
   display: none;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  user-select: none;
-}
-
-.hamburger span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: #bbbbbb;
-  border-radius: 2px;
-  transition: all 0.4s ease;
-}
-
-.hamburger.active span:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
-}
-
-/* --- 手機版選單 --- */
-.mobile-menu {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
   background: #fafafa;
-  flex-direction: column;
   width: 100%;
   border-top: 1px solid #eee;
-  transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
-  padding: 0 20px;
-}
-
-.mobile-menu.show {
-  padding: 12px 20px;
-  opacity: 1;
+  transition: max-height 0.5s ease
 }
 
 .mobile-menu a {
-  opacity: 0;
-  transform: translateX(-20px);
-  padding: 12px 0;
+  padding: 12px 20px;
   text-decoration: none;
   color: #bbbbbb;
+  font-family: 'Noto Sans TC', sans-serif;
   font-size: 1rem;
   border-bottom: 1px solid #eee;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: background 0.3s;
 }
 
-.mobile-menu.show a {
-  opacity: 1;
-  transform: translateX(0);
+.mobile-menu a:hover {
+  background: #eee;
 }
 
-/* --- 主體內容 --- */
+/* 展開時加上.show */
+.mobile-menu.show {
+  display: flex;
+  max-height: 500px; 
+}
+
+/* --- 作品區塊、側邊欄等等 (你原本的) --- */
 .container {
   flex: 1;
   display: flex;
-  min-height: 90vh;
 }
 
 .sidebar {
   width: 150px;
+  background: transparent;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  padding-top: 40px;
 }
 
 .sidebar button {
@@ -129,8 +130,10 @@ nav a:hover {
   padding: 8px;
   background: none;
   border: none;
+  text-align: center;
   font-size: 1rem;
-  color: #bbbbbb;
+  font-family: 'Noto Sans TC', sans-serif;
+  color: #333;
   cursor: pointer;
   transition: color 0.3s, transform 0.3s;
 }
@@ -143,28 +146,29 @@ nav a:hover {
 .sidebar button.active {
   color: #007acc;
   font-weight: bold;
+  border-bottom: 2px solid #007acc;
+  padding-bottom: 3px;
 }
 
 .works-grid {
   flex: 1;
-  padding: 40px;
+  padding: 60px 40px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
+  gap: 60px;
 }
 
 .work-item {
-  text-decoration: none;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
+  text-decoration: none;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.work-item.visible {
-  display: flex;
+.work-item.active {
   opacity: 1;
   transform: translateY(0);
 }
@@ -172,72 +176,129 @@ nav a:hover {
 .work-item img {
   width: 100%;
   height: auto;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .work-item:hover img {
-  transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: scale(1.05);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
 }
 
 .work-caption {
-  margin-top: 8px;
-  font-size: 0.75rem;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  font-family: 'Noto Sans TC', sans-serif;
   color: #999;
   text-align: center;
+  line-height: 1.5;
 }
 
 #load-more {
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  background: #005f99;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #007acc;
   color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin: 30px auto;
-  display: block;
   transition: background 0.3s, transform 0.3s;
 }
 
 #load-more:hover {
-  background: #004b80;
+  background: #005f99;
   transform: scale(1.05);
 }
 
 footer {
   text-align: center;
-  padding: 2rem;
-  font-size: 0.8rem;
+  padding: 40px 20px;
+  font-size: 0.9em;
   color: #aaa;
+  border-top: 1px solid #eee;
   background: #f9f9f9;
+  margin-top: auto;
 }
 
-/* --- 手機版設定 --- */
+main {
+  width: 100%;
+  max-width: 1000px;
+  margin: 60px auto 80px auto;
+  padding: 0 20px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* --- RWD 手機版設定 --- */
 @media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    flex-wrap: nowrap;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
   .container {
     flex-direction: column;
   }
+
   .sidebar {
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
+    justify-content: flex-start;
     width: 100%;
     padding: 20px 0;
+    position: relative;
+    background: #fafafa;
   }
+
   .sidebar button {
     flex: 0 0 auto;
-    margin: 2px 4px;
+    margin: 2px 2px;
+    padding: 3px 8px;
     font-size: 0.8rem;
+    white-space: nowrap;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
+
   .works-grid {
     grid-template-columns: 1fr;
   }
-  .menu {
-    display: none;
+}
+
+
+/* --- 動畫 --- */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
   }
-  .hamburger {
-    display: flex;
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
