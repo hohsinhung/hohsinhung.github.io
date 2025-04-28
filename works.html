@@ -28,8 +28,22 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+  <div class="logo">HOHSINHUNG 何信宏</div>
+<div class="menu">
+  <a href="biography.html">biography</a>
+  <a href="works.html">works</a>
+  <a href="contact.html">contact</a>
+</div>
+<div class="hamburger" id="hamburger">☰</div>
 
+}
+  
+<div class="mobile-menu" id="mobile-menu">
+  <a href="biography.html">biography</a>
+  <a href="works.html">works</a>
+  <a href="contact.html">contact</a>
+</div>
+  
 nav a {
   text-decoration: none;
   color: #bbbbbb;
@@ -457,6 +471,20 @@ function filterWorks(year) {
 document.addEventListener('DOMContentLoaded', () => {
   filterWorks('all');
 });
+
+    const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', function() {
+    mobileMenu.classList.toggle('show');
+    // 切換 ☰ 和 ✖
+    if (hamburger.innerText === '☰') {
+      hamburger.innerText = '✖';
+    } else {
+      hamburger.innerText = '☰';
+    }
+  });
+  
 </script>
 
 </body>
