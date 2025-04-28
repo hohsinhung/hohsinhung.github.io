@@ -95,8 +95,8 @@ nav a:hover {
   color: #bbbbbb;
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 1rem;
-  border-bottom: 1px solid #eee;
   transition: background 0.3s;
+  margin-bottom: 10px;
 }
 
 .mobile-menu a:hover {
