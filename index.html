@@ -5,131 +5,160 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HOart</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css"> <!-- 如果有自己的style.css可以留著 -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&family=Playfair+Display&display=swap" rel="stylesheet"> <!-- 字體連結 -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
 
   <style>
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
       margin: 0;
-      background: #fff;
+      padding: 0;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      position: relative;
-      flex-direction: column;
+      background: #fff;
       overflow-x: hidden;
       transition: opacity 0.6s ease;
     }
 
-    /* 主標題 */
-    .main-title {
-      font-family: 'Noto Sans TC', sans-serif;
-      font-weight: 400;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #333;
-      text-align: center;
-      letter-spacing: 4px;
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeInMove 1s forwards;
-      letter-spacing: 0.8em;
+    /* 導覽列 */
+    header {
+      background: #fafafa;
+      border-bottom: 1px solid #eee;
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    /* 副標題 */
-    .sub-title {
-      font-family: 'Noto Sans TC', sans-serif;
-      font-weight: 300;
-      font-size: 0.8rem;
-      color: #666;
-      margin-top: -10px;
-      margin-bottom: 40px;
-      text-align: center;
-      letter-spacing: 2px;
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeInMove 1s forwards;
-      animation-delay: 0.3s;
-      letter-spacing: 0.8em;
-    }
-
-    /* 淡入動畫 */
-    @keyframes fadeInMove {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* 黃色方框 */
-    .yellow-box {
-      width: 300px;
-      height: 300px;
-      background: #FFF176;
+    nav {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: box-shadow 0.3s ease;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInMove 1s forwards;
-      animation-delay: 0.6s; /* 方框最後出現 */
     }
 
-    .yellow-box:hover {
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    .logo a {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #333;
+      text-decoration: none;
     }
 
-.yellow-box a {
-  display: block;
-  margin: 20px 0;
-  font-size: 1.6rem;
-  font-family: Helvetica Neue;
-  font-weight: 500;
-  color: #bbbbbb;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-
-    .yellow-box a::after {
-      content: "";
-      display: block;
-      width: 0%;
-      height: 2px;
-      background: #007acc;
-      transition: width 0.3s ease;
-      margin: 8px auto 0 auto;
+    .menu a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #666;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s;
     }
 
-    .yellow-box a:hover {
+    .menu a:hover {
       color: #007acc;
-      transform: scale(1.05);
     }
 
-    .yellow-box a:hover::after {
-      width: 60%;
+    /* 幻燈片容器 */
+    .slideshow-container {
+      max-width: 900px;
+      margin: 60px auto 40px;
+      position: relative;
+    }
+
+    .mySlides {
+      display: none;
+      width: 100%;
+      position: relative;
+    }
+
+    .mySlides img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* 作品註解 */
+    .caption {
+      text-align: center;
+      color: #555;
+      font-size: 1rem;
+      margin-top: 15px;
+      height: 24px; /* 讓頁面穩定不跳動 */
+    }
+
+    /* 左右切換按鈕 */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: #333;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.3s;
+      user-select: none;
+      border-radius: 0 3px 3px 0;
+      background-color: rgba(255,255,255,0.7);
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.2);
+      color: white;
     }
 
     footer {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
       text-align: center;
+      padding: 20px;
       font-size: 0.8rem;
       color: #aaa;
+      margin-top: 20px;
     }
   </style>
 
   <script>
+    let slideIndex = 0;
+    const captions = [
+      "作品一：晨光・油彩 2024",
+      "作品二：靜謐之地・油彩 2023",
+      "作品三：流光・混合媒材 2025"
+    ];
+
+    function showSlides(n) {
+      const slides = document.getElementsByClassName("mySlides");
+      const captionText = document.getElementById("caption-text");
+
+      if (n === undefined) {
+        slideIndex++;
+      } else {
+        slideIndex = n;
+      }
+
+      if (slideIndex >= slides.length) {slideIndex = 0}
+      if (slideIndex < 0) {slideIndex = slides.length - 1}
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex].style.display = "block";
+
+      captionText.innerHTML = captions[slideIndex];
+
+      setTimeout(showSlides, 4000); // 自動每4秒切換
+    }
+
+    function plusSlides(n) {
+      clearTimeout(autoSlide);
+      showSlides(slideIndex + n);
+    }
+
+    let autoSlide;
+
     document.addEventListener('DOMContentLoaded', () => {
       document.body.style.opacity = '1';
+      autoSlide = setTimeout(showSlides, 0);
     });
 
     document.addEventListener('click', (e) => {
@@ -145,21 +174,45 @@
 
 </head>
 
-<body style="opacity: 0;"> <!-- 預設隱形，進來時慢慢出現 -->
+<body style="opacity: 0;">
 
-  <h1 class="main-title">何信宏</h1> <!-- ★ 主標題 -->
-  <p class="sub-title">HOHSINHUNG</p> <!-- ★ 副標題 -->
+<header>
+  <nav>
+    <div class="logo">
+      <a href="index.html"><strong>HO</strong></a>
+    </div>
+    <div class="menu">
+      <a href="biography.html">biography</a>
+      <a href="works.html">works</a>
+      <a href="contact.html">contact</a>
+    </div>
+  </nav>
+</header>
 
-  <div class="yellow-box">
-    <a href="biography.html">biography</a>
-    <a href="works.html">Works</a>
-    <a href="contact.html">Contact</a>
+<div class="slideshow-container">
+  <div class="mySlides">
+    <img src="2544.jpg" alt="作品1">
+  </div>
+  <div class="mySlides">
+    <img src="2909.jpg" alt="作品2">
+  </div>
+  <div class="mySlides">
+    <img src="2910.jpg" alt="作品3">
   </div>
 
-  <footer>
-    &copy; 2025 hohsinhung. All rights reserved.
-  </footer>
+  <!-- 左右箭頭 -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<!-- 作品註解 -->
+<div class="caption">
+  <span id="caption-text"></span>
+</div>
+
+<footer>
+  &copy; 2025 hohsinhung. All rights reserved.
+</footer>
 
 </body>
 </html>
-
