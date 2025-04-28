@@ -21,16 +21,14 @@
       <a href="contact.html">contact</a>
     </div>
     <div class="hamburger" id="hamburger">☰</div>
-
   </nav>
+
   <div class="mobile-menu" id="mobile-menu">
-  <a href="biography.html">biography</a>
-  <a href="works.html">works</a>
-  <a href="contact.html">contact</a>
-</div>
-
+    <a href="biography.html">biography</a>
+    <a href="works.html">works</a>
+    <a href="contact.html">contact</a>
+  </div>
 </header>
-
 
 <main>
   <h1>Exhibitions</h1>
@@ -52,25 +50,17 @@
       <li>2023年　〇〇アートコンペティション　入選</li>
     </ul>
   </section>
-
 </main>
 
 <footer>
   <p>© 2025 hohsinhung. All rights reserved.</p>
 </footer>
 
+<!-- 外部動畫fade.js -->
 <script src="fade.js"></script>
 
-</body>
-  <script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  hamburger.addEventListener('click', function() {
-    mobileMenu.classList.toggle('show');
-  });
-
- 
+<!-- 漢堡menu開關 -->
+<script>
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
 
@@ -83,8 +73,7 @@
       hamburger.innerText = '☰';
     }
   });
-
-
 </script>
 
+</body>
 </html>
