@@ -306,29 +306,6 @@ main {
   transform: scale(1.1);
 }
 
-/* --- 動畫區 --- */
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* --- 漢堡選單按鈕與展開選單設定 --- */
 .hamburger {
   display: none;
   font-size: 2rem;
@@ -446,4 +423,28 @@ main {
     flex-shrink: 0;
   }
 }
+/* --- 動畫區 --- */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
