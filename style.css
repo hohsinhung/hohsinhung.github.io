@@ -280,6 +280,96 @@ main {
     grid-template-columns: 1fr;
   }
 }
+/* --- 全站文字排版規則 --- */
+
+/* 頁面主體 */
+main {
+  font-family: 'Noto Sans TC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem; /* 基本字體大小 */
+  line-height: 1.8; /* 行距舒適 */
+  color: #333;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 60px auto 80px auto; /* 上下間距 */
+}
+
+/* 主標題（如果未來有用h1） */
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* 小標題 */
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* 更小的標題（未來如果要h3） */
+h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* 段落（如果有<p>標籤） */
+p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* 列表 */
+ul {
+  padding-left: 20px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 12px; /* 每個li的下方空隙 */
+  line-height: 1.7;
+}
+
+/* footer */
+footer {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #aaa;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* --- 手機版調整 (RWD) --- */
+@media (max-width: 768px) {
+  main {
+    padding: 0 15px;
+    margin: 40px auto 60px auto;
+    font-size: 0.95rem; /* 手機上稍微小一點 */
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  ul, p, li {
+    font-size: 0.95rem;
+  }
+}
 
 
 /* --- 動畫 --- */
