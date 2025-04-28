@@ -216,13 +216,16 @@ nav a:hover {
   .works-grid {
     grid-template-columns: 1fr;
   }
-    .hamburger {
+.hamburger {
   display: none;
   font-size: 2rem;
+  color: #bbbbbb;
   cursor: pointer;
   user-select: none;
 }
-
+.hamburger:hover {
+  color: #007acc; 
+  
 .mobile-menu {
   max-height: 0;
   overflow: hidden;
@@ -230,7 +233,9 @@ nav a:hover {
   background: #fafafa;
   width: 100%;
   border-top: 1px solid #eee;
-  transition: max-height 0.5s ease;
+  transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease
+  padding: 0 20px; 
+  opacity: 0;
 }
 
 .mobile-menu a {
@@ -248,7 +253,9 @@ nav a:hover {
 }
 
 .mobile-menu.show {
-  max-height: 500px; /* 調整展開最大高度 */
+  max-height: 500px;
+  padding: 12px 20px;
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
