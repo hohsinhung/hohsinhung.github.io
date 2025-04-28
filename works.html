@@ -230,14 +230,17 @@ nav a:hover {
 }
 
 .mobile-menu a {
+  opacity: 0; /* 初始透明 */
+  transform: translateX(-20px); /* 初始往左偏 */
   padding: 12px 20px;
   text-decoration: none;
   color: #bbbbbb;
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 1rem;
   border-bottom: 1px solid #eee;
-  transition: background 0.3s;
+  transition: all 0.5s ease;
 }
+
 
 .mobile-menu a:hover {
   background: #eee;
@@ -248,6 +251,15 @@ nav a:hover {
   padding: 12px 20px;
   opacity: 1;
 }
+    .mobile-menu.show a {
+  opacity: 1;
+  transform: translateX(0);
+}
+.mobile-menu.show a {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .hamburger {
   display: none;
   font-size: 2rem;
