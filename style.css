@@ -9,14 +9,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  hamburger.addEventListener('click', function() {
-    mobileMenu.classList.toggle('show');
-  });
-</script>
 
 /* --- 上方導覽列 --- */
 header {
@@ -33,16 +25,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  <div class="hamburger" id="hamburger">☰</div>
+
 }
-
-  <div class="mobile-menu" id="mobile-menu">
-  <a href="biography.html">biography</a>
-  <a href="works.html">works</a>
-  <a href="contact.html">contact</a>
-</div>
-
-
 
 nav div:first-child {
   font-family: 'Noto Sans TC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
