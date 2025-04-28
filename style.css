@@ -183,20 +183,21 @@ footer {
 /* --- 手機版RWD --- */
   @media (max-width: 768px) {
     nav {
-      flex-direction: column;
+      flex-direction: row;
+      justify-content:center;
       gap: 10px;
       padding: 10px;
       flex-wrap:nowrap;
     }
     
  .menu {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 15px;
   }
 
     nav a {
-      margin: 5px 10px;
+      margin: 5px 8px;
     }
 
     .container {
