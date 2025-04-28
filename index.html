@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOart</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css"> <!-- 如果有自己的style.css可以留著 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&family=Playfair+Display&display=swap" rel="stylesheet"> <!-- 字體連結 -->
 
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #fff;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      position: relative;
+      flex-direction: column;
+      overflow-x: hidden;
+      transition: opacity 0.6s ease;
+    }
+
+    /* 主標題 */
+    .main-title {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 400;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #333;
+      text-align: center;
+      letter-spacing: 4px;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInMove 1s forwards;
+      letter-spacing: 0.8em;
+    }
+
+    /* 副標題 */
+    .sub-title {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: -10px;
+      margin-bottom: 40px;
+      text-align: center;
+      letter-spacing: 2px;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInMove 1s forwards;
+      animation-delay: 0.3s;
+      letter-spacing: 0.8em;
+    }
+
+    /* 淡入動畫 */
+    @keyframes fadeInMove {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 黃色方框 */
+    .yellow-box {
+      width: 300px;
+      height: 300px;
+      background: #FFF176;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInMove 1s forwards;
+      animation-delay: 0.6s; /* 方框最後出現 */
+    }
+
+    .yellow-box:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+.yellow-box a {
+  display: block;
+  margin: 20px 0;
+  font-size: 1.6rem;
+  font-family: Helvetica Neue;
+  font-weight: 500;
+  color: #bbbbbb;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+    .yellow-box a::after {
+      content: "";
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: #007acc;
+      transition: width 0.3s ease;
+      margin: 8px auto 0 auto;
+    }
+
+    .yellow-box a:hover {
+      color: #007acc;
+      transform: scale(1.05);
+    }
+
+    .yellow-box a:hover::after {
+      width: 60%;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.style.opacity = '1';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A' && e.target.href) {
+        e.preventDefault();
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+          window.location = e.target.href;
+        }, 500);
+      }
+    });
+  </script>
+
+</head>
+
+<body style="opacity: 0;"> <!-- 預設隱形，進來時慢慢出現 -->
+
+  <h1 class="main-title">何信宏</h1> <!-- ★ 主標題 -->
+  <p class="sub-title">HOHSINHUNG</p> <!-- ★ 副標題 -->
+
+  <div class="yellow-box">
+    <a href="biography.html">biography</a>
+    <a href="works.html">Works</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <footer>
+    &copy; 2025 hohsinhung. All rights reserved.
+  </footer>
+
+</body>
+</html>
