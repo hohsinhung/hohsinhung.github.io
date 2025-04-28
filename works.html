@@ -230,7 +230,7 @@ nav a:hover {
   background: #fafafa;
   width: 100%;
   border-top: 1px solid #eee;
-  transition: max-height 0.5s ease; /* ✅ 漢堡展開動畫 */
+  transition: max-height 0.5s ease;
 }
 
 .mobile-menu a {
@@ -248,7 +248,7 @@ nav a:hover {
 }
 
 .mobile-menu.show {
-  max-height: 500px; /* 展開高度設定，夠大就行 */
+  max-height: 500px; /* 調整展開最大高度 */
 }
 
 @media (max-width: 768px) {
@@ -260,9 +260,9 @@ nav a:hover {
   }
 }
 
-}
 
 </style>
+ 
 
 </head>
 
@@ -278,8 +278,15 @@ nav a:hover {
       <a href="works.html">works</a>
       <a href="contact.html">contact</a>
     </div>
+    <div class="hamburger" id="hamburger">☰</div>
   </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="biography.html">biography</a>
+    <a href="works.html">works</a>
+    <a href="contact.html">contact</a>
+  </div>
 </header>
+
 
 <div class="container">
 
