@@ -220,14 +220,15 @@ nav a:hover {
 .mobile-menu {
   max-height: 0;
   overflow: hidden;
-  flex-direction: column;
+  opacity: 0;
   background: #fafafa;
+  flex-direction: column;
   width: 100%;
   border-top: 1px solid #eee;
-  transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
-  padding: 0 20px; 
-  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+  padding: 0 20px;
 }
+
 
 .mobile-menu a {
   opacity: 0; /* 初始透明 */
@@ -252,23 +253,50 @@ nav a:hover {
   padding: 12px 20px;
   opacity: 1;
 } 
+.mobile-menu a {
+  opacity: 0;
+  transform: translateX(-20px);
+  padding: 12px 0;
+  text-decoration: none;
+  color: #bbbbbb;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1rem;
+  border-bottom: 1px solid #eee;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 .mobile-menu.show a {
   opacity: 1;
   transform: translateX(0);
 }
 
-
 .hamburger {
-  display: none;
-  font-size: 2rem;
-  color: #bbbbbb;
+  width: 30px;
+  height: 22px;
+  position: relative;
   cursor: pointer;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   user-select: none;
-  opacity: 0; /* 初始透明 */
-  transform: translateX(-20px); /* 初始往左偏 */
-  transition: color 0.3s ease, transform 0.3s ease;
-  animation: slideInFromLeft 0.8s ease forwards;
-  animation-delay: 0.5s;
+}
+    .hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #bbbbbb;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+    /* 點擊後變X */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 }
@@ -291,7 +319,7 @@ nav a:hover {
     display: none;
   }
   .hamburger {
-    display: block;
+    display: flex;
   }
 }
    .mobile-menu.show a:nth-child(1) {
@@ -325,7 +353,11 @@ nav a:hover {
       <a href="works.html">works</a>
       <a href="contact.html">contact</a>
     </div>
-    <div class="hamburger" id="hamburger">☰</div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </nav>
   <div class="mobile-menu" id="mobile-menu">
     <a href="biography.html">biography</a>
@@ -333,6 +365,7 @@ nav a:hover {
     <a href="contact.html">contact</a>
   </div>
 </header>
+
 
 
 <div class="container">
@@ -522,19 +555,29 @@ document.addEventListener('DOMContentLoaded', () => {
   filterWorks('all');
 });
 
-    const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
 
-  hamburger.addEventListener('click', function() {
-    mobileMenu.classList.toggle('show');
-    hamburger.classList.toggle('active');
-    // 切換 ☰ 和 ✖
-    if (hamburger.innerText === '☰') {
-      hamburger.innerText = '✖';
-    } else {
-      hamburger.innerText = '☰';
-    }
-  });
+hamburger.addEventListener('click', function() {
+  const isOpen = mobileMenu.classList.contains('show');
+  
+  if (!isOpen) {
+    mobileMenu.classList.add('show');
+    hamburger.classList.add('active');
+    
+    // 讓max-height自動根據內容
+    mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+  } else {
+    mobileMenu.classList.remove('show');
+    hamburger.classList.remove('active');
+    
+    // 關閉時再收回來
+    mobileMenu.style.maxHeight = "0";
+  }
+});
+</script>
+
 
 </script>
 
