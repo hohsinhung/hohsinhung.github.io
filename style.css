@@ -68,8 +68,10 @@ nav a:hover {
 .hamburger {
   display: none;
   font-size: 2rem;
+  color: #bbbbbb;
   cursor: pointer;
   user-select: none;
+  transition: color 0.3s ease;
 }
 
 /* --- 手機版展開的選單 --- */
