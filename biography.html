@@ -69,6 +69,22 @@
   hamburger.addEventListener('click', function() {
     mobileMenu.classList.toggle('show');
   });
+
+ 
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', function() {
+    mobileMenu.classList.toggle('show');
+    // 切換 ☰ 和 ✖
+    if (hamburger.innerText === '☰') {
+      hamburger.innerText = '✖';
+    } else {
+      hamburger.innerText = '☰';
+    }
+  });
+
+
 </script>
 
 </html>
