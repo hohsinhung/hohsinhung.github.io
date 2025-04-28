@@ -191,79 +191,52 @@ nav a:hover {
   }
 
   @media (max-width: 768px) {
-    nav {
-      flex-direction: column;
-      gap: 10px;
-      padding: 10px;
-    }
-    
- .menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    flex-wrap: nowrap;
   }
 
-    nav a {
-      margin: 5px 10px;
-    }
+  .menu {
+    display: none;
+  }
 
-    .container {
-      flex-direction: column;
-    }
+  .hamburger {
+    display: block;
+  }
 
-    .sidebar {
-      flex-direction: row;
-      flex-wrap: nowrap;
-      overflow-x:auto;
-      justify-content:flex-start;
-      width: 100%;
-      padding: 20px 0;
-    }
-    .sidebar button {
-     flex: 0 0 auto;
-     margin: 2px 2px;
-     padding: 3px 8px;
-     font-size: 0.8rem;
-     white-space: nowrap;
-     max-width: 60px;
-     overflow: hidden;
-     text-overflow: ellipsis;
-    }
+  .container {
+    flex-direction: column;
+  }
 
-    .sidebar {
+  .sidebar {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 20px 0;
     position: relative;
     background: #fafafa;
-}
+  }
 
-.sidebar::before,
-.sidebar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 30px;
-  height: 100%;
-  z-index: 10;
-  pointer-events: none;
-}
+  .sidebar button {
+    flex: 0 0 auto;
+    margin: 2px 2px;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-.sidebar::before {
-  left: 0;
-  background: linear-gradient(to right, #fafafa 0%, rgba(250, 250, 250, 0) 100%);
-}
-
-.sidebar::after {
-  right: 0;
-  background: linear-gradient(to left, #fafafa 0%, rgba(250, 250, 250, 0) 100%);
-}
-    .works-grid {
-      grid-template-columns: 1fr;
-    }
-    
-   .logo {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #333;
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 </style>
