@@ -275,14 +275,7 @@ main {
     grid-template-columns: 1fr;
   }
 }
-.hamburger {
-  display: none;
-  font-size: 2rem;
-  color: #bbbbbb;
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.3s ease;
-}
+
 
 /* --- 動畫 --- */
 @keyframes fadeUp {
