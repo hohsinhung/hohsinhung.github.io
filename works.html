@@ -254,6 +254,13 @@ nav a:hover {
   color: #bbbbbb;
   cursor: pointer;
   user-select: none;
+  opacity: 0; /* 初始透明 */
+  transform: translateX(-20px); /* 初始往左偏 */
+  transition: color 0.3s ease;
+  animation: slideInFromLeft 0.8s ease forwards;
+  animation-delay: 0.5s;
+}
+
 }
 .hamburger:hover {
    
@@ -495,7 +502,17 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburger.innerText = '☰';
     }
   });
-  
+  @keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 </script>
 
 </body>
