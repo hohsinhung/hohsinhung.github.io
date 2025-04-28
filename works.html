@@ -241,7 +241,16 @@ nav a:hover {
 .mobile-menu a:hover {
   background: #eee;
 }
-
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  width: 100%;
+  border-top: 1px solid #eee;
+  transition: max-height 0.5s ease;
+}
 .mobile-menu.show {
   max-height: 500px; /* 展開高度設定，夠大就行 */
 }
@@ -485,18 +494,18 @@ document.addEventListener('DOMContentLoaded', () => {
   filterWorks('all');
 });
 
-    const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
 
-  hamburger.addEventListener('click', function() {
-    mobileMenu.classList.toggle('show');
-    // 切換 ☰ 和 ✖
-    if (hamburger.innerText === '☰') {
-      hamburger.innerText = '✖';
-    } else {
-      hamburger.innerText = '☰';
-    }
-  });
+hamburger.addEventListener('click', function() {
+  mobileMenu.classList.toggle('show');
+  if (hamburger.innerText === '☰') {
+    hamburger.innerText = '✖';
+  } else {
+    hamburger.innerText = '☰';
+  }
+});
+
   
 </script>
 
