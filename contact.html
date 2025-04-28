@@ -7,24 +7,20 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
 </head>
-
-<body style="opacity: 0; overflow: hidden;">
+<body>
 
 <header>
   <nav>
     <div class="logo">
       <a href="index.html"><strong>HOHSINHUNG 何信宏</strong></a>
     </div>
-
     <div class="menu">
       <a href="biography.html">biography</a>
       <a href="works.html">works</a>
       <a href="contact.html">contact</a>
     </div>
-
     <div class="hamburger" id="hamburger">☰</div>
   </nav>
-
   <div class="mobile-menu" id="mobile-menu">
     <a href="biography.html">biography</a>
     <a href="works.html">works</a>
@@ -32,12 +28,12 @@
   </div>
 </header>
 
-<main>
+<main style="padding: 60px 20px; max-width: 800px; margin: 0 auto;">
   <h1>聯絡方式</h1>
   <p>如果您對我的作品有興趣，或是有合作提案，歡迎透過以下方式聯繫我：</p>
-  <ul>
+  <ul style="margin-top: 20px;">
     <li>Email：hohsinhung@example.com</li>
-    <li>Instagram：@hohsinhung</li>
+    <li>Instagram：<a href="https://instagram.com/hohsinhung" target="_blank">@hohsinhung</a></li>
   </ul>
 </main>
 
@@ -45,21 +41,19 @@
   <p>© 2025 hohsinhung. All rights reserved.</p>
 </footer>
 
-<!-- JS程式放這 -->
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
 
-  hamburger.addEventListener('click', function() {
-    mobileMenu.classList.toggle('show');
-    if (hamburger.innerText === '☰') {
-      hamburger.innerText = '✖';
-    } else {
-      hamburger.innerText = '☰';
-    }
-  });
+hamburger.addEventListener('click', function() {
+  mobileMenu.classList.toggle('show');
+  if (hamburger.innerText === '☰') {
+    hamburger.innerText = '✖';
+  } else {
+    hamburger.innerText = '☰';
+  }
+});
 </script>
 
 </body>
-  
 </html>
