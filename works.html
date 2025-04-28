@@ -164,16 +164,6 @@ nav a:hover {
       transform: translateY(0);
     }
   }
-@keyframes slideInFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
   .work-item.animate {
     animation: fadeUpBounce 0.8s ease forwards;
@@ -273,8 +263,18 @@ nav a:hover {
 
 }
 .hamburger:hover {
-   
   }
+
+   @keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
     
 @media (max-width: 768px) {
   .menu {
