@@ -19,7 +19,23 @@
       <a href="works.html">works</a>
       <a href="contact.html">contact</a>
     </div>
+    
+    <div class="logo">HOHSINHUNG 何信宏</div>
+<div class="menu">
+  <a href="biography.html">biography</a>
+  <a href="works.html">works</a>
+  <a href="contact.html">contact</a>
+</div>
+<div class="hamburger" id="hamburger">☰</div>
+
   </nav>
+  
+  <div class="mobile-menu" id="mobile-menu">
+  <a href="biography.html">biography</a>
+  <a href="works.html">works</a>
+  <a href="contact.html">contact</a>
+</div>
+
 </header>
 
 
@@ -36,7 +52,22 @@
   <p>© 2025 hohsinhung. All rights reserved.</p>
 </footer>
   
-<script src="fade.js"></script>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', function() {
+    mobileMenu.classList.toggle('show');
+    // 切換 ☰ 和 ✖
+    if (hamburger.innerText === '☰') {
+      hamburger.innerText = '✖';
+    } else {
+      hamburger.innerText = '☰';
+    }
+  });
+</script>
+
+  
 
 <body>
 
