@@ -238,7 +238,7 @@ nav a:hover {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 1rem;
   border-bottom: 1px solid #eee;
-  transition: all 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 
@@ -250,15 +250,12 @@ nav a:hover {
   max-height: 500px;
   padding: 12px 20px;
   opacity: 1;
-}
-    .mobile-menu.show a {
-  opacity: 1;
-  transform: translateX(0);
-}
+} 
 .mobile-menu.show a {
   opacity: 1;
   transform: translateX(0);
 }
+
 
 .hamburger {
   display: none;
@@ -296,6 +293,17 @@ nav a:hover {
     display: block;
   }
 }
+   .mobile-menu.show a:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.mobile-menu.show a:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.mobile-menu.show a:nth-child(3) {
+  transition-delay: 0.3s;
+}
+/* 如果還有第4個，第5個，繼續加上去 */
+
 
 
 </style>
