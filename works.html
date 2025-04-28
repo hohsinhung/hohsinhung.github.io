@@ -164,6 +164,16 @@ nav a:hover {
       transform: translateY(0);
     }
   }
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
   .work-item.animate {
     animation: fadeUpBounce 0.8s ease forwards;
@@ -256,7 +266,7 @@ nav a:hover {
   user-select: none;
   opacity: 0; /* 初始透明 */
   transform: translateX(-20px); /* 初始往左偏 */
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
   animation: slideInFromLeft 0.8s ease forwards;
   animation-delay: 0.5s;
 }
@@ -277,6 +287,7 @@ nav a:hover {
 
 
 </style>
+  
  
 
 </head>
@@ -495,6 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   hamburger.addEventListener('click', function() {
     mobileMenu.classList.toggle('show');
+    hamburger.classList.toggle('active');
     // 切換 ☰ 和 ✖
     if (hamburger.innerText === '☰') {
       hamburger.innerText = '✖';
