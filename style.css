@@ -378,6 +378,14 @@ p {
   object-fit: cover;
 }
 
+.image-caption {
+  font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+  font-size: 0.75rem;
+  color: #999;
+  text-align: center;
+  margin-top: 8px;
+  line-height: 1.5;
+}
 
 /* --- 動畫 --- */
 @keyframes fadeUp {
