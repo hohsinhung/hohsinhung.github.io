@@ -234,6 +234,11 @@ main {
     flex-wrap: nowrap;
     .image-area {
     margin-top: 40px;
+    order: -1;
+    .text-area {
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
   }
   }
 
