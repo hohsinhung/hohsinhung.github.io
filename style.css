@@ -1,6 +1,5 @@
-/* --- 基本設定 --- */
 body {
-  font-family: 'Noto Sans TC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Shippori Mincho', 'Noto Sans JP', 'Hiragino Mincho ProN', serif;
   margin: 0;
   padding: 0;
   background: #fafafa;
@@ -28,7 +27,7 @@ nav {
 }
 
 .logo {
-  font-family: 'Noto Sans TC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
   font-size: 1.2rem;
   font-weight: bold;
   color: #333;
@@ -52,7 +51,7 @@ nav a {
   text-decoration: none;
   color: #bbbbbb;
   margin-left: 30px;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 1rem;
   letter-spacing: 0.1em;
   font-weight: 400;
@@ -71,13 +70,12 @@ nav a:hover {
   color: #bbbbbb;
   cursor: pointer;
   user-select: none;
-  opacity: 0; /* 初始透明 */
-  transform: translateX(-20px); /* 初始往左偏 */
+  opacity: 0;
+  transform: translateX(-20px);
   transition: color 0.3s ease;
   animation: slideInFromLeft 0.8s ease forwards;
   animation-delay: 0.5s;
 }
-
 
 /* --- 手機版展開的選單 --- */
 .mobile-menu {
@@ -86,14 +84,14 @@ nav a:hover {
   background: #fafafa;
   width: 100%;
   border-top: 1px solid #eee;
-  transition: max-height 0.5s ease
+  transition: max-height 0.5s ease;
 }
 
 .mobile-menu a {
   padding: 12px 20px;
   text-decoration: none;
   color: #bbbbbb;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 1rem;
   transition: background 0.3s;
   margin-bottom: 10px;
@@ -103,13 +101,12 @@ nav a:hover {
   background: #eee;
 }
 
-/* 展開時加上.show */
 .mobile-menu.show {
   display: flex;
-  max-height: 500px; 
+  max-height: 500px;
 }
 
-/* --- 作品區塊、側邊欄等等 (你原本的) --- */
+/* --- 作品區塊、側邊欄 --- */
 .container {
   flex: 1;
   display: flex;
@@ -132,7 +129,7 @@ nav a:hover {
   border: none;
   text-align: center;
   font-size: 1rem;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   color: #333;
   cursor: pointer;
   transition: color 0.3s, transform 0.3s;
@@ -189,12 +186,13 @@ nav a:hover {
 .work-caption {
   margin-top: 12px;
   font-size: 0.8rem;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   color: #999;
   text-align: center;
   line-height: 1.5;
 }
 
+/* --- Load More 按鈕 --- */
 #load-more {
   padding: 10px 20px;
   font-size: 1rem;
@@ -211,27 +209,76 @@ nav a:hover {
   transform: scale(1.05);
 }
 
+/* --- Footer --- */
 footer {
   text-align: center;
   padding: 40px 20px;
   font-size: 0.9em;
   color: #aaa;
-  border-top: 1px solid #eee;
   background: #f9f9f9;
+  border-top: 1px solid #eee;
   margin-top: auto;
 }
 
+/* --- Main Content 文字排版 --- */
 main {
   width: 100%;
   max-width: 1000px;
   margin: 60px auto 80px auto;
   padding: 0 20px;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
   font-size: 1rem;
   line-height: 1.8;
 }
 
-/* --- RWD 手機版設定 --- */
+h1, h2, h3, p, ul, li {
+  font-family: inherit;
+}
+
+/* 主標題 h1 */
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* 小標題 h2 */
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* 更小標題 h3 */
+h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* 段落 */
+p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* 列表 */
+ul {
+  padding-left: 20px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+/* --- 手機版調整 (RWD) --- */
 @media (max-width: 768px) {
   nav {
     flex-direction: row;
@@ -261,116 +308,35 @@ main {
     justify-content: flex-start;
     width: 100%;
     padding: 20px 0;
-    position: relative;
     background: #fafafa;
   }
 
   .sidebar button {
     flex: 0 0 auto;
-    margin: 2px 2px;
+    margin: 2px;
     padding: 3px 8px;
     font-size: 0.8rem;
-    white-space: nowrap;
-    max-width: 60px;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .works-grid {
     grid-template-columns: 1fr;
   }
-}
-/* --- 全站文字排版規則 --- */
 
-/* 頁面主體 */
-main {
-  font-family: 'Noto Sans TC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1rem; /* 基本字體大小 */
-  line-height: 1.8; /* 行距舒適 */
-  color: #333;
-  padding: 0 20px;
-  width: 100%;
-  max-width: 1000px;
-  margin: 60px auto 80px auto; /* 上下間距 */
-}
-
-/* 主標題（如果未來有用h1） */
-h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-}
-
-/* 小標題 */
-h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  color: #222;
-}
-
-/* 更小的標題（未來如果要h3） */
-h3 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 30px;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-/* 段落（如果有<p>標籤） */
-p {
-  font-size: 1rem;
-  margin-bottom: 20px;
-}
-
-/* 列表 */
-ul {
-  padding-left: 20px;
-  font-size: 1rem;
-  margin-bottom: 20px;
-}
-
-li {
-  margin-bottom: 12px; /* 每個li的下方空隙 */
-  line-height: 1.7;
-}
-
-/* footer */
-footer {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #aaa;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-/* --- 手機版調整 (RWD) --- */
-@media (max-width: 768px) {
   main {
     padding: 0 15px;
     margin: 40px auto 60px auto;
-    font-size: 0.95rem; /* 手機上稍微小一點 */
-  }
-
-  h1 {
-    font-size: 1rem;
-  }
-
-  h2 {
-    font-size: 1rem;
-  }
-
-  h3 {
-    font-size: 1.1rem;
-  }
-
-  ul, p, li {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
     font-size: 0.95rem;
   }
-}
 
+  h1, h2, h3, ul, p, li {
+    font-family: inherit;
+  }
+
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.4rem; }
+  h3 { font-size: 1.2rem; }
+}
 
 /* --- 動畫 --- */
 @keyframes fadeUp {
@@ -382,13 +348,8 @@ footer {
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
 @keyframes slideInFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
