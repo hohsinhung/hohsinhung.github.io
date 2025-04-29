@@ -237,9 +237,14 @@ nav a:hover {
     flex-wrap: nowrap;
   }
 
-  .menu {
-    display: none;
-  }
+.menu {
+  display: flex;
+  align-items: center;
+  opacity: 1; /* 直接一開始顯示 */
+  transform: translateY(0);
+  animation: none; /* 電腦版不要動畫，保證穩定 */
+}
+
 
   .hamburger {
     display: block;
