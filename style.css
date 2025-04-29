@@ -371,6 +371,11 @@ p {
   border-color: #007acc;
 }
 
+.lang-btn.active {
+  background: #007acc;
+  color: #fff;
+  border-color: #007acc;
+}
 
 /* --- 動畫 --- */
 @keyframes fadeUp {
