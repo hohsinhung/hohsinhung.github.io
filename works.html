@@ -131,6 +131,15 @@ nav a:hover {
     text-align: left;
     line-height: 1.6;
   }
+       .work-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .work-content img {
+    width: 100%;
+    height: auto;
+  }
 
   #load-more {
     padding: 8px 16px;
@@ -230,6 +239,15 @@ nav a:hover {
     text-align: left; /* 保持靠左 */
     line-height: 1.6;
   }
+    .work-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .work-content img {
+    width: 100%;
+    height: auto;
+  }
 }
   
 .mobile-menu {
@@ -308,24 +326,9 @@ nav a:hover {
   .hamburger {
     display: block;
   }
-}
-   .mobile-menu.show a:nth-child(1) {
-  transition-delay: 0.1s;
-}
-.mobile-menu.show a:nth-child(2) {
-  transition-delay: 0.2s;
-}
-.mobile-menu.show a:nth-child(3) {
-  transition-delay: 0.3s;
-}
-/* 如果還有第4個，第5個，繼續加上去 */
-
-
 
 </style>
   
- 
-
 </head>
 
 <body>
@@ -362,101 +365,136 @@ nav a:hover {
 
   <div class="main-content" style="flex:1; display:flex; flex-direction:column;">
 
-    <section class="works-grid">
-      <!-- 👇這裡放作品（第二部分會接續） -->
-      <!-- 作品開始 -->
-      <a href="images/2909.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形I">
-        <img src="images/2909.jpg" alt="夜の形I">
-        <p class="work-caption">夜の形I / the scene at night-I<br>194×130.3cm oil on canvas.</p>
-      </a>
+   <section class="works-grid">
 
-      <a href="images/2910.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形II">
-        <img src="images/2910.jpg" alt="夜の形II">
-        <p class="work-caption">夜の形II / the scene at night-II<br>194×130.3cm oil on canvas.</p>
-      </a>
+  <a href="images/2909.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形I">
+    <div class="work-content">
+      <img src="images/2909.jpg" alt="夜の形I">
+      <p class="work-caption">夜の形I / the scene at night-I<br>194×130.3cm oil on canvas.</p>
+    </div>
+  </a>
 
-      <a href="images/2544.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="昼寝">
-        <img src="images/2544.jpg" alt="昼寝">
-        <p class="work-caption">昼寝 / nap<br>116.7×91cm oil on canvas.</p>
-      </a>
+  <a href="images/2910.jpg" class="work-item year-2025" data-lightbox="artworks" data-title="夜の形II">
+    <div class="work-content">
+      <img src="images/2910.jpg" alt="夜の形II">
+      <p class="work-caption">夜の形II / the scene at night-II<br>194×130.3cm oil on canvas.</p>
+    </div>
+  </a>
 
-      <a href="images/2911.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="夜の進行">
-        <img src="images/2911.jpg" alt="夜の進行">
-        <p class="work-caption">夜の進行 / progress of the night<br>145×112cm oil on canvas.</p>
-      </a>
+  <a href="images/2544.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="昼寝">
+    <div class="work-content">
+      <img src="images/2544.jpg" alt="昼寝">
+      <p class="work-caption">昼寝 / nap<br>116.7×91cm oil on canvas.</p>
+    </div>
+  </a>
 
-      <a href="images/2912.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="二重奏">
-        <img src="images/2912.jpg" alt="二重奏">
-        <p class="work-caption">二重奏 / duet<br>145×112cm oil on canvas.</p>
-      </a>
+  <a href="images/2911.jpg" class="work-item year-2024" data-lightbox="artworks" data-title="夜の進行">
+    <div class="work-content">
+      <img src="images/2911.jpg" alt="夜の進行">
+      <p class="work-caption">夜の進行 / progress of the night<br>145×112cm oil on canvas.</p>
+    </div>
+  </a>
 
-      <a href="images/2913.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="二分の一">
-        <img src="images/2913.jpg" alt="二分の一">
-        <p class="work-caption">二分の一 / one-half<br>80.3×80.3cm oil on canvas.</p>
-      </a>
+  <a href="images/2912.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="二重奏">
+    <div class="work-content">
+      <img src="images/2912.jpg" alt="二重奏">
+      <p class="work-caption">二重奏 / duet<br>145×112cm oil on canvas.</p>
+    </div>
+  </a>
 
-      <a href="images/2914.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="動物園">
-        <img src="images/2914.jpg" alt="動物園">
-        <p class="work-caption">動物園 / zoo<br>80.3×80.3cm oil on canvas.</p>
-      </a>
+  <a href="images/2913.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="二分の一">
+    <div class="work-content">
+      <img src="images/2913.jpg" alt="二分の一">
+      <p class="work-caption">二分の一 / one-half<br>80.3×80.3cm oil on canvas.</p>
+    </div>
+  </a>
 
-       <a href="images/2924.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="ブラインドのある風景">
-        <img src="images/2924.jpg" alt="ブラインドのある風景">
-        <p class="work-caption">ブラインドのある風景 / landscape with blinds<br>91×72.7cm oil on canvas.</p>
-      </a>
+  <a href="images/2914.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="動物園">
+    <div class="work-content">
+      <img src="images/2914.jpg" alt="動物園">
+      <p class="work-caption">動物園 / zoo<br>80.3×80.3cm oil on canvas.</p>
+    </div>
+  </a>
 
-      <a href="images/2915.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="光への注視">
-        <img src="images/2915.jpg" alt="光への注視">
-        <p class="work-caption">光への注視 / gaze into the light<br>145.5×112cm oil on canvas.</p>
-      </a>
+  <a href="images/2924.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="ブラインドのある風景">
+    <div class="work-content">
+      <img src="images/2924.jpg" alt="ブラインドのある風景">
+      <p class="work-caption">ブラインドのある風景 / landscape with blinds<br>91×72.7cm oil on canvas.</p>
+    </div>
+  </a>
 
-            <a href="images/2916.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="ガラス越しの眺め">
-        <img src="images/2916.jpg" alt="ガラス越しの眺め">
-        <p class="work-caption">ガラス越しの眺め / view through the glass<br>53×45.5cm oil on canvas.</p>
-      </a>
+  <a href="images/2915.jpg" class="work-item year-2023" data-lightbox="artworks" data-title="光への注視">
+    <div class="work-content">
+      <img src="images/2915.jpg" alt="光への注視">
+      <p class="work-caption">光への注視 / gaze into the light<br>145.5×112cm oil on canvas.</p>
+    </div>
+  </a>
 
-            <a href="images/2917.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="洗面所">
-        <img src="images/2917.jpg" alt="洗面所">
-        <p class="work-caption">洗面所 / washbasin<br>60.6×50cm oil on canvas.</p>
-      </a>
+  <a href="images/2916.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="ガラス越しの眺め">
+    <div class="work-content">
+      <img src="images/2916.jpg" alt="ガラス越しの眺め">
+      <p class="work-caption">ガラス越しの眺め / view through the glass<br>53×45.5cm oil on canvas.</p>
+    </div>
+  </a>
 
-            <a href="images/2918.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="月光">
-        <img src="images/2918.jpg" alt="月光">
-        <p class="work-caption">月光 / moonlight<br>45.5×38cm oil on canvas.</p>
-      </a>
+  <a href="images/2917.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="洗面所">
+    <div class="work-content">
+      <img src="images/2917.jpg" alt="洗面所">
+      <p class="work-caption">洗面所 / washbasin<br>60.6×50cm oil on canvas.</p>
+    </div>
+  </a>
 
-            <a href="images/2919.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="微かな光">
-        <img src="images/2919.jpg" alt="微かな光">
-        <p class="work-caption">微かな光 / faint light<br>65.5×50cm oil on canvas.</p>
-      </a>
+  <a href="images/2918.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="月光">
+    <div class="work-content">
+      <img src="images/2918.jpg" alt="月光">
+      <p class="work-caption">月光 / moonlight<br>45.5×38cm oil on canvas.</p>
+    </div>
+  </a>
 
-            <a href="images/2921.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="洋服">
-        <img src="images/2921.jpg" alt="洋服">
-        <p class="work-caption">洋服 / clothes<br>116.7×72.7cm oil on canvas.</p>
-      </a>
+  <a href="images/2919.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="微かな光">
+    <div class="work-content">
+      <img src="images/2919.jpg" alt="微かな光">
+      <p class="work-caption">微かな光 / faint light<br>65.5×50cm oil on canvas.</p>
+    </div>
+  </a>
 
-            <a href="images/2922.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="バスタブ">
-        <img src="images/2922.jpg" alt="バスタブ">
-        <p class="work-caption">バスタブ / bathtub<br>100×65.2cm oil on canvas.</p>
-      </a>
+  <a href="images/2921.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="洋服">
+    <div class="work-content">
+      <img src="images/2921.jpg" alt="洋服">
+      <p class="work-caption">洋服 / clothes<br>116.7×72.7cm oil on canvas.</p>
+    </div>
+  </a>
 
-         <a href="images/2920.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="変容">
-        <img src="images/2920.jpg" alt="変容">
-        <p class="work-caption">変容 / change<br>162×162cm oil on canvas.</p>
-      </a>
-      
-         <a href="images/2923.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="彼岸">
-        <img src="images/2923.jpg" alt="彼岸">
-        <p class="work-caption">彼岸 / other side<br>53×33.3cm oil on canvas.</p>
-      </a>
+  <a href="images/2922.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="バスタブ">
+    <div class="work-content">
+      <img src="images/2922.jpg" alt="バスタブ">
+      <p class="work-caption">バスタブ / bathtub<br>100×65.2cm oil on canvas.</p>
+    </div>
+  </a>
 
-       <a href="images/2925.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="12°">
-        <img src="images/2925.jpg" alt="12°">
-        <p class="work-caption">12°<br>91×116.7cm oil on canvas.</p>
-      </a>
-      
-      <!-- 作品結束 -->
-    </section>
+  <a href="images/2920.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="変容">
+    <div class="work-content">
+      <img src="images/2920.jpg" alt="変容">
+      <p class="work-caption">変容 / change<br>162×162cm oil on canvas.</p>
+    </div>
+  </a>
+
+  <a href="images/2923.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="彼岸">
+    <div class="work-content">
+      <img src="images/2923.jpg" alt="彼岸">
+      <p class="work-caption">彼岸 / other side<br>53×33.3cm oil on canvas.</p>
+    </div>
+  </a>
+
+  <a href="images/2925.jpg" class="work-item year-2022" data-lightbox="artworks" data-title="12°">
+    <div class="work-content">
+      <img src="images/2925.jpg" alt="12°">
+      <p class="work-caption">12°<br>91×116.7cm oil on canvas.</p>
+    </div>
+  </a>
+
+</section>
+
 
     <!-- Load More按鈕獨立 -->
     <div style="text-align:center; margin:30px 0;">
