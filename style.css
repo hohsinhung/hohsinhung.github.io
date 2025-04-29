@@ -1,7 +1,6 @@
-/* --- 基本設定 --- */
 body {
   font-family: 'Shippori Mincho', 'Noto Sans JP', 'Hiragino Mincho ProN', serif;
-  font-size: 16px; /* 改成標準px，內文用rem統一 */
+  font-size: 1.6rem;
   margin: 0;
   padding: 0;
   background: #fafafa;
@@ -10,6 +9,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
 
 /* --- 上方導覽列 --- */
 header {
@@ -86,8 +86,6 @@ nav a:hover {
   background: #fafafa;
   width: 100%;
   border-top: 1px solid #eee;
-  overflow: hidden;
-  max-height: 0;
   transition: max-height 0.5s ease;
 }
 
@@ -151,7 +149,6 @@ nav a:hover {
   padding-bottom: 3px;
 }
 
-/* --- 作品縮圖區塊 --- */
 .works-grid {
   flex: 1;
   padding: 60px 40px;
@@ -179,13 +176,13 @@ nav a:hover {
   width: 100%;
   height: auto;
   border-radius: 0;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .work-item:hover img {
   transform: scale(1.05);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
 }
 
 .work-caption {
@@ -218,7 +215,7 @@ nav a:hover {
 footer {
   text-align: center;
   padding: 40px 20px;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   color: #aaa;
   background: #f9f9f9;
   border-top: 1px solid #eee;
@@ -232,7 +229,7 @@ main {
   margin: 60px auto 80px auto;
   padding: 0 20px;
   font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.7;
   color: #555;
 }
@@ -244,11 +241,11 @@ h1, h2, h3, p, ul, li {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2rem; /* 主標題比較大 */
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* 小一點 */
 }
 
 h3 {
@@ -256,8 +253,9 @@ h3 {
 }
 
 p, ul, li {
-  font-size: 1rem;
+  font-size: 1rem; /* 正常內文大小 */
 }
+
 
 /* --- 手機版調整 (RWD) --- */
 @media (max-width: 768px) {
@@ -309,9 +307,9 @@ p, ul, li {
     font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
     font-size: 0.9rem;
   }
-}
 
-/* --- 動畫效果 --- */
+
+/* --- 動畫 --- */
 @keyframes fadeUp {
   0% { opacity: 0; transform: translateY(-10px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -325,4 +323,4 @@ p, ul, li {
 @keyframes slideInFromLeft {
   0% { opacity: 0; transform: translateX(-20px); }
   100% { opacity: 1; transform: translateX(0); }
-}
+}這樣調整正確麻
