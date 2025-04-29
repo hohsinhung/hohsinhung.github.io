@@ -45,11 +45,13 @@
   }
 
 header {
-  position: relative; /* 讓 .mobile-menu 絕對定位依附這個 */
   background: #fafafa;
   border-bottom: 1px solid #eee;
   padding: 20px 40px;
+  position: sticky;
+  top: 0;
   z-index: 1000;
+  animation: fadeDown 0.8s ease forwards;
 }
 
 nav a {
