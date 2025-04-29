@@ -64,6 +64,22 @@ nav a {
   font-weight: 400;
   transition: color 0.3s ease, opacity 0.3s ease;
 }
+   .logo {
+  font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.3s;
+
+  margin-right: auto;         /* 讓 logo 靠左 */
+  padding-left: 10px;         /* 左側空隙 */
+  white-space: nowrap;        /* 避免折行 */
+}
+
 
 nav a:hover {
   color: #007acc;
