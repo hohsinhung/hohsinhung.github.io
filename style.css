@@ -217,7 +217,7 @@ main {
   max-width: 900px;
   margin: 60px auto 80px auto;
   padding: 0 20px;
-  font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+  font-family:'Noto Sans JP',, serif;
   font-size: 0.95rem;
   line-height: 1.7;
   color: #555;
@@ -278,7 +278,7 @@ main {
   main {
     padding: 0 15px;
     margin: 40px auto 60px auto;
-    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.9rem;
   }
 }
