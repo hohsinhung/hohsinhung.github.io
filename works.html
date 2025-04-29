@@ -276,49 +276,32 @@ nav a:hover {
 }
   
 .mobile-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: #fafafa;
-  border-top: 1px solid #eee;
-  display: flex;
+  display: none;
   flex-direction: column;
-  padding: 0;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  z-index: 999;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
+  background: #fafafa;
+  width: 100%;
+  border-top: 1px solid #eee;
+  transition: max-height 0.5s ease;
 }
 
 .mobile-menu a {
-  opacity: 0; /* 初始透明 */
-  transform: translateX(-20px); /* 初始往左偏 */
   padding: 12px 20px;
   text-decoration: none;
   color: #bbbbbb;
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 1rem;
-  border-bottom: 1px solid #eee;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  transition-delay: 0s;
+  transition: background 0.3s;
+  margin-bottom: 10px;
 }
-
 
 .mobile-menu a:hover {
   background: #eee;
 }
 
 .mobile-menu.show {
+  display: flex;
   max-height: 500px;
-  padding: 12px 20px;
-  opacity: 1;
-} 
-.mobile-menu.show {
-  max-height: 300px; /* 可視情況調整高度 */
-  opacity: 1;
-  padding: 12px 0;
+}
 
    @keyframes slideInFromLeft {
   0% {
