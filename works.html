@@ -327,6 +327,41 @@ nav a:hover {
     display: block;
   }
 
+  .hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: #bbb;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+/* 旋轉成 X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  background-color: #007acc;
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+  background-color: #007acc;
+}
+
+
 </style>
   
 </head>
@@ -343,7 +378,12 @@ nav a:hover {
       <a href="works.html">works</a>
       <a href="contact.html">contact</a>
     </div>
-    <div class="hamburger" id="hamburger">☰</div>
+    <div class="hamburger" id="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
   </nav>
   <div class="mobile-menu" id="mobile-menu">
     <a href="biography.html">biography</a>
@@ -578,16 +618,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  hamburger.addEventListener('click', function() {
-    mobileMenu.classList.toggle('show');
-    hamburger.classList.toggle('active');
-    // 切換 ☰ 和 ✖
-    if (hamburger.innerText === '☰') {
-      hamburger.innerText = '✖';
-    } else {
-      hamburger.innerText = '☰';
-    }
-  });
+hamburger.addEventListener('click', function() {
+  mobileMenu.classList.toggle('show');
+  hamburger.classList.toggle('active');
+});
+
 
 </script>
 
