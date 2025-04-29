@@ -239,9 +239,10 @@ h1, h2, h3, p, ul, li {
 
 /* 主標題 h1 */
 h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 30px;
+  color: #333;
 }
 
 /* 小標題 h2 */
