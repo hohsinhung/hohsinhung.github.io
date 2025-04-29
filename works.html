@@ -44,14 +44,13 @@
    
   }
 
- header {
-  background: #fafafa;
-  border-bottom: 1px solid #eee;
-  padding: 20px 40px;
+header {
   position: sticky;
   top: 0;
   z-index: 1000;
-
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+  padding: 20px 40px;
 }
 
 nav a {
@@ -276,15 +275,20 @@ nav a:hover {
 }
   
 .mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  opacity: 0;
   max-height: 0;
   overflow: hidden;
-  flex-direction: column;
-  background: #fafafa;
-  width: 100%;
-  border-top: 1px solid #eee;
-  transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
-  padding: 0 20px; 
-  opacity: 0;
+  z-index: 999;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
 }
 
 .mobile-menu a {
@@ -310,10 +314,10 @@ nav a:hover {
   padding: 12px 20px;
   opacity: 1;
 } 
-.mobile-menu.show a {
+.mobile-menu.show {
+  max-height: 300px; /* 可視情況調整高度 */
   opacity: 1;
-  transform: translateX(0);
-}
+  padding: 12px 0;
 
    @keyframes slideInFromLeft {
   0% {
