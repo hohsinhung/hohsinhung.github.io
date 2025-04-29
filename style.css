@@ -46,7 +46,7 @@ nav {
   opacity: 1;
   transform: translateY(-10px);
   animation: fadeUp 1s ease forwards;
-  animation-delay: 0.5s;
+  animation-delay: none;
 }
 
 nav a {
@@ -234,29 +234,6 @@ main {
   color: #555;
 }
 
-h1, h2, h3, p, ul, li {
-  font-size: inherit;
-  font-family: inherit;
-  color: #333;
-}
-
-h1 {
-  font-size: 2rem; /* 主標題比較大 */
-}
-
-h2 {
-  font-size: 1.5rem; /* 小一點 */
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
-p, ul, li {
-  font-size: 1rem; /* 正常內文大小 */
-}
-
-
 /* --- 手機版調整 (RWD) --- */
 @media (max-width: 768px) {
   nav {
@@ -324,3 +301,4 @@ p, ul, li {
   0% { opacity: 0; transform: translateX(-20px); }
   100% { opacity: 1; transform: translateX(0); }
 } 
+
