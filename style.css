@@ -234,59 +234,6 @@ main {
   color: #555;
 }
 
-h1, h2, h3, p, ul, li {
-  font-family: inherit;
-  color: #333;
-}
-
-/* 主標題 h1 */
-h1 {
-  font-size: 0.6rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-/* 小標題 h2 */
-h2 {
-  font-size: 0.6rem;
-  font-weight: bold;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-/* 更小標題 h3 */
-h3 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 30px;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-/* 段落 */
-p {
-  font-size: 0.55rem;
-  margin-bottom: 16px;
-  font-weight: 400;
-  color: #555;
-}
-
-/* 列表 */
-ul {
-  padding-left: 20px;
-  font-size: 0.55rem;
-  margin-bottom: 20px;
-}
-
-li {
-  margin-bottom: 12px;
-  line-height: 1.7;
-  font-weight: 400;
-  color: #555;
-}
-
 /* --- 手機版調整 (RWD) --- */
 @media (max-width: 768px) {
   nav {
@@ -338,15 +285,6 @@ li {
     font-size: 0.9rem;
   }
 
-  h1, h2, h3, ul, p, li {
-    font-family: inherit;
-    color: #555;
-  }
-
-  h1 { font-size: 0.6rem; }
-  h2 { font-size: 0.55rem; }
-  h3 { font-size: 0.55rem; }
-}
 
 /* --- 動畫 --- */
 @keyframes fadeUp {
