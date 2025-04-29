@@ -308,6 +308,22 @@ main {
   background-color: #007acc;
 }
 
+h1 {
+  font-size: 1.5rem; /* 這裡可以調整 h1 的字體大小 */
+  font-family:'Shippori Mincho', 'Noto Sans JP', serif;
+}
+
+h2 {
+  font-size: 1.5rem; /* 這裡調整 h2 的大小 */
+  font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+}
+
+p {
+  font-size: 1rem; /* 這裡調整正文段落 p 的大小 */
+  font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+  line-height: 1.7; /* 行高建議保留，讓閱讀更舒服 */
+}
+
 
 /* --- 動畫 --- */
 @keyframes fadeUp {
