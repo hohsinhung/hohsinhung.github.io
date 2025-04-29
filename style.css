@@ -234,7 +234,6 @@ main {
     flex-wrap: nowrap;
     .image-area {
     margin-top: 40px;
-    order: -1;
     .text-area {
     font-size: 0.85rem;
     line-height: 1.7;
@@ -350,42 +349,6 @@ p {
   line-height: 1.5rem;
 }
 
-.content-wrapper {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  max-width: 1200px;
-  margin: 60px auto 80px;
-  padding: 0 40px;
-  gap: 60px; /* 左右間距 */
-}
-
-.text-area {
-  flex: 2; /* 主要是文字，佔比較大 */
-  font-family:'Noto Sans JP', serif;
-  font-size: 0.9rem;
-  line-height: 1.8;
-  color: #555;
-}
-
-.image-area {
-  flex: 1; /* 右邊圖片區，稍小 */
-}
-
-.image-area img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.image-caption {
-  font-family:'Noto Sans JP', serif;
-  font-size: 0.75rem;
-  color: #999;
-  text-align: center;
-  margin-top: 8px;
-  line-height: 1.5;
-}
 
 .language-switcher {
   text-align: center;
