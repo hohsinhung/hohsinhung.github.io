@@ -16,54 +16,65 @@
 
 <body>
 
-<header>
-  <nav>
-    <div class="logo">
-      <a href="index.html"><strong>HO-hsinhung</strong></a>
-    </div>
-    <div class="menu">
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="index.html"><strong>HO-hsinhung</strong></a>
+      </div>
+      <div class="menu">
+        <a href="biography.html">biography</a>
+        <a href="works.html">works</a>
+        <a href="contact.html">contact</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
       <a href="biography.html">biography</a>
       <a href="works.html">works</a>
       <a href="contact.html">contact</a>
     </div>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="biography.html">biography</a>
-    <a href="works.html">works</a>
-    <a href="contact.html">contact</a>
-  </div>
-</header>
+  </header>
   
  <style>
-  body {
-   
-  }
+ body {
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+      color: #555;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
 header {
-  background: #fafafa;
-  border-bottom: 1px solid #eee;
-  padding: 20px 40px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  animation: fadeDown 0.8s ease forwards;
-}
+      background: #fafafa;
+      border-bottom: 1px solid #eee;
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-nav a {
-  text-decoration: none;
-  color: #bbbbbb;
-  margin-left: 30px;
-  font-family: 'Noto Sans JP', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-  font-weight: 400;
-  transition: color 0.3s ease, opacity 0.3s ease;
-}
+   nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+ nav a {
+      text-decoration: none;
+      color: #bbbbbb;
+      margin-left: 30px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      font-weight: 400;
+      transition: color 0.3s ease, opacity 0.3s ease;
+    }
    .logo {
   font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
   font-size: 1.2rem;
@@ -79,7 +90,10 @@ nav a {
   padding-left: 10px;         /* 左側空隙 */
   white-space: nowrap;        /* 避免折行 */
 }
-
+.logo a {
+      text-decoration: none;
+      color: #333;
+      display: inline-block;
 
 nav a:hover {
   color: #007acc;
@@ -237,13 +251,11 @@ nav a:hover {
     flex-wrap: nowrap;
   }
 
-.menu {
-  display: flex;
-  align-items: center;
-  opacity: 1; /* 直接一開始顯示 */
-  transform: translateY(0);
-  animation: none; /* 電腦版不要動畫，保證穩定 */
-}
+
+    .menu {
+      display: flex;
+      align-items: center;
+    }
 
 
   .hamburger {
