@@ -234,6 +234,13 @@ main {
   color: #555;
 }
 
+h1, h2, h3, p, ul, li {
+  font-size: inherit;
+  font-family: inherit;
+  color: #333;
+}
+
+
 /* --- 手機版調整 (RWD) --- */
 @media (max-width: 768px) {
   nav {
