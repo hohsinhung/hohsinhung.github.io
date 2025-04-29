@@ -28,7 +28,6 @@ nav {
 }
 
 .logo {
-  /* 控制整個容器動畫與位置 */
   opacity: 0;
   transform: translateY(-10px);
   animation: fadeUp 1s ease forwards;
@@ -36,8 +35,8 @@ nav {
 }
 
 .logo a {
-  font-family:'Noto Sans JP';
-  font-size: 2rem;
+  font-family: 'Shippori Mincho', 'Noto Sans JP', 'Hiragino Mincho ProN', serif;
+  font-size: 1rem;
   font-weight: bold;
   color: #bbbbbb;
   text-decoration: none;
