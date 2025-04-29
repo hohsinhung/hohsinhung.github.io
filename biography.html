@@ -82,23 +82,11 @@
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  hamburger.addEventListener('click', function() {
-    mobileMenu.classList.toggle('show');
-    // 切換 ☰ 和 ✖
-    if (hamburger.innerText === '☰') {
-      hamburger.innerText = '✖';
-    } else {
-      hamburger.innerText = '☰';
-    }
+ hamburger.addEventListener('click', function() {
+  mobileMenu.classList.toggle('show');
+  hamburger.classList.toggle('active');
+});
 
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');       // 控制旋轉動畫
-    mobileMenu.classList.toggle('show');        // 控制選單展開
-
-  });
 </script>
 
 </body>
