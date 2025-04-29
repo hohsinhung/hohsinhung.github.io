@@ -37,8 +37,8 @@ nav {
 
 .logo a {
   /* 控制實際的文字樣式！ */
-  font-family: serif;
-  font-size: 1rem;
+  font-family:'Noto Sans JP';
+  font-size: 0.8rem;
   font-weight: bold;
   color: #bbbbbb;
   text-decoration: none;
