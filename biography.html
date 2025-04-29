@@ -4,94 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>biography | HO-hsinhung</title>
-  <meta property="og:title" content="HO-hsinhung - biography">
-  <meta property="og:description" content="Painter & Artist. Exploring light and shadow through painting.">
-  <meta property="og:image" content="https://www.hohsinhung.com/images/ogimage.jpg">
-  <meta property="og:url" content="https://www.hohsinhung.com/">
-  <meta property="og:type" content="website">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
   <style>
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 28px;
-      height: 20px;
+    .language-switcher {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .lang-btn {
+      display: inline-block;
+      background: #f2f2f2;
+      color: #333;
+      border: 1px solid #bbb;
+      padding: 6px 14px;
+      margin: 0 6px;
+      font-size: 0.9rem;
       cursor: pointer;
-      z-index: 1001;
+      border-radius: 4px;
+      transition: background 0.3s, color 0.3s;
     }
-
-    .hamburger span {
-      display: block;
-      height: 3px;
-      background-color: #bbb;
-      border-radius: 2px;
-      transition: all 0.4s ease;
+    .lang-btn:hover {
+      background: #007acc;
+      color: white;
     }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-      background-color: #007acc;
+    .lang-btn.active {
+      background: #007acc;
+      color: white;
+      border-color: #007acc;
     }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-      transform: scaleX(0);
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-      background-color: #007acc;
-    }
-
-    @media (max-width: 768px) {
-      .menu {
-        display: none;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
-
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      flex-direction: column;
-      background: #fafafa;
-      width: 100%;
-      border-top: 1px solid #eee;
-      transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
-      padding: 0 20px; 
-      opacity: 0;
-    }
-
-    .mobile-menu.show {
-      max-height: 500px;
-      padding: 12px 20px;
-      opacity: 1;
-    }
-
-    .mobile-menu a {
-      padding: 12px 20px;
-      text-decoration: none;
-      color: #bbbbbb;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 1rem;
-      border-bottom: 1px solid #eee;
-      transition: background 0.3s;
-    }
-
-    .mobile-menu a:hover {
-      background: #eee;
+    .lang-section {
+      max-width: 900px;
+      margin: auto;
+      padding: 0 20px 60px;
+      font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: #555;
     }
   </style>
 </head>
 
-<body style="opacity: 0; overflow: hidden;">
-
+<body>
 <header>
   <nav>
     <div class="logo">
@@ -103,12 +58,9 @@
       <a href="contact.html">contact</a>
     </div>
     <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
   </nav>
-
   <div class="mobile-menu" id="mobile-menu">
     <a href="biography.html">biography</a>
     <a href="works.html">works</a>
@@ -116,19 +68,16 @@
   </div>
 </header>
 
-<main class="content-wrapper">
+<main>
+  <div class="language-switcher">
+    <span class="lang-btn active" onclick="switchLanguage('ja', this)">日本語</span>
+    <span class="lang-btn" onclick="switchLanguage('en', this)">English</span>
+    <span class="lang-btn" onclick="switchLanguage('zh', this)">中文</span>
+  </div>
 
-  <!-- 語言切換按鈕 -->
-<span class="lang-btn active" onclick="switchLanguage('ja')">日本語</span>
-<span class="lang-btn" onclick="switchLanguage('en')">English</span>
-<span class="lang-btn" onclick="switchLanguage('zh')">中文</span>
-
-
-  <!-- 三個語言區塊 -->
   <div id="ja" class="lang-section">
     <h1>HO HSINHUNG | 何信宏</h1>
     <p>1994年、台湾・嘉義生まれ。2017年に来日。2023年、阿佐ヶ谷美術専門学校研究科を修了。同年、武蔵野美術大学油絵学科油絵専攻に編入学し、2025年に卒業。現在、武蔵野美術大学大学院造形研究科に在籍。</p>
-
     <h2>グループ展・受賞歴</h2>
     <p>2014年　台湾国立国父記念館「精品展」</p>
     <p>2020年　人形町ヴィジョンズ「窓」</p>
@@ -145,24 +94,22 @@
   <div id="en" class="lang-section" style="display:none;">
     <h1>HO HSINHUNG | He Xinhong</h1>
     <p>Born in 1994 in Chiayi, Taiwan. Moved to Japan in 2017. Completed the Advanced Course at Asagaya College of Art and Design in 2023. Entered Musashino Art University, Department of Oil Painting, and graduated in 2025. Currently enrolled in the Graduate School of Art and Design at Musashino Art University.</p>
-
     <h2>Group Exhibitions & Awards</h2>
-    <p>2014　"Selected Works Exhibition" at National Dr. Sun Yat-sen Memorial Hall, Taiwan</p>
-    <p>2020　"Window" at Ningyocho Visions</p>
-    <p>2021　"Assemblage" at Ningyocho Visions</p>
-    <p>2022　"Boundary - A Fine Line" at Ningyocho Visions</p>
-    <p>2022　Alumni Award, Graduation Exhibition, Asagaya College of Art and Design</p>
-    <p>2022　Outstanding Work Award, Graduation Project, Asagaya College of Art and Design</p>
-    <p>2023　Nominee, 42nd Ueno Royal Museum Award "Opening the Future"</p>
-    <p>2024　Selected, "Debut 2024" Newcomer Artist Award</p>
-    <p>2024　Two-person Exhibition at gallery33</p>
-    <p>2024　Selected, 59th Kanagawa Prefectural Art Exhibition</p>
+    <p>2014 "Selected Works Exhibition" at National Dr. Sun Yat-sen Memorial Hall, Taiwan</p>
+    <p>2020 "Window" at Ningyocho Visions</p>
+    <p>2021 "Assemblage" at Ningyocho Visions</p>
+    <p>2022 "Boundary - A Fine Line" at Ningyocho Visions</p>
+    <p>2022 Alumni Award, Graduation Exhibition, Asagaya College of Art and Design</p>
+    <p>2022 Outstanding Work Award, Graduation Project, Asagaya College of Art and Design</p>
+    <p>2023 Nominee, 42nd Ueno Royal Museum Award "Opening the Future"</p>
+    <p>2024 Selected, "Debut 2024" Newcomer Artist Award</p>
+    <p>2024 Two-person Exhibition at gallery33</p>
+    <p>2024 Selected, 59th Kanagawa Prefectural Art Exhibition</p>
   </div>
 
   <div id="zh" class="lang-section" style="display:none;">
     <h1>HO HSINHUNG | 何信宏</h1>
     <p>1994年生於台灣嘉義。2017年前往日本留學。2023年畢業於阿佐谷美術專門學校研究科，同年編入武藏野美術大學油畫學科油畫專攻，2025年畢業。目前就讀於武藏野美術大學大學院造形研究科。</p>
-
     <h2>群展・得獎紀錄</h2>
     <p>2014年　台灣國立國父紀念館「精品展」</p>
     <p>2020年　人形町Visions「窗」</p>
@@ -175,52 +122,30 @@
     <p>2024年　gallery33「雙人展」</p>
     <p>2024年　第59回神奈川縣美術展 入選</p>
   </div>
-
 </main>
-
-  </div>
-
-
-</main>
-
-
 
 <footer>
   <p>© 2025 hohsinhung. All rights reserved.</p>
 </footer>
 
-<!-- 外部動畫fade.js -->
-<script src="fade.js"></script>
-
-<!-- 漢堡menu開關 -->
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
 
-  hamburger.addEventListener('click', function () {
-    hamburger.classList.toggle('active');
-    mobileMenu.classList.toggle('show');
-  });
- 
-function switchLanguage(lang) {
-  const sections = document.querySelectorAll('.lang-section');
-  sections.forEach(section => section.style.display = 'none');
-  
-  document.getElementById(lang).style.display = 'block';
-}
+hamburger.addEventListener('click', function () {
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('show');
+});
 
-function switchLanguage(lang) {
+function switchLanguage(lang, element) {
   const sections = document.querySelectorAll('.lang-section');
   sections.forEach(section => section.style.display = 'none');
   document.getElementById(lang).style.display = 'block';
 
-  // 切換按鈕高亮狀態
   const buttons = document.querySelectorAll('.lang-btn');
   buttons.forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
+  element.classList.add('active');
 }
-
 </script>
-
 </body>
 </html>
