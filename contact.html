@@ -32,6 +32,13 @@
     <a href="works.html">works</a>
     <a href="contact.html">contact</a>
   </div>
+  
+  <div class="hamburger" id="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
 </header>
 
 <main style="padding: 60px 20px; max-width: 800px; margin: 0 auto;">
@@ -58,6 +65,13 @@ hamburger.addEventListener('click', function() {
   } else {
     hamburger.innerText = '☰';
   }
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');       // 控制旋轉動畫
+    mobileMenu.classList.toggle('show');        // 控制選單展開
 
 });
 </script>
