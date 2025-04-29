@@ -35,7 +35,7 @@ nav {
 }
 
 .logo a {
-  font-family: 'Shippori Mincho', 'Noto Sans JP', 'Hiragino Mincho ProN', serif;
+  font-family: 'Noto Sans JP',, serif;
   font-size: 1rem;
   font-weight: bold;
   color: #bbbbbb;
@@ -362,7 +362,7 @@ p {
 
 .text-area {
   flex: 2; /* 主要是文字，佔比較大 */
-  font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+  font-family:'Noto Sans JP', serif;
   font-size: 0.9rem;
   line-height: 1.8;
   color: #555;
@@ -379,7 +379,7 @@ p {
 }
 
 .image-caption {
-  font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+  font-family:'Noto Sans JP', serif;
   font-size: 0.75rem;
   color: #999;
   text-align: center;
