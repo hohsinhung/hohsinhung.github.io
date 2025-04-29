@@ -237,14 +237,14 @@ h1, h2, h3, p, ul, li {
 
 /* 主標題 h1 */
 h1 {
-  font-size: 0.8rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 30px;
 }
 
 /* 小標題 h2 */
 h2 {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-top: 40px;
   margin-bottom: 20px;
@@ -253,7 +253,7 @@ h2 {
 
 /* 更小標題 h3 */
 h3 {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   font-weight: bold;
   margin-top: 30px;
   margin-bottom: 15px;
@@ -333,8 +333,8 @@ li {
     font-family: inherit;
   }
 
-  h1 { font-size: 1.6rem; }
-  h2 { font-size: 1.4rem; }
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.3rem; }
   h3 { font-size: 1.2rem; }
 }
 
