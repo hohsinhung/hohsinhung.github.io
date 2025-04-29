@@ -4,82 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>works | HO-hsinhung</title>
-  
-  <!-- OG Meta -->
   <meta property="og:title" content="HO-hsinhung - works">
   <meta property="og:description" content="Painter & Artist. Exploring light and shadow through painting.">
   <meta property="og:image" content="https://www.hohsinhung.com/images/ogimage.jpg">
   <meta property="og:url" content="https://www.hohsinhung.com/">
   <meta property="og:type" content="website">
-
-  <!-- Favicon & Lightbox CSS -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <style>
-    /* Base Styles */
-    body { margin: 0; padding: 0; font-family: 'Shippori Mincho', serif; background: #fafafa; color: #555; display: flex; flex-direction: column; min-height: 100vh; }
-
-    header { background: #fafafa; border-bottom: 1px solid #eee; padding: 20px 40px; position: sticky; top: 0; z-index: 1000; }
-    nav { display: flex; justify-content: space-between; align-items: center; }
-    nav a { text-decoration: none; color: #bbbbbb; margin-left: 30px; font-family: 'Noto Sans TC', sans-serif; font-size: 1rem; letter-spacing: 0.1em; transition: color 0.3s, opacity 0.3s; }
-    nav a:hover { color: #007acc; opacity: 0.8; }
-
-    .container { flex: 1; display: flex; }
-    .sidebar { width: 150px; display: flex; flex-direction: column; align-items: center; padding-top: 40px; }
-    .sidebar button { width: 100%; margin-bottom: 15px; padding: 8px; background: none; border: none; font-size: 1rem; color: #bbbbbb; cursor: pointer; transition: color 0.3s, transform 0.3s; }
-    .sidebar button:hover, .sidebar button.active { color: #007acc; font-weight: bold; transform: translateX(5px); }
-
-    .works-grid { flex: 1; padding: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-    .work-item { text-decoration: none; display: none; flex-direction: column; align-items: center; opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
-    .work-item.visible { display: flex; opacity: 1; transform: translateY(0); }
-
-    .work-item img { width: 100%; height: auto; border: none; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; }
-    .work-item:hover img { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-
-    .work-caption { margin-top: 6px; font-family:'Shippori Mincho', serif; font-size: 0.55rem; color: #666; text-align: left; line-height: 1.6; }
-
-    #load-more { padding: 8px 16px; font-size: 0.9rem; background: #005f99; color: #fff; border: none; border-radius: 8px; cursor: pointer; margin: 30px auto; display: block; transition: background 0.3s, transform 0.3s; }
-    #load-more:hover { background: #004b80; transform: scale(1.05); }
-
-    footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: #aaa; background: #f9f9f9; margin-top: auto; }
-
-    /* Hamburger */
-    .hamburger { display: none; flex-direction: column; justify-content: space-between; width: 28px; height: 20px; cursor: pointer; }
-    .hamburger span { display: block; height: 3px; background: #bbb; border-radius: 2px; transition: all 0.4s; }
-    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); background-color: #007acc; }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); background-color: #007acc; }
-
-    /* Mobile Styles */
-    @media (max-width: 768px) {
-      nav { flex-direction: row; justify-content: space-between; padding: 10px 20px; }
-      .menu { display: none; }
-      .hamburger { display: flex; }
-      .container { flex-direction: column; }
-      .sidebar { flex-direction: row; overflow-x: auto; padding: 20px 0; background: #fafafa; }
-      .sidebar button { flex: 0 0 auto; margin: 2px; padding: 3px 8px; font-size: 0.8rem; white-space: nowrap; }
-      .works-grid { grid-template-columns: 1fr; }
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
+ <style>
+ header {
+   <header>
   <nav>
-    <div class="logo"><a href="index.html"><strong>HO-hsinhung</strong></a></div>
+    <div class="logo">
+      <a href="index.html"><strong>HO-hsinhung</strong></a>
+    </div>
     <div class="menu">
       <a href="biography.html">biography</a>
       <a href="works.html">works</a>
       <a href="contact.html">contact</a>
     </div>
     <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </nav>
   <div class="mobile-menu" id="mobile-menu">
@@ -88,6 +37,327 @@
     <a href="contact.html">contact</a>
   </div>
 </header>
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+ }
+
+nav a {
+  text-decoration: none;
+  color: #bbbbbb;
+  margin-left: 30px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+nav a:hover {
+  color: #007acc;
+  opacity: 0.8;
+}
+
+
+  .container {
+    flex: 1;
+    display: flex;
+    min-height: 90vh;
+  }
+
+  .sidebar {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  .sidebar button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    background: none;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+    color: #bbbbbb;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  .sidebar button:hover {
+    color: #007acc;
+    transform: translateX(5px);
+  }
+
+  .sidebar button.active {
+    color: #007acc;
+    font-weight: bold;
+  }
+
+  .works-grid {
+    flex: 1;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+  }
+
+  .work-item {
+    text-decoration: none; /* 👈 這裡新增，取消作品底線 */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .work-item.visible {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .work-item img {
+    width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .work-item:hover img {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .work-caption {
+    margin-top: 6px;
+    font-family:'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+    font-size: 0.55rem;
+    color: #666;
+    text-align: left;
+    line-height: 1.6;
+  }
+       .work-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .work-content img {
+    width: 100%;
+    height: auto;
+  }
+
+  #load-more {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    background: #005f99;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    margin: 30px auto;
+    display: block;
+  }
+
+  #load-more:hover {
+    background: #004b80;
+    transform: scale(1.05);
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: #aaa;
+    background: #f9f9f9;
+    margin-top: auto;
+  }
+
+  @keyframes fadeUpBounce {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .work-item.animate {
+    animation: fadeUpBounce 0.8s ease forwards;
+  }
+
+  @media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    flex-wrap: nowrap;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 20px 0;
+    position: relative;
+    background: #fafafa;
+  }
+
+  .sidebar button {
+    flex: 0 0 auto;
+    margin: 2px 2px;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+    .work-caption {
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    font-size: 0.55rem; /* 手機字稍微小一點 */
+    text-align: left; /* 保持靠左 */
+    line-height: 1.6;
+  }
+    .work-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .work-content img {
+    width: 100%;
+    height: auto;
+  }
+}
+  
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  flex-direction: column;
+  background: #fafafa;
+  width: 100%;
+  border-top: 1px solid #eee;
+  transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
+  padding: 0 20px; 
+  opacity: 0;
+}
+
+.mobile-menu a {
+  opacity: 0; /* 初始透明 */
+  transform: translateX(-20px); /* 初始往左偏 */
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #bbbbbb;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 1rem;
+  border-bottom: 1px solid #eee;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: 0s;
+}
+
+
+.mobile-menu a:hover {
+  background: #eee;
+}
+
+.mobile-menu.show {
+  max-height: 500px;
+  padding: 12px 20px;
+  opacity: 1;
+} 
+.mobile-menu.show a {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+   @keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+    
+@media (max-width: 768px) {
+
+  .hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: #bbb;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+}
+/* 旋轉成 X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  background-color: #007acc;
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+  background-color: #007acc;
+}
+
+
+</style>
+  
+</head>
+
+<body>
 
 
 <div class="container">
@@ -324,4 +594,4 @@ hamburger.addEventListener('click', function() {
 </script>
 
 </body>
-</html>
+</html> 
