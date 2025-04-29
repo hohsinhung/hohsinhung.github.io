@@ -63,19 +63,6 @@ nav a:hover {
   opacity: 0.8;
 }
 
-/* --- 漢堡按鈕設定 --- */
-.hamburger {
-  display: none;
-  font-size: 2rem;
-  color: #bbbbbb;
-  cursor: pointer;
-  user-select: none;
-  opacity: 0;
-  transform: translateX(-20px);
-  transition: color 0.3s ease;
-  animation: slideInFromLeft 0.8s ease forwards;
-  animation-delay: 0.5s;
-}
 
 /* --- 手機版展開的選單 --- */
 .mobile-menu {
