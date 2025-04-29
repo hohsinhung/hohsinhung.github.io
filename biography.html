@@ -119,11 +119,10 @@
 <main class="content-wrapper">
 
   <!-- 語言切換按鈕 -->
-  <div class="language-switcher">
-    <button onclick="switchLanguage('ja')">日本語</button>
-    <button onclick="switchLanguage('en')">English</button>
-    <button onclick="switchLanguage('zh')">中文</button>
-  </div>
+<span class="lang-btn active" onclick="switchLanguage('ja')">日本語</span>
+<span class="lang-btn" onclick="switchLanguage('en')">English</span>
+<span class="lang-btn" onclick="switchLanguage('zh')">中文</span>
+
 
   <!-- 三個語言區塊 -->
   <div id="ja" class="lang-section">
@@ -210,6 +209,16 @@ function switchLanguage(lang) {
   document.getElementById(lang).style.display = 'block';
 }
 
+function switchLanguage(lang) {
+  const sections = document.querySelectorAll('.lang-section');
+  sections.forEach(section => section.style.display = 'none');
+  document.getElementById(lang).style.display = 'block';
+
+  // 切換按鈕高亮狀態
+  const buttons = document.querySelectorAll('.lang-btn');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+}
 
 </script>
 
