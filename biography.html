@@ -73,6 +73,9 @@
       cursor: pointer;
       z-index: 1001;
     }
+      .lang-section.show p, .lang-section.show h1, .lang-section.show h2 {
+  animation-delay: 0.2s;
+}
 
     .hamburger span {
       display: block;
@@ -169,7 +172,7 @@
 <main class="content-wrapper">
 
   <!-- 語言切換按鈕 -->
-<div class="language-switcher">
+<div id="ja" class="lang-section show">
   <span class="lang-btn active" onclick="switchLanguage('ja', this)">日本語</span>
   <span class="lang-btn" onclick="switchLanguage('en', this)">English</span>
   <span class="lang-btn" onclick="switchLanguage('zh', this)">中文</span>
@@ -194,8 +197,8 @@
     <p>2024年　gallery33「二人展」</p>
     <p>2024年　第59回神奈川県美術展 入選</p>
   </div>
-
-  <div id="en" class="lang-section" style="display:none;">
+  
+<div id="ja" class="lang-section show">
     <h1>HO HSINHUNG | He Xinhong</h1>
     <p>Born in 1994 in Chiayi, Taiwan. Moved to Japan in 2017. Completed the Advanced Course at Asagaya College of Art and Design in 2023. Entered Musashino Art University, Department of Oil Painting, and graduated in 2025. Currently enrolled in the Graduate School of Art and Design at Musashino Art University.</p>
 
@@ -212,7 +215,7 @@
     <p>2024　Selected, 59th Kanagawa Prefectural Art Exhibition</p>
   </div>
 
-  <div id="zh" class="lang-section" style="display:none;">
+ <div id="ja" class="lang-section show">
     <h1>HO HSINHUNG | 何信宏</h1>
     <p>1994年生於台灣嘉義。2017年前往日本留學。2023年畢業於阿佐谷美術專門學校研究科，同年編入武藏野美術大學油畫學科油畫專攻，2025年畢業。目前就讀於武藏野美術大學大學院造形研究科。</p>
 
@@ -228,11 +231,6 @@
     <p>2024年　gallery33「雙人展」</p>
     <p>2024年　第59回神奈川縣美術展 入選</p>
   </div>
-
-</main>
-
-  </div>
-
 
 </main>
 
@@ -257,18 +255,22 @@
  
 function switchLanguage(lang, element) {
   const sections = document.querySelectorAll('.lang-section');
-  sections.forEach(section => section.style.display = 'none');
-  document.getElementById(lang).style.display = 'block';
+  sections.forEach(section => {
+    section.classList.remove('show');
+    section.style.display = 'none';
+  });
+
+  const activeSection = document.getElementById(lang);
+  activeSection.style.display = 'block';
+
+  setTimeout(() => {
+    activeSection.classList.add('show');
+  }, 10);
 
   const buttons = document.querySelectorAll('.lang-btn');
   buttons.forEach(btn => btn.classList.remove('active'));
   element.classList.add('active');
 }
-    const activeSection = document.getElementById(lang);
-  activeSection.style.display = 'block';
-  setTimeout(() => {
-    activeSection.classList.add('show');
-  }, 10);
 
 </script>
 
