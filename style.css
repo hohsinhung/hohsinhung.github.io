@@ -351,8 +351,8 @@ p {
 
 
 .language-switcher {
-  text-align: center;
-  margin-bottom: 30px;
+  text-align: right;
+  padding: 10px 40px 0;
 }
 
 .lang-btn {
@@ -360,17 +360,15 @@ p {
   background: #f2f2f2;
   color: #333;
   border: 1px solid #bbb;
-  padding: 6px 14px;
-  margin: 0 6px;
-  font-size: 0.9rem;
+  padding: 4px 10px;
+  margin-left: 6px;
+  font-size: 0.8rem;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 20px;
   transition: background 0.3s, color 0.3s;
 }
 
 .lang-btn:hover {
-  background: #007acc;
-  color: white;
 }
 
 .lang-btn.active {
