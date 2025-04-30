@@ -214,6 +214,13 @@ footer {
 
 /* --- 手機版調整 (RWD) --- */
 @media (max-width: 768px) {
+  main {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    padding: 0 15px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.9rem;
+  }
   nav {
     flex-direction: row;
     justify-content: space-between;
@@ -258,14 +265,6 @@ footer {
 
   .works-grid {
     grid-template-columns: 1fr;
-
-    main {
-    margin-top: 20px;
-    margin-bottom: 60px;
-    padding: 0 15px;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 0.9rem;
-  }
   }
 }
 .hamburger {
