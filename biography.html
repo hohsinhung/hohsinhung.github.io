@@ -14,32 +14,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
   <style>
-    .language-switcher {
-      text-align:right;
-      margin:  30px 20px 40px;
-    }
-    .lang-btn {
-      display: inline-block;
-      background: #f2f2f2;
-      color: #333;
-      border: 1px solid #bbb;
-      padding: 5px 12px;
-      margin: 0 6px;
-      font-size: 0.7rem;
-      cursor: pointer;
-      border-radius: 20px;
-      transition: background 0.3s, color 0.3s;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    }
-    .lang-btn:hover {
-      background: #007acc;
-      color: white;
-    }
-    .lang-btn.active {
-      background: #007acc;
-      color: white;
-      border-color: #007acc;
-    }
+.language-switcher {
+  max-width: 1200px;
+  margin: 10px auto 30px;
+  padding: 0 40px;
+  text-align: right;
+}
+.lang-btn {
+  display: inline-block;
+  background: #f9f9f9;
+  color: #666;
+  border: 1px solid #ddd;
+  padding: 4px 10px;
+  margin-left: 6px;
+  font-size: 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+.lang-btn:hover {
+  background: #e0e8f0;
+  color: #222;
+  border-color: #aaa;
+}
+.lang-btn.active {
+  background: #e0e8f0;
+  color: #222;
+  border-color: #aaa;
+}
     .lang-section {
       max-width: 900px;
       margin: auto;
