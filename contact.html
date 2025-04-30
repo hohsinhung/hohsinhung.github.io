@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
@@ -33,6 +34,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+    .logo a {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #333;
+      text-decoration: none;
+      letter-spacing: 0.05em;
     }
     .menu a {
       margin-left: 30px;
@@ -144,6 +153,10 @@
     .contact-card a:hover {
       text-decoration: underline;
     }
+    .contact-icon {
+      margin-right: 8px;
+      color: #007acc;
+    }
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -190,11 +203,11 @@
 
 <main class="contact-container">
   <div class="contact-card">
-    <h1>Contact</h1>
-    <p>Feel free to get in touch for commissions, exhibition proposals, or any inquiries.</p>
+    <h1>お問い合わせ</h1>
+    <p>作品へのご関心、展示やコラボレーションなどのご提案がありましたら、以下の方法でお気軽にご連絡ください。</p>
     <ul>
-      <li>Email: <a href="d04s84g4gk6ak7@gmail.com">d04s84g4gk6ak7@gmail.com/a></li>
-      <li>Instagram: <a href="https://instagram.com/hohsinhung" target="_blank">@hohsinhung</a></li>
+      <li><i class="fas fa-envelope contact-icon"></i><a href="mailto:yourname@example.com">yourname@example.com</a></li>
+      <li><i class="fab fa-instagram contact-icon"></i><a href="https://instagram.com/youraccount" target="_blank">@youraccount</a></li>
     </ul>
   </div>
 </main>
