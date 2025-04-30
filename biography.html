@@ -14,6 +14,56 @@
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
   <style>
+    .language-switcher {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .lang-btn {
+      display: inline-block;
+      background: #f2f2f2;
+      color: #333;
+      border: 1px solid #bbb;
+      padding: 6px 14px;
+      margin: 0 6px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .lang-btn:hover {
+      background: #007acc;
+      color: white;
+    }
+    .lang-btn.active {
+      background: #007acc;
+      color: white;
+      border-color: #007acc;
+    }
+    .lang-section {
+      max-width: 900px;
+      margin: auto;
+      padding: 0 20px 60px;
+      font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: #555;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      display: none;
+    }
+    .lang-section.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .lang-section p, .lang-section h1, .lang-section h2 {
+      animation: fadeUp 0.6s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .lang-section.show p, .lang-section.show h1, .lang-section.show h2 {
+      animation-delay: 0.2s;
     .hamburger {
       display: none;
       flex-direction: column;
@@ -214,6 +264,11 @@ function switchLanguage(lang, element) {
   buttons.forEach(btn => btn.classList.remove('active'));
   element.classList.add('active');
 }
+    const activeSection = document.getElementById(lang);
+  activeSection.style.display = 'block';
+  setTimeout(() => {
+    activeSection.classList.add('show');
+  }, 10);
 
 </script>
 
