@@ -267,6 +267,7 @@ footer {
     margin: 40px auto 60px auto;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.9rem;
+    margin-top: 20px;
   }
 }
 .hamburger {
