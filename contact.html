@@ -35,14 +35,7 @@
       justify-content: space-between;
       align-items: center;
     }
-    .logo a {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #333;
-      text-decoration: none;
-      letter-spacing: 0.05em;
-    }
+  
     .menu a {
       margin-left: 30px;
       text-decoration: none;
@@ -122,6 +115,7 @@
       padding: 60px 20px;
       max-width: 800px;
       margin: 0 auto;
+      text-align: center;
     }
     .contact-card {
       background: #fff;
@@ -136,26 +130,38 @@
       font-size: 1.8rem;
       margin-bottom: 1rem;
     }
-    .contact-card p,
-    .contact-card li {
+    .contact-card p {
       font-size: 1rem;
       line-height: 1.8;
       color: #444;
       font-family: 'Noto Sans JP', sans-serif;
     }
-    .contact-card ul {
-      padding-left: 1em;
+    .icon-links {
+      margin-top: 30px;
     }
-    .contact-card a {
+    .icon-links a {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 2rem;
       color: #007acc;
-      text-decoration: none;
+      transition: color 0.3s;
+      position: relative;
     }
-    .contact-card a:hover {
-      text-decoration: underline;
+    .icon-links a:hover {
+      color: #005f99;
     }
-    .contact-icon {
-      margin-right: 8px;
-      color: #007acc;
+    .icon-links a[aria-label]:hover::after {
+      content: attr(aria-label);
+      position: absolute;
+      bottom: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      white-space: nowrap;
     }
     footer {
       text-align: center;
@@ -204,11 +210,11 @@
 <main class="contact-container">
   <div class="contact-card">
     <h1>お問い合わせ</h1>
-    <p>作品へのご関心、展示やコラボレーションなどのご提案がありましたら、以下の方法でお気軽にご連絡ください。</p>
-    <ul>
-      <li><i class="fas fa-envelope contact-icon"></i><a href="mailto:yourname@example.com">yourname@example.com</a></li>
-      <li><i class="fab fa-instagram contact-icon"></i><a href="https://instagram.com/youraccount" target="_blank">@youraccount</a></li>
-    </ul>
+    <p>作品へのご関心、展示やコラボレーションなどのご提案がありましたら、以下のアイコンからご連絡ください。</p>
+    <div class="icon-links">
+      <a href="mailto:yourname@example.com" aria-label="email"><i class="fas fa-envelope"></i></a>
+      <a href="https://instagram.com/youraccount" target="_blank" aria-label="instagram"><i class="fab fa-instagram"></i></a>
+    </div>
   </div>
 </main>
 
