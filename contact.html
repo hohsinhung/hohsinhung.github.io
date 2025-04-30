@@ -14,6 +14,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
   <style>
+    body {
+      font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+      background: #fafafa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #fafafa;
+      border-bottom: 1px solid #eee;
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo a {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #333;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .menu a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: #bbbbbb;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    .menu a:hover {
+      color: #007acc;
+    }
     .hamburger {
       display: none;
       flex-direction: column;
@@ -78,11 +117,62 @@
     .mobile-menu a:hover {
       background: #eee;
     }
+    .contact-container {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .contact-card {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      animation: fadeUp 0.8s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .contact-card h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .contact-card p,
+    .contact-card li {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #444;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .contact-card ul {
+      padding-left: 1em;
+    }
+    .contact-card a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9em;
+      color: #aaa;
+      background: #f9f9f9;
+      border-top: 1px solid #eee;
+    }
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
-
 <body>
-
 <header>
   <nav>
     <div class="logo">
@@ -106,13 +196,15 @@
   </div>
 </header>
 
-<main style="padding: 60px 20px; max-width: 800px; margin: 0 auto;">
-  <h1>聯絡方式</h1>
-  <p>如果您對我的作品有興趣，或是有合作提案，歡迎透過以下方式聯繫我：</p>
-  <ul style="margin-top: 20px;">
-    <li>Email：hohsinhung@example.com</li>
-    <li>Instagram：<a href="https://instagram.com/hohsinhung" target="_blank">@hohsinhung</a></li>
-  </ul>
+<main class="contact-container">
+  <div class="contact-card">
+    <h1>Contact</h1>
+    <p>Feel free to get in touch for commissions, exhibition proposals, or any inquiries.</p>
+    <ul>
+      <li>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></li>
+      <li>Instagram: <a href="https://instagram.com/youraccount" target="_blank">@youraccount</a></li>
+    </ul>
+  </div>
 </main>
 
 <footer>
