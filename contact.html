@@ -22,6 +22,7 @@
       padding: 0;
       color: #333;
     }
+
     header {
       background: #fafafa;
       border-bottom: 1px solid #eee;
@@ -30,6 +31,7 @@
       top: 0;
       z-index: 1000;
     }
+
     nav {
       display: flex;
       justify-content: space-between;
@@ -44,9 +46,11 @@
       font-size: 1rem;
       transition: color 0.3s;
     }
+
     .menu a:hover {
       color: #007acc;
     }
+
     .hamburger {
       display: none;
       flex-direction: column;
@@ -56,6 +60,7 @@
       cursor: pointer;
       z-index: 1001;
     }
+
     .hamburger span {
       display: block;
       height: 3px;
@@ -63,26 +68,32 @@
       border-radius: 2px;
       transition: all 0.4s ease;
     }
+
     .hamburger.active span:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
       background-color: #007acc;
     }
+
     .hamburger.active span:nth-child(2) {
       opacity: 0;
       transform: scaleX(0);
     }
+
     .hamburger.active span:nth-child(3) {
       transform: rotate(-45deg) translate(5px, -5px);
       background-color: #007acc;
     }
+
     @media (max-width: 768px) {
       .menu {
         display: none;
       }
+
       .hamburger {
         display: flex;
       }
     }
+
     .mobile-menu {
       max-height: 0;
       overflow: hidden;
@@ -94,11 +105,13 @@
       padding: 0 20px;
       opacity: 0;
     }
+
     .mobile-menu.show {
       max-height: 500px;
       padding: 12px 20px;
       opacity: 1;
     }
+
     .mobile-menu a {
       padding: 12px 20px;
       text-decoration: none;
@@ -108,40 +121,46 @@
       border-bottom: 1px solid #eee;
       transition: background 0.3s;
     }
+
     .mobile-menu a:hover {
       background: #eee;
     }
+
     .contact-container {
       padding: 40px 16px;
       max-width: 800px;
       margin: 0 auto;
       text-align: center;
     }
-.contact-card {
-  background: transparent;
-  padding: 0;
-  animation: fadeUp 0.8s ease forwards;
-  opacity: 0;
-  transform: translateY(30px);
-  max-width: 640px;
-  margin: 0 auto;
-}
+
+    .contact-card {
+      background: transparent;
+      padding: 0;
+      animation: fadeUp 0.8s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+      max-width: 640px;
+      margin: 0 auto;
+    }
 
     .contact-card h1 {
       font-size: 1.1rem;
       margin-bottom: 0.8rem;
     }
-   .contact-card p {
-  font-size: 0.8rem;
-  line-height: 1.6;
-  color: #444;
-  font-family: 'Noto Sans JP', sans-serif;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.05em;
-}
+
+    .contact-card p {
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: #444;
+      font-family: 'Noto Sans JP', sans-serif;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
     .icon-links {
       margin-top: 24px;
     }
+
     .icon-links a {
       display: inline-block;
       margin: 0 8px;
@@ -150,9 +169,11 @@
       transition: color 0.3s;
       position: relative;
     }
+
     .icon-links a:hover {
       color: #005f99;
     }
+
     .icon-links a[aria-label]:hover::after {
       content: attr(aria-label);
       position: absolute;
@@ -166,27 +187,41 @@
       font-size: 0.7rem;
       white-space: nowrap;
     }
- form {
-  margin-top: 30px;
-  width: 100%;
-}
+
+    form {
+      margin-top: 30px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
     form label {
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       color: #555;
     }
-form input, form textarea {
-  border: 1px solid #ccc;
-  background: #f9f9f9;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
-}
 
-  form textarea {
-  min-height: 100px;
-}
+    form input,
+    form textarea {
+      width: 100%;
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+      border-radius: 4px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    form textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
     form button {
       padding: 10px 20px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       background-color: #007acc;
       color: white;
       border: none;
@@ -194,9 +229,11 @@ form input, form textarea {
       cursor: pointer;
       transition: background 0.3s;
     }
+
     form button:hover {
       background-color: #005f99;
     }
+
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -205,6 +242,7 @@ form input, form textarea {
       background: #f9f9f9;
       border-top: 1px solid #eee;
     }
+
     @keyframes fadeUp {
       0% {
         opacity: 0;
@@ -213,6 +251,23 @@ form input, form textarea {
       100% {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        padding: 30px 12px;
+      }
+
+      form input,
+      form textarea {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+      }
+
+      form button {
+        font-size: 0.85rem;
+        padding: 8px 16px;
       }
     }
   </style>
@@ -244,13 +299,15 @@ form input, form textarea {
 <main class="contact-container">
   <div class="contact-card">
     <h1>お問い合わせ</h1>
-    <p>作品に関するお問い合わせやご依頼は、<p>
+    <p>作品に関するお問い合わせやご依頼は、</p>
     <p>こちらからお気軽にご連絡ください。</p>
+
     <div class="icon-links">
       <a href="mailto:d04s84g4gk6ak7@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
       <a href="https://instagram.com/hohsinhung" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
     </div>
-      <form action="https://api.web3forms.com/submit" method="POST">
+
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="b4b3c86f-6733-486e-86fe-1ccab978ada2">
       <input type="hidden" name="redirect" value="https://www.hohsinhung.com/thanks.html">
       <label for="name">お名前</label>
@@ -272,16 +329,16 @@ form input, form textarea {
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
 
-hamburger.addEventListener('click', function() {
+hamburger.addEventListener('click', function () {
   hamburger.classList.toggle('active');
   mobileMenu.classList.toggle('show');
 });
 
-  document.getElementById("contactForm").addEventListener("submit", function () {
-    setTimeout(() => {
-      window.location.href = "https://www.hohsinhung.com/thanks.html";
-    }, 1000); // 多數情況會被 Web3Forms 自動處理，不過這是一個保險的方式
-  });
+document.getElementById("contactForm").addEventListener("submit", function () {
+  setTimeout(() => {
+    window.location.href = "https://www.hohsinhung.com/thanks.html";
+  }, 1000);
+});
 </script>
 
 </body>
