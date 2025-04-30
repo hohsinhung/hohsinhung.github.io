@@ -212,18 +212,6 @@ footer {
   margin-top: auto;
 }
 
-/* --- Main Content 文字排版 --- */
-main {
-  width: 100%;
-  max-width: 900px;
-  margin: 60px auto 80px auto;
-  padding: 0 20px;
-  font-family:'Noto Sans JP',, serif;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #555;
-}
-
 /* --- 手機版調整 (RWD) --- */
 @media (max-width: 768px) {
   nav {
@@ -233,9 +221,7 @@ main {
     gap: 10px;
     padding: 10px 20px;
     flex-wrap: nowrap;
-    .image-area {
     margin-top: 40px;
-    .text-area {
     font-size: 0.85rem;
     line-height: 1.7;
   }
@@ -291,6 +277,7 @@ main {
   height: 22px;
   cursor: pointer;
   z-index: 1001;
+  margin-left: auto;
 }
 
 .hamburger span {
