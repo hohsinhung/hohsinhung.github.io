@@ -278,6 +278,12 @@ hamburger.addEventListener('click', function() {
   hamburger.classList.toggle('active');
   mobileMenu.classList.toggle('show');
 });
+
+  document.getElementById("contactForm").addEventListener("submit", function () {
+    setTimeout(() => {
+      window.location.href = "https://www.hohsinhung.com/thanks.html";
+    }, 1000); // 多數情況會被 Web3Forms 自動處理，不過這是一個保險的方式
+  });
 </script>
 
 </body>
