@@ -309,7 +309,7 @@ main {
   font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
   font-size: 0.95rem;
   line-height: 1.7;
-  color: #555;
+  color: ##666;
   text-align: left !important;
   margin-left: 0 !important;
   margin-right: auto !important;
@@ -321,6 +321,7 @@ h1 {
   letter-spacing: 0.05em;
   margin-bottom: 1.5rem;
   text-align: left;
+  color: ##666;
 }
 
 h2 {
@@ -331,12 +332,14 @@ h2 {
   margin-bottom: 1rem;
   border-bottom: 1px solid #ddd;
   padding-bottom: 0.3rem;
+  color: ##666;
 }
 
 p {
   font-size: 0.85rem;
   margin-bottom: 1rem;
   line-height: 1.5rem;
+  color: ##666;
 }
 
 
