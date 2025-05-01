@@ -235,7 +235,8 @@ footer {
   }
 .award-item {
   display: grid;
-  grid-template-columns: 3em 1rf;
+  grid-template-columns: 2.7em 1fr;
+  gap: 0.25;
   font-size: 0.8rem;
   line-height: 1.5;
 }
