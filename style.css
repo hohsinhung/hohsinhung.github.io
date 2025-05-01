@@ -234,12 +234,14 @@ footer {
     line-height: 1.7;
   }
 .award-item {
+  display: grid;
+  grid-template-columns: 3em 1rf;
   font-size: 0.8rem;
   line-height: 1.5;
 }
 
 .award-item div {
-  margin-bottom: 0.4em;
+  margin-bottom: 0.2em;
 }
 
 .events p {
