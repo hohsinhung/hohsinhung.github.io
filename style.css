@@ -284,6 +284,7 @@ footer {
   background-color: #bbb;
   border-radius: 2px;
   transition: all 0.4s ease;
+  width: 100%;
 }
 
 /* 展開狀態時的動畫效果 */
