@@ -12,6 +12,8 @@ body {
 
 /* --- 上方導覽列 --- */
 header {
+  display: flex;
+  flex-direction: column
   background: #fafafa;
   border-bottom: 1px solid #eee;
   padding: 20px 40px;
@@ -215,7 +217,7 @@ footer {
 /* --- 手機版調整 (RWD) --- */
 @media (max-width: 768px) {
   main {
-    margin-top: 20px;
+    margin-top: 0px;
     margin-bottom: 60px;
     padding: 0 15px;
     font-family: 'Noto Sans JP', sans-serif;
@@ -261,6 +263,7 @@ footer {
     margin: 2px;
     padding: 3px 8px;
     font-size: 0.8rem;
+    white-space: nowrap;
   }
 
   .works-grid {
@@ -339,7 +342,7 @@ p {
   font-size: 0.85rem;
   margin-bottom: 1rem;
   line-height: 1.5rem;
-  color: ##666;
+  color: #666;
 }
 
 
