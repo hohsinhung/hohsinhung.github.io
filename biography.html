@@ -1,64 +1,77 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HOHSINHUNG | biography</title>
-  <meta name="description" content="Biography of HO HSINHUNG, Painter and Artist exploring light and shadow." />
-  <meta property="og:title" content="HO HSINHUNG - biography" />
-  <meta property="og:description" content="Painter & Artist. Exploring light and shadow through painting." />
-  <meta property="og:image" content="https://www.hohsinhung.com/images/ogimage.jpg" />
-  <meta property="og:url" content="https://www.hohsinhung.com/" />
-  <meta property="og:type" content="website" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet" />
-
+  <meta property="og:title" content="HO-hsinhung - biography">
+  <meta property="og:description" content="Painter & Artist. Exploring light and shadow through painting.">
+  <meta property="og:image" content="https://www.hohsinhung.com/images/ogimage.jpg">
+  <meta property="og:url" content="https://www.hohsinhung.com/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Noto Sans JP', sans-serif;
-      background: #fafafa;
+.language-switcher {
+  max-width: 1200px;
+  margin: 10px 20px 30px auto;
+  padding: 0 40px;
+  text-align: right;
+}
+.lang-btn {
+  font-family: 'Noto Sans JP', sans-serif; 
+  display: inline-block;
+  background: #f9f9f9;
+  color: #666;
+  border: 1px solid #ddd;
+  padding: 3px 8px;
+  margin-left: 6px;
+  font-size: 0.75rem;
+  border-radius: 20px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+.lang-btn:hover {
+  background: #e0e8f0;
+  color: #222;
+  border-color: #aaa;
+}
+.lang-btn.active {
+  background: #e0e8f0;
+  color: #222;
+  border-color: #aaa;
+}
+    .lang-section {
+      max-width: 900px;
+      margin: -10px auto 0; 
+      padding: 0 20px 60px;
+      font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
+      font-size: 0.8rem;
+      line-height: 1.4;
       color: #555;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      display: none;
     }
-
-    header {
-      background: #fafafa;
-      border-bottom: 1px solid #eee;
-      padding: 20px 40px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    .lang-section.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .lang-section p, .lang-section h1, .lang-section h2 {
+      animation: fadeUp 0.6s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
     }
-
-    .logo a {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #333;
-      text-decoration: none;
-    }
-
-    .menu a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #bbbbbb;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-
-    .menu a:hover {
-      color: #333;
-    }
-
+    .lang-section.show p, .lang-section.show h1, .lang-section.show h2 {
+      animation-delay: 0.2s;
+      }
+    
     .hamburger {
       display: none;
       flex-direction: column;
@@ -68,8 +81,12 @@
       cursor: pointer;
       z-index: 1001;
     }
+      .lang-section.show p, .lang-section.show h1, .lang-section.show h2 {
+  animation-delay: 0.2s;
+}
 
     .hamburger span {
+      display: block;
       height: 3px;
       background-color: #bbb;
       border-radius: 2px;
@@ -91,141 +108,86 @@
       background-color: #007acc;
     }
 
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+.language-switcher {
+  width: auto;
+  margin: 10px 20px 30px auto; /* 上右下左 */
+  text-align: right;
+}
+
+ .lang-btn {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  opacity: 0.9;
+   
+     .lang-section {
+    line-height: 1.75;
+  }
+}
+    }
+
     .mobile-menu {
-      display: none;
+      max-height: 0;
+      overflow: hidden;
       flex-direction: column;
       background: #fafafa;
-      border-top: 1px solid #eee;
       width: 100%;
+      border-top: 1px solid #eee;
+      transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
+      padding: 0 20px; 
+      opacity: 0;
     }
 
     .mobile-menu.show {
-      display: flex;
+      max-height: 500px;
+      padding: 12px 20px;
+      opacity: 1;
     }
 
     .mobile-menu a {
       padding: 12px 20px;
       text-decoration: none;
       color: #bbbbbb;
+      font-family: 'Noto Sans JP', sans-serif;
       font-size: 1rem;
       border-bottom: 1px solid #eee;
+      transition: background 0.3s;
     }
 
     .mobile-menu a:hover {
       background: #eee;
     }
-
-    .language-switcher {
-      display: flex;
-      justify-content: flex-end;
-      gap: 8px;
-      max-width: 1200px;
-      margin: 10px auto 30px;
-      padding: 0 40px;
-    }
-
-    .lang-btn {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 0.75rem;
-      padding: 3px 8px;
-      border: 1px solid #ddd;
-      border-radius: 20px;
-      background: #f9f9f9;
-      color: #666;
-      cursor: pointer;
-      opacity: 0.9;
-      transition: all 0.3s ease;
-    }
-
-    .lang-btn:hover,
-    .lang-btn.active {
-      background: #e0e8f0;
-      color: #222;
-      border-color: #aaa;
-    }
-
-    .lang-section {
-      max-width: 900px;
-      margin: 0 auto 60px;
-      padding: 0 20px;
-      font-family: 'Shippori Mincho', serif;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
-      position: absolute;
-      width: 100%;
-      left: 0;
-    }
-
-    .lang-section.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-      position: static;
-    }
-
-    .timeline {
-      margin-top: 1em;
-    }
-
-    .year-block {
-      margin-bottom: 1.5em;
-    }
-
-    .year {
-      font-weight: bold;
-      margin-bottom: 0.3em;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid #eee;
-      font-size: 0.75rem;
-      color: #aaa;
-    }
-
-    @media (max-width: 768px) {
-      .menu {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-    }
   </style>
 </head>
 
-<body>
-  <header>
-    <nav aria-label="Main Navigation">
-      <div class="logo">
-        <a href="index.html"><strong>HO HSINHUNG</strong></a>
-      </div>
-      <div class="menu">
-        <a href="biography.html">biography</a>
-        <a href="works.html">works</a>
-        <a href="contact.html">contact</a>
-      </div>
-      <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </div>
-    </nav>
-    <div class="mobile-menu" id="mobile-menu">
+<body style="opacity: 0; overflow: hidden;">
+
+<header>
+  <nav>
+    <div class="logo">
+      <a href="index.html"><strong>HO HSINHUNG</strong></a>
+    </div>
+    <div class="menu">
       <a href="biography.html">biography</a>
       <a href="works.html">works</a>
       <a href="contact.html">contact</a>
     </div>
-  </header>
-
-  <div class="language-switcher">
-    <span class="lang-btn active" onclick="switchLanguage('ja', this)">日本語</span>
-    <span class="lang-btn" onclick="switchLanguage('en', this)">English</span>
-    <span class="lang-btn" onclick="switchLanguage('zh', this)">中文</span>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="biography.html">biography</a>
+    <a href="works.html">works</a>
+    <a href="contact.html">contact</a>
   </div>
 </header>
 
@@ -404,29 +366,34 @@
 
 <!-- 漢堡menu開關 -->
 <script>
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-    hamburger.addEventListener('click', function () {
-      hamburger.classList.toggle('active');
-      mobileMenu.classList.toggle('show');
-    });
+  hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('show');
+  });
+ 
+function switchLanguage(lang, element) {
+  const sections = document.querySelectorAll('.lang-section');
+  sections.forEach(section => {
+    section.classList.remove('show');
+    section.style.display = 'none';
+  });
 
-    function switchLanguage(lang, element) {
-      const sections = document.querySelectorAll('.lang-section');
-      sections.forEach(section => {
-        section.classList.remove('show');
-      });
+  const activeSection = document.getElementById(lang);
+  activeSection.style.display = 'block';
 
-      const activeSection = document.getElementById(lang);
-      requestAnimationFrame(() => {
-        activeSection.classList.add('show');
-      });
+  setTimeout(() => {
+    activeSection.classList.add('show');
+  }, 10);
 
-      const buttons = document.querySelectorAll('.lang-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      element.classList.add('active');
-    }
-  </script>
+  const buttons = document.querySelectorAll('.lang-btn');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  element.classList.add('active');
+}
+
+</script>
+
 </body>
 </html>
