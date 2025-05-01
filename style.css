@@ -310,6 +310,9 @@ main {
   font-size: 0.95rem;
   line-height: 1.7;
   color: #555;
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
 }
 
 h1 {
