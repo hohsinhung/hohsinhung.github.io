@@ -399,6 +399,7 @@ p {
 .year-block {
   display: flex;
   margin-bottom: 1.5rem;
+  min-width: 0;
 }
 
 .year {
@@ -419,6 +420,7 @@ p {
   font-size: 0.85rem;
   line-height: 1.6;
 }
+
 
 /* --- 動畫 --- */
 @keyframes fadeUp {
