@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Shippori Mincho', 'Noto Sans JP', 'Hiragino Mincho ProN', serif;
   font-size: 1rem;
@@ -47,9 +48,9 @@ nav {
 .menu {
   display: flex;
   align-items: center;
-  opacity: 1; /* 直接一開始顯示 */
+  opacity: 1;
   transform: translateY(0);
-  animation: none; /* 電腦版不要動畫，保證穩定 */
+  animation: none;
 }
 
 nav a {
@@ -67,7 +68,6 @@ nav a:hover {
   color: #007acc;
   opacity: 0.8;
 }
-
 
 /* --- 手機版展開的選單 --- */
 .mobile-menu {
@@ -221,6 +221,20 @@ footer {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 0.9rem;
   }
+
+  body,
+  main,
+  nav a,
+  .mobile-menu a,
+  .sidebar button,
+  .work-caption,
+  footer,
+  p,
+  h1,
+  h2 {
+    font-size: 0.8rem;
+  }
+
   nav {
     flex-direction: row;
     justify-content: space-between;
@@ -238,7 +252,7 @@ footer {
   }
 
   .hamburger {
-    display: block;
+    display: flex;
   }
 
   .container {
@@ -267,6 +281,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -280,14 +295,13 @@ footer {
 
 .hamburger span {
   display: block;
+  width: 100%;
   height: 3px;
   background-color: #bbb;
   border-radius: 2px;
   transition: all 0.4s ease;
-  width: 100%;
 }
 
-/* 展開狀態時的動畫效果 */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
   background-color: #007acc;
@@ -310,7 +324,7 @@ main {
   font-family: 'Shippori Mincho', 'Noto Sans JP', serif;
   font-size: 0.95rem;
   line-height: 1.7;
-  color: ##666;
+  color: #666;
   text-align: left !important;
   margin-left: 0 !important;
   margin-right: auto !important;
@@ -333,16 +347,15 @@ h2 {
   margin-bottom: 1rem;
   border-bottom: 1px solid #ddd;
   padding-bottom: 0.3rem;
-  color: ##666;
+  color: #666;
 }
 
 p {
   font-size: 0.85rem;
   margin-bottom: 1rem;
   line-height: 1.5rem;
-  color: ##666;
+  color: #666;
 }
-
 
 .language-switcher {
   max-width: 1200px;
@@ -403,7 +416,6 @@ p {
   font-size: 0.85rem;
   line-height: 1.6;
 }
-
 
 /* --- 動畫 --- */
 @keyframes fadeUp {
