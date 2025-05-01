@@ -116,16 +116,34 @@
         display: flex;
       }
 .language-switcher {
-  width: auto;
-  margin: 10px 20px 30px auto; /* 上右下左 */
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  max-width: 1200px;
+  margin: 10px auto 30px;
+  padding: 0 40px;
 }
 
- .lang-btn {
+.lang-btn {
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 0.75rem;
   padding: 3px 8px;
+  letter-spacing: 0.05em;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: #f9f9f9;
+  color: #666;
+  cursor: pointer;
   opacity: 0.9;
-   
+  transition: all 0.3s ease;
+}
+
+      .lang-btn:hover,
+.lang-btn.active {
+  background: #e0e8f0;
+  color: #222;
+  border-color: #aaa;
+}
      .lang-section {
     line-height: 1.75;
   }
@@ -384,9 +402,9 @@ function switchLanguage(lang, element) {
   const activeSection = document.getElementById(lang);
   activeSection.style.display = 'block';
 
-  setTimeout(() => {
-    activeSection.classList.add('show');
-  }, 10);
+requestAnimationFrame(() => {
+  activeSection.classList.add('show');
+});
 
   const buttons = document.querySelectorAll('.lang-btn');
   buttons.forEach(btn => btn.classList.remove('active'));
